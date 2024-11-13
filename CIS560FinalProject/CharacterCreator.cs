@@ -1,8 +1,8 @@
 namespace CIS560FinalProject
 {
-    public partial class Form1 : Form
+    public partial class CharacterCreator : Form
     {
-        public Form1()
+        public CharacterCreator()
         {
             InitializeComponent();
         }
