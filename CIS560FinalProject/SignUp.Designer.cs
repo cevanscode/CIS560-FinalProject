@@ -28,28 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
+            CreateAccountButton = new Button();
             label3 = new Label();
             label2 = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
+            BirthdayTextBox = new TextBox();
+            FullNameTextBox = new TextBox();
             label1 = new Label();
             label4 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            PasswordTextBox = new TextBox();
+            UsernameTextBox = new TextBox();
             label5 = new Label();
-            textBox5 = new TextBox();
-            button2 = new Button();
+            EmailTextBox = new TextBox();
+            CancelButton = new Button();
             SuspendLayout();
             // 
-            // button1
+            // CreateAccountButton
             // 
-            button1.Location = new Point(130, 348);
-            button1.Name = "button1";
-            button1.Size = new Size(163, 34);
-            button1.TabIndex = 0;
-            button1.Text = "Create Account";
-            button1.UseVisualStyleBackColor = true;
+            CreateAccountButton.Location = new Point(130, 348);
+            CreateAccountButton.Name = "CreateAccountButton";
+            CreateAccountButton.Size = new Size(163, 34);
+            CreateAccountButton.TabIndex = 0;
+            CreateAccountButton.Text = "Create Account";
+            CreateAccountButton.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -69,19 +69,19 @@
             label2.TabIndex = 7;
             label2.Text = "Create Password";
             // 
-            // textBox2
+            // BirthdayTextBox
             // 
-            textBox2.Location = new Point(224, 97);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
-            textBox2.TabIndex = 6;
+            BirthdayTextBox.Location = new Point(224, 97);
+            BirthdayTextBox.Name = "BirthdayTextBox";
+            BirthdayTextBox.Size = new Size(150, 31);
+            BirthdayTextBox.TabIndex = 6;
             // 
-            // textBox1
+            // FullNameTextBox
             // 
-            textBox1.Location = new Point(224, 37);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 5;
+            FullNameTextBox.Location = new Point(224, 37);
+            FullNameTextBox.Name = "FullNameTextBox";
+            FullNameTextBox.Size = new Size(150, 31);
+            FullNameTextBox.TabIndex = 5;
             // 
             // label1
             // 
@@ -91,7 +91,6 @@
             label1.Size = new Size(136, 25);
             label1.TabIndex = 12;
             label1.Text = "Enter Full Name";
-            label1.Click += this.label1_Click;
             // 
             // label4
             // 
@@ -101,23 +100,21 @@
             label4.Size = new Size(122, 25);
             label4.TabIndex = 11;
             label4.Text = "Enter Birthday";
-            label4.Click += this.label4_Click;
             // 
-            // textBox3
+            // PasswordTextBox
             // 
-            textBox3.Location = new Point(224, 269);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(150, 31);
-            textBox3.TabIndex = 10;
-            textBox3.TextChanged += this.textBox3_TextChanged;
+            PasswordTextBox.Location = new Point(224, 269);
+            PasswordTextBox.Name = "PasswordTextBox";
+            PasswordTextBox.Size = new Size(150, 31);
+            PasswordTextBox.TabIndex = 10;
             // 
-            // textBox4
+            // UsernameTextBox
             // 
-            textBox4.Location = new Point(224, 209);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(150, 31);
-            textBox4.TabIndex = 9;
-            textBox4.TextChanged += textBox4_TextChanged;
+            UsernameTextBox.Location = new Point(224, 209);
+            UsernameTextBox.Name = "UsernameTextBox";
+            UsernameTextBox.Size = new Size(150, 31);
+            UsernameTextBox.TabIndex = 9;
+            UsernameTextBox.TextChanged += textBox4_TextChanged;
             // 
             // label5
             // 
@@ -128,39 +125,39 @@
             label5.TabIndex = 14;
             label5.Text = "Enter Email";
             // 
-            // textBox5
+            // EmailTextBox
             // 
-            textBox5.Location = new Point(224, 153);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(150, 31);
-            textBox5.TabIndex = 13;
+            EmailTextBox.Location = new Point(224, 153);
+            EmailTextBox.Name = "EmailTextBox";
+            EmailTextBox.Size = new Size(150, 31);
+            EmailTextBox.TabIndex = 13;
             // 
-            // button2
+            // CancelButton
             // 
-            button2.Location = new Point(154, 388);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 15;
-            button2.Text = "Cancel";
-            button2.UseVisualStyleBackColor = true;
+            CancelButton.Location = new Point(154, 388);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(112, 34);
+            CancelButton.TabIndex = 15;
+            CancelButton.Text = "Cancel";
+            CancelButton.UseVisualStyleBackColor = true;
             // 
             // SignUp
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(428, 444);
-            Controls.Add(button2);
+            Controls.Add(CancelButton);
             Controls.Add(label5);
-            Controls.Add(textBox5);
+            Controls.Add(EmailTextBox);
             Controls.Add(label1);
             Controls.Add(label4);
-            Controls.Add(textBox3);
-            Controls.Add(textBox4);
+            Controls.Add(PasswordTextBox);
+            Controls.Add(UsernameTextBox);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(button1);
+            Controls.Add(BirthdayTextBox);
+            Controls.Add(FullNameTextBox);
+            Controls.Add(CreateAccountButton);
             Name = "SignUp";
             Text = "SignUp";
             ResumeLayout(false);
@@ -169,17 +166,17 @@
 
         #endregion
 
-        private Button button1;
+        private Button CreateAccountButton;
         private Label label3;
         private Label label2;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private TextBox BirthdayTextBox;
+        private TextBox FullNameTextBox;
         private Label label1;
         private Label label4;
-        private TextBox textBox3;
-        private TextBox textBox4;
+        private TextBox PasswordTextBox;
+        private TextBox UsernameTextBox;
         private Label label5;
-        private TextBox textBox5;
-        private Button button2;
+        private TextBox EmailTextBox;
+        private Button CancelButton;
     }
 }

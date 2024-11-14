@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            UsernameTextBox = new TextBox();
+            PasswordTextBox = new TextBox();
             Title = new Label();
             label2 = new Label();
             label3 = new Label();
-            button1 = new Button();
+            LoginButton = new Button();
             button2 = new Button();
-            button3 = new Button();
+            StartNoLoginButton = new Button();
             SuspendLayout();
             // 
-            // textBox1
+            // UsernameTextBox
             // 
-            textBox1.Location = new Point(165, 81);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(150, 31);
-            textBox1.TabIndex = 0;
+            UsernameTextBox.Location = new Point(165, 81);
+            UsernameTextBox.Name = "UsernameTextBox";
+            UsernameTextBox.Size = new Size(150, 31);
+            UsernameTextBox.TabIndex = 0;
             // 
-            // textBox2
+            // PasswordTextBox
             // 
-            textBox2.Location = new Point(165, 141);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(150, 31);
-            textBox2.TabIndex = 1;
+            PasswordTextBox.Location = new Point(165, 141);
+            PasswordTextBox.Name = "PasswordTextBox";
+            PasswordTextBox.Size = new Size(150, 31);
+            PasswordTextBox.TabIndex = 1;
             // 
             // Title
             // 
@@ -80,14 +80,14 @@
             label3.TabIndex = 4;
             label3.Text = "Username";
             // 
-            // button1
+            // LoginButton
             // 
-            button1.Location = new Point(165, 202);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 5;
-            button1.Text = "Login";
-            button1.UseVisualStyleBackColor = true;
+            LoginButton.Location = new Point(165, 202);
+            LoginButton.Name = "LoginButton";
+            LoginButton.Size = new Size(112, 34);
+            LoginButton.TabIndex = 5;
+            LoginButton.Text = "Login";
+            LoginButton.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -98,28 +98,28 @@
             button2.Text = "Create New Account";
             button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // StartNoLoginButton
             // 
-            button3.Location = new Point(123, 364);
-            button3.Name = "button3";
-            button3.Size = new Size(227, 34);
-            button3.TabIndex = 7;
-            button3.Text = "Start Without Logging In";
-            button3.UseVisualStyleBackColor = true;
+            StartNoLoginButton.Location = new Point(123, 364);
+            StartNoLoginButton.Name = "StartNoLoginButton";
+            StartNoLoginButton.Size = new Size(227, 34);
+            StartNoLoginButton.TabIndex = 7;
+            StartNoLoginButton.Text = "Start Without Logging In";
+            StartNoLoginButton.UseVisualStyleBackColor = true;
             // 
             // LogIn
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(428, 444);
-            Controls.Add(button3);
+            Controls.Add(StartNoLoginButton);
             Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(LoginButton);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(Title);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(PasswordTextBox);
+            Controls.Add(UsernameTextBox);
             Name = "LogIn";
             Text = "Login";
             ResumeLayout(false);
@@ -128,13 +128,13 @@
 
         #endregion
 
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox UsernameTextBox;
+        private TextBox PasswordTextBox;
         private Label Title;
         private Label label2;
         private Label label3;
-        private Button button1;
+        private Button LoginButton;
         private Button button2;
-        private Button button3;
+        private Button StartNoLoginButton;
     }
 }
