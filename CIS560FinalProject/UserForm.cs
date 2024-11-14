@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CIS560FinalProject
 {
-    public partial class Rulebook : Form
+    public partial class UserForm : Form
     {
-        public Rulebook()
+        public UserForm()
         {
             InitializeComponent();
         }

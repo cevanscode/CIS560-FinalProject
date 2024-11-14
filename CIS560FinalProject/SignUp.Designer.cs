@@ -40,6 +40,7 @@
             label5 = new Label();
             EmailTextBox = new TextBox();
             CancelButton = new Button();
+            label6 = new Label();
             SuspendLayout();
             // 
             // CreateAccountButton
@@ -54,7 +55,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(60, 209);
+            label3.Location = new Point(60, 242);
             label3.Name = "label3";
             label3.Size = new Size(146, 25);
             label3.TabIndex = 8;
@@ -63,7 +64,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(64, 272);
+            label2.Location = new Point(64, 305);
             label2.Name = "label2";
             label2.Size = new Size(142, 25);
             label2.TabIndex = 7;
@@ -71,14 +72,14 @@
             // 
             // BirthdayTextBox
             // 
-            BirthdayTextBox.Location = new Point(224, 97);
+            BirthdayTextBox.Location = new Point(224, 130);
             BirthdayTextBox.Name = "BirthdayTextBox";
             BirthdayTextBox.Size = new Size(150, 31);
             BirthdayTextBox.TabIndex = 6;
             // 
             // FullNameTextBox
             // 
-            FullNameTextBox.Location = new Point(224, 37);
+            FullNameTextBox.Location = new Point(224, 70);
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new Size(150, 31);
             FullNameTextBox.TabIndex = 5;
@@ -86,7 +87,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(70, 37);
+            label1.Location = new Point(70, 70);
             label1.Name = "label1";
             label1.Size = new Size(136, 25);
             label1.TabIndex = 12;
@@ -95,7 +96,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(84, 97);
+            label4.Location = new Point(84, 130);
             label4.Name = "label4";
             label4.Size = new Size(122, 25);
             label4.TabIndex = 11;
@@ -103,14 +104,14 @@
             // 
             // PasswordTextBox
             // 
-            PasswordTextBox.Location = new Point(224, 269);
+            PasswordTextBox.Location = new Point(224, 302);
             PasswordTextBox.Name = "PasswordTextBox";
             PasswordTextBox.Size = new Size(150, 31);
             PasswordTextBox.TabIndex = 10;
             // 
             // UsernameTextBox
             // 
-            UsernameTextBox.Location = new Point(224, 209);
+            UsernameTextBox.Location = new Point(224, 242);
             UsernameTextBox.Name = "UsernameTextBox";
             UsernameTextBox.Size = new Size(150, 31);
             UsernameTextBox.TabIndex = 9;
@@ -119,7 +120,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(84, 153);
+            label5.Location = new Point(84, 186);
             label5.Name = "label5";
             label5.Size = new Size(99, 25);
             label5.TabIndex = 14;
@@ -127,7 +128,7 @@
             // 
             // EmailTextBox
             // 
-            EmailTextBox.Location = new Point(224, 153);
+            EmailTextBox.Location = new Point(224, 186);
             EmailTextBox.Name = "EmailTextBox";
             EmailTextBox.Size = new Size(150, 31);
             EmailTextBox.TabIndex = 13;
@@ -141,11 +142,22 @@
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(155, 15);
+            label6.Name = "label6";
+            label6.Size = new Size(134, 45);
+            label6.TabIndex = 16;
+            label6.Text = "Sign Up";
+            // 
             // SignUp
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(428, 444);
+            Controls.Add(label6);
             Controls.Add(CancelButton);
             Controls.Add(label5);
             Controls.Add(EmailTextBox);
@@ -178,5 +190,6 @@
         private Label label5;
         private TextBox EmailTextBox;
         private Button CancelButton;
+        private Label label6;
     }
 }
