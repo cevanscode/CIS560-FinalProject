@@ -106,6 +106,7 @@
             StartNoLoginButton.TabIndex = 7;
             StartNoLoginButton.Text = "Start Without Logging In";
             StartNoLoginButton.UseVisualStyleBackColor = true;
+            StartNoLoginButton.Click += StartNoLoginButton_Click;
             // 
             // LogIn
             // 

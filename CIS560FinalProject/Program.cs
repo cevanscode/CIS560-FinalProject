@@ -11,7 +11,10 @@ namespace CIS560FinalProject
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new CharacterCreator());
+
+            LogIn logIn = new LogIn();
+
+            Application.Run(logIn);
         }
     }
 }
