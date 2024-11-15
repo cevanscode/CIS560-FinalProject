@@ -31,6 +31,13 @@ namespace CIS560FinalProject
                 UserTabs.Selecting += UserTabDeselect!;
                 UserTabs.SelectedIndex = 2;
             }
+            else
+            {
+                UserTabs.TabPages[0].Enabled = true;
+                UserTabs.TabPages[1].Enabled = true;
+                UserTabs.Selecting -= UserTabDeselect!;
+                UserTabs.SelectedIndex = 0;
+            }
         }
 
         /// <summary>

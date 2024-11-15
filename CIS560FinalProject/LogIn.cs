@@ -25,7 +25,14 @@ namespace CIS560FinalProject
         private void StartNoLoginButton_Click(object sender, EventArgs e)
         {
             UserForm userForm = new UserForm(false);
+            userForm.FormClosed += (s, args) => this.Show();
+            userForm.Show();
+            this.Hide();
+        }
 
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            UserForm userForm = new UserForm(true);
             userForm.FormClosed += (s, args) => this.Show();
             userForm.Show();
             this.Hide();
