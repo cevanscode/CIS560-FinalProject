@@ -6,8 +6,34 @@ using System.Threading.Tasks;
 
 namespace CIS560FinalProject
 {
+    /// <summary>
+    /// Represents information about a user's account
+    /// </summary>
     public class Account
     {
+        /// <summary>
+        /// The account's Username
+        /// </summary>
+        public string? Username { get; set; }
 
+        /// <summary>
+        /// The account's Password
+        /// </summary>
+        public string? Password { get; set; }
+
+        /// <summary>
+        /// The account's Email
+        /// </summary>
+        public string? Email { get; set; }
+
+        /// <summary>
+        /// The account's Full Name
+        /// </summary>
+        public string? FullName { get; set; }
+
+        /// <summary>
+        /// The account's Birthday
+        /// </summary>
+        public DateTime Birthday { get; set; }
     }
 }
