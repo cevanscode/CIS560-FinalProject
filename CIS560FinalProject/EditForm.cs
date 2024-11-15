@@ -12,9 +12,19 @@ namespace CIS560FinalProject
 {
     public partial class EditForm : Form
     {
-        public EditForm()
+        public EditForm(string sender)
         {
             InitializeComponent();
+
+            //changes visibility of items to allow user to either just edit character or account details
+            if (sender == "character")
+            {
+                
+            }
+            else if (sender == "account")
+            {
+
+            }
         }
     }
 }

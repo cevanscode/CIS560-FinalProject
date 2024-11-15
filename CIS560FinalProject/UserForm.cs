@@ -52,5 +52,19 @@ namespace CIS560FinalProject
                 e.Cancel = true;
             }
         }
+
+        private void ModifyCharacterButton_Click(object sender, EventArgs e)
+        {
+            EditForm editForm = new EditForm("character");
+
+            editForm.ShowDialog();
+        }
+
+        private void ModifyAccountButton_Click(object sender, EventArgs e)
+        {
+            EditForm editForm = new EditForm("account");
+
+            editForm.ShowDialog();
+        }
     }
 }

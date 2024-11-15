@@ -30,12 +30,12 @@
         {
             UserTabs = new TabControl();
             AccountTab = new TabPage();
-            CharacterTab = new TabPage();
-            RulesTab = new TabPage();
-            ModifyCharacterButton = new Button();
-            DeleteCharacterButton = new Button();
-            ModifyAccountButton = new Button();
             DeleteAccountButton = new Button();
+            ModifyAccountButton = new Button();
+            CharacterTab = new TabPage();
+            DeleteCharacterButton = new Button();
+            ModifyCharacterButton = new Button();
+            RulesTab = new TabPage();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
@@ -64,6 +64,25 @@
             AccountTab.Text = "Account";
             AccountTab.UseVisualStyleBackColor = true;
             // 
+            // DeleteAccountButton
+            // 
+            DeleteAccountButton.Location = new Point(490, 339);
+            DeleteAccountButton.Name = "DeleteAccountButton";
+            DeleteAccountButton.Size = new Size(151, 34);
+            DeleteAccountButton.TabIndex = 1;
+            DeleteAccountButton.Text = "Delete Account";
+            DeleteAccountButton.UseVisualStyleBackColor = true;
+            // 
+            // ModifyAccountButton
+            // 
+            ModifyAccountButton.Location = new Point(158, 339);
+            ModifyAccountButton.Name = "ModifyAccountButton";
+            ModifyAccountButton.Size = new Size(112, 34);
+            ModifyAccountButton.TabIndex = 0;
+            ModifyAccountButton.Text = "Modify";
+            ModifyAccountButton.UseVisualStyleBackColor = true;
+            ModifyAccountButton.Click += ModifyAccountButton_Click;
+            // 
             // CharacterTab
             // 
             CharacterTab.Controls.Add(DeleteCharacterButton);
@@ -76,25 +95,6 @@
             CharacterTab.Text = "Character";
             CharacterTab.UseVisualStyleBackColor = true;
             // 
-            // RulesTab
-            // 
-            RulesTab.Location = new Point(4, 34);
-            RulesTab.Name = "RulesTab";
-            RulesTab.Padding = new Padding(3);
-            RulesTab.Size = new Size(789, 410);
-            RulesTab.TabIndex = 2;
-            RulesTab.Text = " Rules Encyclopedia";
-            RulesTab.UseVisualStyleBackColor = true;
-            // 
-            // ModifyCharacterButton
-            // 
-            ModifyCharacterButton.Location = new Point(168, 343);
-            ModifyCharacterButton.Name = "ModifyCharacterButton";
-            ModifyCharacterButton.Size = new Size(112, 34);
-            ModifyCharacterButton.TabIndex = 0;
-            ModifyCharacterButton.Text = "Modify";
-            ModifyCharacterButton.UseVisualStyleBackColor = true;
-            // 
             // DeleteCharacterButton
             // 
             DeleteCharacterButton.Location = new Point(458, 343);
@@ -104,23 +104,25 @@
             DeleteCharacterButton.Text = "Delete Character";
             DeleteCharacterButton.UseVisualStyleBackColor = true;
             // 
-            // ModifyAccountButton
+            // ModifyCharacterButton
             // 
-            ModifyAccountButton.Location = new Point(158, 339);
-            ModifyAccountButton.Name = "ModifyAccountButton";
-            ModifyAccountButton.Size = new Size(112, 34);
-            ModifyAccountButton.TabIndex = 0;
-            ModifyAccountButton.Text = "Modify";
-            ModifyAccountButton.UseVisualStyleBackColor = true;
+            ModifyCharacterButton.Location = new Point(168, 343);
+            ModifyCharacterButton.Name = "ModifyCharacterButton";
+            ModifyCharacterButton.Size = new Size(112, 34);
+            ModifyCharacterButton.TabIndex = 0;
+            ModifyCharacterButton.Text = "Modify";
+            ModifyCharacterButton.UseVisualStyleBackColor = true;
+            ModifyCharacterButton.Click += ModifyCharacterButton_Click;
             // 
-            // DeleteAccountButton
+            // RulesTab
             // 
-            DeleteAccountButton.Location = new Point(490, 339);
-            DeleteAccountButton.Name = "DeleteAccountButton";
-            DeleteAccountButton.Size = new Size(151, 34);
-            DeleteAccountButton.TabIndex = 1;
-            DeleteAccountButton.Text = "Delete Account";
-            DeleteAccountButton.UseVisualStyleBackColor = true;
+            RulesTab.Location = new Point(4, 34);
+            RulesTab.Name = "RulesTab";
+            RulesTab.Padding = new Padding(3);
+            RulesTab.Size = new Size(789, 410);
+            RulesTab.TabIndex = 2;
+            RulesTab.Text = " Rules Encyclopedia";
+            RulesTab.UseVisualStyleBackColor = true;
             // 
             // UserForm
             // 
