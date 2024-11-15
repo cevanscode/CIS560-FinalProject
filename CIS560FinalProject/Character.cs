@@ -45,5 +45,20 @@ namespace CIS560FinalProject
         /// The amount of copper the character has
         /// </summary>
         public int Copper {  get; set; }
+
+        /// <summary>
+        /// The character's class
+        /// </summary>
+        public Class? CharacterClass { get; set; }
+
+        /// <summary>
+        /// The character's subclass
+        /// </summary>
+        public Subclass? CharacterSubclass { get; set; }
+
+        /// <summary>
+        /// The talents the character has
+        /// </summary>
+        public List<Talent>? CharacterTalents { get; set; }
     }
 }

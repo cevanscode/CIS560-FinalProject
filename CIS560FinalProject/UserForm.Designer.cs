@@ -30,23 +30,25 @@
         {
             UserTabs = new TabControl();
             AccountTab = new TabPage();
+            FillEmailLabel = new Label();
+            FillBDLabel = new Label();
+            FillFNLabel = new Label();
+            FillPWLabel = new Label();
+            FillUNLabel = new Label();
+            AccountLabel = new Label();
+            PasswordLabel = new Label();
+            EmailLabel = new Label();
+            BirthdayLabel = new Label();
+            FullNameLabel = new Label();
+            UserNameLabel = new Label();
             DeleteAccountButton = new Button();
             ModifyAccountButton = new Button();
             CharacterTab = new TabPage();
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
             RulesTab = new TabPage();
-            UserNameLabel = new Label();
-            FullNameLabel = new Label();
-            BirthdayLabel = new Label();
-            EmailLabel = new Label();
-            PasswordLabel = new Label();
-            AccountLabel = new Label();
-            FillUNLabel = new Label();
-            FillPWLabel = new Label();
-            FillFNLabel = new Label();
-            FillBDLabel = new Label();
-            FillEmailLabel = new Label();
+            CharacterLabel = new Label();
+            AgeLabel = new Label();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
@@ -86,6 +88,111 @@
             AccountTab.Text = "Account";
             AccountTab.UseVisualStyleBackColor = true;
             // 
+            // FillEmailLabel
+            // 
+            FillEmailLabel.AutoSize = true;
+            FillEmailLabel.Location = new Point(313, 328);
+            FillEmailLabel.Name = "FillEmailLabel";
+            FillEmailLabel.Size = new Size(80, 25);
+            FillEmailLabel.TabIndex = 12;
+            FillEmailLabel.Text = "Fill Email";
+            // 
+            // FillBDLabel
+            // 
+            FillBDLabel.AutoSize = true;
+            FillBDLabel.Location = new Point(313, 256);
+            FillBDLabel.Name = "FillBDLabel";
+            FillBDLabel.Size = new Size(103, 25);
+            FillBDLabel.TabIndex = 11;
+            FillBDLabel.Text = "Fill Birthday";
+            // 
+            // FillFNLabel
+            // 
+            FillFNLabel.AutoSize = true;
+            FillFNLabel.Location = new Point(313, 184);
+            FillFNLabel.Name = "FillFNLabel";
+            FillFNLabel.Size = new Size(117, 25);
+            FillFNLabel.TabIndex = 10;
+            FillFNLabel.Text = "Fill Full Name";
+            // 
+            // FillPWLabel
+            // 
+            FillPWLabel.AutoSize = true;
+            FillPWLabel.Location = new Point(313, 119);
+            FillPWLabel.Name = "FillPWLabel";
+            FillPWLabel.Size = new Size(113, 25);
+            FillPWLabel.TabIndex = 9;
+            FillPWLabel.Text = "Fill Password";
+            // 
+            // FillUNLabel
+            // 
+            FillUNLabel.AutoSize = true;
+            FillUNLabel.Location = new Point(313, 62);
+            FillUNLabel.Name = "FillUNLabel";
+            FillUNLabel.Size = new Size(117, 25);
+            FillUNLabel.TabIndex = 8;
+            FillUNLabel.Text = "Fill Username";
+            // 
+            // AccountLabel
+            // 
+            AccountLabel.AutoSize = true;
+            AccountLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            AccountLabel.Location = new Point(204, 3);
+            AccountLabel.Name = "AccountLabel";
+            AccountLabel.Size = new Size(372, 48);
+            AccountLabel.TabIndex = 7;
+            AccountLabel.Text = "Account Information";
+            // 
+            // PasswordLabel
+            // 
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            PasswordLabel.Location = new Point(163, 119);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(92, 25);
+            PasswordLabel.TabIndex = 6;
+            PasswordLabel.Text = "Password";
+            // 
+            // EmailLabel
+            // 
+            EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            EmailLabel.Location = new Point(163, 328);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(58, 25);
+            EmailLabel.TabIndex = 5;
+            EmailLabel.Text = "Email";
+            // 
+            // BirthdayLabel
+            // 
+            BirthdayLabel.AutoSize = true;
+            BirthdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BirthdayLabel.Location = new Point(163, 256);
+            BirthdayLabel.Name = "BirthdayLabel";
+            BirthdayLabel.Size = new Size(86, 25);
+            BirthdayLabel.TabIndex = 4;
+            BirthdayLabel.Text = "Birthday";
+            // 
+            // FullNameLabel
+            // 
+            FullNameLabel.AutoSize = true;
+            FullNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            FullNameLabel.Location = new Point(163, 184);
+            FullNameLabel.Name = "FullNameLabel";
+            FullNameLabel.Size = new Size(97, 25);
+            FullNameLabel.TabIndex = 3;
+            FullNameLabel.Text = "Full Name";
+            // 
+            // UserNameLabel
+            // 
+            UserNameLabel.AutoSize = true;
+            UserNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            UserNameLabel.Location = new Point(163, 62);
+            UserNameLabel.Name = "UserNameLabel";
+            UserNameLabel.Size = new Size(97, 25);
+            UserNameLabel.TabIndex = 2;
+            UserNameLabel.Text = "Username";
+            // 
             // DeleteAccountButton
             // 
             DeleteAccountButton.Location = new Point(490, 363);
@@ -108,6 +215,8 @@
             // 
             // CharacterTab
             // 
+            CharacterTab.Controls.Add(AgeLabel);
+            CharacterTab.Controls.Add(CharacterLabel);
             CharacterTab.Controls.Add(DeleteCharacterButton);
             CharacterTab.Controls.Add(ModifyCharacterButton);
             CharacterTab.Location = new Point(4, 34);
@@ -147,110 +256,25 @@
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
             // 
-            // UserNameLabel
+            // CharacterLabel
             // 
-            UserNameLabel.AutoSize = true;
-            UserNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            UserNameLabel.Location = new Point(163, 62);
-            UserNameLabel.Name = "UserNameLabel";
-            UserNameLabel.Size = new Size(97, 25);
-            UserNameLabel.TabIndex = 2;
-            UserNameLabel.Text = "Username";
+            CharacterLabel.AutoSize = true;
+            CharacterLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            CharacterLabel.Location = new Point(290, 3);
+            CharacterLabel.Name = "CharacterLabel";
+            CharacterLabel.Size = new Size(180, 48);
+            CharacterLabel.TabIndex = 2;
+            CharacterLabel.Text = "Character";
             // 
-            // FullNameLabel
+            // AgeLabel
             // 
-            FullNameLabel.AutoSize = true;
-            FullNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            FullNameLabel.Location = new Point(163, 184);
-            FullNameLabel.Name = "FullNameLabel";
-            FullNameLabel.Size = new Size(97, 25);
-            FullNameLabel.TabIndex = 3;
-            FullNameLabel.Text = "Full Name";
-            // 
-            // BirthdayLabel
-            // 
-            BirthdayLabel.AutoSize = true;
-            BirthdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            BirthdayLabel.Location = new Point(163, 256);
-            BirthdayLabel.Name = "BirthdayLabel";
-            BirthdayLabel.Size = new Size(86, 25);
-            BirthdayLabel.TabIndex = 4;
-            BirthdayLabel.Text = "Birthday";
-            // 
-            // EmailLabel
-            // 
-            EmailLabel.AutoSize = true;
-            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            EmailLabel.Location = new Point(163, 328);
-            EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(58, 25);
-            EmailLabel.TabIndex = 5;
-            EmailLabel.Text = "Email";
-            // 
-            // PasswordLabel
-            // 
-            PasswordLabel.AutoSize = true;
-            PasswordLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            PasswordLabel.Location = new Point(163, 119);
-            PasswordLabel.Name = "PasswordLabel";
-            PasswordLabel.Size = new Size(92, 25);
-            PasswordLabel.TabIndex = 6;
-            PasswordLabel.Text = "Password";
-            // 
-            // AccountLabel
-            // 
-            AccountLabel.AutoSize = true;
-            AccountLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            AccountLabel.Location = new Point(204, 3);
-            AccountLabel.Name = "AccountLabel";
-            AccountLabel.Size = new Size(372, 48);
-            AccountLabel.TabIndex = 7;
-            AccountLabel.Text = "Account Information";
-            // 
-            // FillUNLabel
-            // 
-            FillUNLabel.AutoSize = true;
-            FillUNLabel.Location = new Point(313, 62);
-            FillUNLabel.Name = "FillUNLabel";
-            FillUNLabel.Size = new Size(117, 25);
-            FillUNLabel.TabIndex = 8;
-            FillUNLabel.Text = "Fill Username";
-            // 
-            // FillPWLabel
-            // 
-            FillPWLabel.AutoSize = true;
-            FillPWLabel.Location = new Point(313, 119);
-            FillPWLabel.Name = "FillPWLabel";
-            FillPWLabel.Size = new Size(113, 25);
-            FillPWLabel.TabIndex = 9;
-            FillPWLabel.Text = "Fill Password";
-            // 
-            // FillFNLabel
-            // 
-            FillFNLabel.AutoSize = true;
-            FillFNLabel.Location = new Point(313, 184);
-            FillFNLabel.Name = "FillFNLabel";
-            FillFNLabel.Size = new Size(117, 25);
-            FillFNLabel.TabIndex = 10;
-            FillFNLabel.Text = "Fill Full Name";
-            // 
-            // FillBDLabel
-            // 
-            FillBDLabel.AutoSize = true;
-            FillBDLabel.Location = new Point(313, 256);
-            FillBDLabel.Name = "FillBDLabel";
-            FillBDLabel.Size = new Size(103, 25);
-            FillBDLabel.TabIndex = 11;
-            FillBDLabel.Text = "Fill Birthday";
-            // 
-            // FillEmailLabel
-            // 
-            FillEmailLabel.AutoSize = true;
-            FillEmailLabel.Location = new Point(313, 328);
-            FillEmailLabel.Name = "FillEmailLabel";
-            FillEmailLabel.Size = new Size(80, 25);
-            FillEmailLabel.TabIndex = 12;
-            FillEmailLabel.Text = "Fill Email";
+            AgeLabel.AutoSize = true;
+            AgeLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            AgeLabel.Location = new Point(29, 68);
+            AgeLabel.Name = "AgeLabel";
+            AgeLabel.Size = new Size(46, 25);
+            AgeLabel.TabIndex = 3;
+            AgeLabel.Text = "Age";
             // 
             // UserForm
             // 
@@ -264,6 +288,7 @@
             AccountTab.ResumeLayout(false);
             AccountTab.PerformLayout();
             CharacterTab.ResumeLayout(false);
+            CharacterTab.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -288,5 +313,7 @@
         private Label FillBDLabel;
         private Label FillFNLabel;
         private Label FillPWLabel;
+        private Label CharacterLabel;
+        private Label AgeLabel;
     }
 }
