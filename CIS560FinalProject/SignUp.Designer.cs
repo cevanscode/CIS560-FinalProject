@@ -51,6 +51,7 @@
             CreateAccountButton.TabIndex = 0;
             CreateAccountButton.Text = "Create Account";
             CreateAccountButton.UseVisualStyleBackColor = true;
+            CreateAccountButton.Click += CreateAccountButton_Click;
             // 
             // label3
             // 
@@ -115,7 +116,6 @@
             UsernameTextBox.Name = "UsernameTextBox";
             UsernameTextBox.Size = new Size(150, 31);
             UsernameTextBox.TabIndex = 9;
-            UsernameTextBox.TextChanged += textBox4_TextChanged;
             // 
             // label5
             // 
@@ -141,6 +141,7 @@
             CancelButton.TabIndex = 15;
             CancelButton.Text = "Cancel";
             CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
             // 
             // label6
             // 

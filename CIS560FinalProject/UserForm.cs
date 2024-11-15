@@ -66,5 +66,10 @@ namespace CIS560FinalProject
 
             editForm.ShowDialog();
         }
+
+        private void DeleteAccountButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

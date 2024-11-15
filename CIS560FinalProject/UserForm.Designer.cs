@@ -94,6 +94,7 @@
             DeleteAccountButton.TabIndex = 1;
             DeleteAccountButton.Text = "Delete Account";
             DeleteAccountButton.UseVisualStyleBackColor = true;
+            DeleteAccountButton.Click += DeleteAccountButton_Click;
             // 
             // ModifyAccountButton
             // 

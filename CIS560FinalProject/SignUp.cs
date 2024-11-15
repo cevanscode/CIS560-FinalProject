@@ -17,9 +17,28 @@ namespace CIS560FinalProject
             InitializeComponent();
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Closes the form without creating an account
+        /// </summary>
+        /// <param name="sender">The object signaling the event</param>
+        /// <param name="e">Information about the event</param>
+        private void CancelButton_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
 
+        /// <summary>
+        /// Sends the information given to the database added as a new Account
+        /// </summary>
+        /// <param name="sender">The object signaling the event</param>
+        /// <param name="e">Information about the event</param>
+        private void CreateAccountButton_Click(object sender, EventArgs e)
+        {
+            //send the information over
+
+
+            //...then close this form to return to the main, allowing login
+            this.Close();
         }
     }
 }

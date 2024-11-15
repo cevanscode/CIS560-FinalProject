@@ -34,7 +34,7 @@
             label2 = new Label();
             label3 = new Label();
             LoginButton = new Button();
-            button2 = new Button();
+            CreateAccountButton = new Button();
             StartNoLoginButton = new Button();
             SuspendLayout();
             // 
@@ -90,14 +90,15 @@
             LoginButton.UseVisualStyleBackColor = true;
             LoginButton.Click += LoginButton_Click;
             // 
-            // button2
+            // CreateAccountButton
             // 
-            button2.Location = new Point(123, 404);
-            button2.Name = "button2";
-            button2.Size = new Size(227, 34);
-            button2.TabIndex = 6;
-            button2.Text = "Create New Account";
-            button2.UseVisualStyleBackColor = true;
+            CreateAccountButton.Location = new Point(123, 404);
+            CreateAccountButton.Name = "CreateAccountButton";
+            CreateAccountButton.Size = new Size(227, 34);
+            CreateAccountButton.TabIndex = 6;
+            CreateAccountButton.Text = "Create New Account";
+            CreateAccountButton.UseVisualStyleBackColor = true;
+            CreateAccountButton.Click += CreateAccountButton_Click;
             // 
             // StartNoLoginButton
             // 
@@ -115,7 +116,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(428, 444);
             Controls.Add(StartNoLoginButton);
-            Controls.Add(button2);
+            Controls.Add(CreateAccountButton);
             Controls.Add(LoginButton);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -136,7 +137,7 @@
         private Label label2;
         private Label label3;
         private Button LoginButton;
-        private Button button2;
+        private Button CreateAccountButton;
         private Button StartNoLoginButton;
     }
 }
