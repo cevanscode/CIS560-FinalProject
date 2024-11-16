@@ -44,11 +44,24 @@
             DeleteAccountButton = new Button();
             ModifyAccountButton = new Button();
             CharacterTab = new TabPage();
+            ClassLabel = new Label();
+            CopperLabel = new Label();
+            XPLabel = new Label();
+            HealthLabel = new Label();
+            FillAgeLabel = new Label();
+            AgeLabel = new Label();
+            CharacterLabel = new Label();
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
             RulesTab = new TabPage();
-            CharacterLabel = new Label();
-            AgeLabel = new Label();
+            SubclassLabel = new Label();
+            CharacterTalentsLabel = new Label();
+            listView1 = new ListView();
+            FillHealthLabel = new Label();
+            FillXPLabel = new Label();
+            FillCopperLabel = new Label();
+            FillClassLabel = new Label();
+            FillSubclassLabel = new Label();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
@@ -215,6 +228,19 @@
             // 
             // CharacterTab
             // 
+            CharacterTab.Controls.Add(FillSubclassLabel);
+            CharacterTab.Controls.Add(FillClassLabel);
+            CharacterTab.Controls.Add(FillCopperLabel);
+            CharacterTab.Controls.Add(FillXPLabel);
+            CharacterTab.Controls.Add(FillHealthLabel);
+            CharacterTab.Controls.Add(listView1);
+            CharacterTab.Controls.Add(CharacterTalentsLabel);
+            CharacterTab.Controls.Add(SubclassLabel);
+            CharacterTab.Controls.Add(ClassLabel);
+            CharacterTab.Controls.Add(CopperLabel);
+            CharacterTab.Controls.Add(XPLabel);
+            CharacterTab.Controls.Add(HealthLabel);
+            CharacterTab.Controls.Add(FillAgeLabel);
             CharacterTab.Controls.Add(AgeLabel);
             CharacterTab.Controls.Add(CharacterLabel);
             CharacterTab.Controls.Add(DeleteCharacterButton);
@@ -226,6 +252,75 @@
             CharacterTab.TabIndex = 1;
             CharacterTab.Text = "Character";
             CharacterTab.UseVisualStyleBackColor = true;
+            // 
+            // ClassLabel
+            // 
+            ClassLabel.AutoSize = true;
+            ClassLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            ClassLabel.Location = new Point(29, 237);
+            ClassLabel.Name = "ClassLabel";
+            ClassLabel.Size = new Size(54, 25);
+            ClassLabel.TabIndex = 8;
+            ClassLabel.Text = "Class";
+            // 
+            // CopperLabel
+            // 
+            CopperLabel.AutoSize = true;
+            CopperLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            CopperLabel.Location = new Point(29, 198);
+            CopperLabel.Name = "CopperLabel";
+            CopperLabel.Size = new Size(73, 25);
+            CopperLabel.TabIndex = 7;
+            CopperLabel.Text = "Copper";
+            // 
+            // XPLabel
+            // 
+            XPLabel.AutoSize = true;
+            XPLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            XPLabel.Location = new Point(29, 163);
+            XPLabel.Name = "XPLabel";
+            XPLabel.Size = new Size(35, 25);
+            XPLabel.TabIndex = 6;
+            XPLabel.Text = "XP";
+            // 
+            // HealthLabel
+            // 
+            HealthLabel.AutoSize = true;
+            HealthLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            HealthLabel.Location = new Point(29, 126);
+            HealthLabel.Name = "HealthLabel";
+            HealthLabel.Size = new Size(69, 25);
+            HealthLabel.TabIndex = 5;
+            HealthLabel.Text = "Health";
+            // 
+            // FillAgeLabel
+            // 
+            FillAgeLabel.AutoSize = true;
+            FillAgeLabel.Location = new Point(121, 88);
+            FillAgeLabel.Name = "FillAgeLabel";
+            FillAgeLabel.Size = new Size(70, 25);
+            FillAgeLabel.TabIndex = 4;
+            FillAgeLabel.Text = "Fill Age";
+            // 
+            // AgeLabel
+            // 
+            AgeLabel.AutoSize = true;
+            AgeLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            AgeLabel.Location = new Point(29, 88);
+            AgeLabel.Name = "AgeLabel";
+            AgeLabel.Size = new Size(46, 25);
+            AgeLabel.TabIndex = 3;
+            AgeLabel.Text = "Age";
+            // 
+            // CharacterLabel
+            // 
+            CharacterLabel.AutoSize = true;
+            CharacterLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            CharacterLabel.Location = new Point(290, 3);
+            CharacterLabel.Name = "CharacterLabel";
+            CharacterLabel.Size = new Size(180, 48);
+            CharacterLabel.TabIndex = 2;
+            CharacterLabel.Text = "Character";
             // 
             // DeleteCharacterButton
             // 
@@ -256,25 +351,78 @@
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
             // 
-            // CharacterLabel
+            // SubclassLabel
             // 
-            CharacterLabel.AutoSize = true;
-            CharacterLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            CharacterLabel.Location = new Point(290, 3);
-            CharacterLabel.Name = "CharacterLabel";
-            CharacterLabel.Size = new Size(180, 48);
-            CharacterLabel.TabIndex = 2;
-            CharacterLabel.Text = "Character";
+            SubclassLabel.AutoSize = true;
+            SubclassLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            SubclassLabel.Location = new Point(29, 275);
+            SubclassLabel.Name = "SubclassLabel";
+            SubclassLabel.Size = new Size(84, 25);
+            SubclassLabel.TabIndex = 9;
+            SubclassLabel.Text = "Subclass";
             // 
-            // AgeLabel
+            // CharacterTalentsLabel
             // 
-            AgeLabel.AutoSize = true;
-            AgeLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            AgeLabel.Location = new Point(29, 68);
-            AgeLabel.Name = "AgeLabel";
-            AgeLabel.Size = new Size(46, 25);
-            AgeLabel.TabIndex = 3;
-            AgeLabel.Text = "Age";
+            CharacterTalentsLabel.AutoSize = true;
+            CharacterTalentsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            CharacterTalentsLabel.Location = new Point(458, 68);
+            CharacterTalentsLabel.Name = "CharacterTalentsLabel";
+            CharacterTalentsLabel.Size = new Size(75, 25);
+            CharacterTalentsLabel.TabIndex = 10;
+            CharacterTalentsLabel.Text = "Talents";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(248, 96);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(533, 209);
+            listView1.TabIndex = 11;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // FillHealthLabel
+            // 
+            FillHealthLabel.AutoSize = true;
+            FillHealthLabel.Location = new Point(121, 126);
+            FillHealthLabel.Name = "FillHealthLabel";
+            FillHealthLabel.Size = new Size(89, 25);
+            FillHealthLabel.TabIndex = 12;
+            FillHealthLabel.Text = "Fill Health";
+            // 
+            // FillXPLabel
+            // 
+            FillXPLabel.AutoSize = true;
+            FillXPLabel.Location = new Point(121, 163);
+            FillXPLabel.Name = "FillXPLabel";
+            FillXPLabel.Size = new Size(59, 25);
+            FillXPLabel.TabIndex = 13;
+            FillXPLabel.Text = "Fill XP";
+            // 
+            // FillCopperLabel
+            // 
+            FillCopperLabel.AutoSize = true;
+            FillCopperLabel.Location = new Point(121, 198);
+            FillCopperLabel.Name = "FillCopperLabel";
+            FillCopperLabel.Size = new Size(97, 25);
+            FillCopperLabel.TabIndex = 14;
+            FillCopperLabel.Text = "Fill Copper";
+            // 
+            // FillClassLabel
+            // 
+            FillClassLabel.AutoSize = true;
+            FillClassLabel.Location = new Point(121, 237);
+            FillClassLabel.Name = "FillClassLabel";
+            FillClassLabel.Size = new Size(78, 25);
+            FillClassLabel.TabIndex = 15;
+            FillClassLabel.Text = "Fill Class";
+            // 
+            // FillSubclassLabel
+            // 
+            FillSubclassLabel.AutoSize = true;
+            FillSubclassLabel.Location = new Point(121, 275);
+            FillSubclassLabel.Name = "FillSubclassLabel";
+            FillSubclassLabel.Size = new Size(106, 25);
+            FillSubclassLabel.TabIndex = 16;
+            FillSubclassLabel.Text = "Fill Subclass";
             // 
             // UserForm
             // 
@@ -315,5 +463,18 @@
         private Label FillPWLabel;
         private Label CharacterLabel;
         private Label AgeLabel;
+        private Label FillAgeLabel;
+        private Label HealthLabel;
+        private Label XPLabel;
+        private Label CopperLabel;
+        private Label ClassLabel;
+        private Label SubclassLabel;
+        private Label CharacterTalentsLabel;
+        private ListView listView1;
+        private Label FillXPLabel;
+        private Label FillHealthLabel;
+        private Label FillSubclassLabel;
+        private Label FillClassLabel;
+        private Label FillCopperLabel;
     }
 }
