@@ -55,14 +55,14 @@ namespace CIS560FinalProject
 
         private void ModifyCharacterButton_Click(object sender, EventArgs e)
         {
-            EditForm editForm = new EditForm("character");
+            EditCharacterForm editForm = new EditCharacterForm();
 
             editForm.ShowDialog();
         }
 
         private void ModifyAccountButton_Click(object sender, EventArgs e)
         {
-            EditForm editForm = new EditForm("account");
+            EditAccountForm editForm = new EditAccountForm();
 
             editForm.ShowDialog();
         }

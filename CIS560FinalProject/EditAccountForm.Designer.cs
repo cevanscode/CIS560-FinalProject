@@ -1,6 +1,6 @@
 ﻿namespace CIS560FinalProject
 {
-    partial class EditForm
+    partial class EditAccountForm
     {
         /// <summary>
         /// Required designer variable.
@@ -130,7 +130,7 @@
             button1.Text = "Confirm Changes";
             button1.UseVisualStyleBackColor = true;
             // 
-            // EditForm
+            // EditAccountForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -146,8 +146,8 @@
             Controls.Add(PasswordLabel);
             Controls.Add(UsernameLabel);
             Controls.Add(UsernameTextBox);
-            Name = "EditForm";
-            Text = "EditForm";
+            Name = "EditAccountForm";
+            Text = "Edit Account";
             ResumeLayout(false);
             PerformLayout();
         }
