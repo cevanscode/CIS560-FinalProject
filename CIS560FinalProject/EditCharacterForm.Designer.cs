@@ -29,21 +29,29 @@
         private void InitializeComponent()
         {
             CopperLabel = new Label();
-            BirthdayTextBox = new TextBox();
-            FullNameTextBox = new TextBox();
             XPLabel = new Label();
-            EmailTextBox = new TextBox();
             HealthLabel = new Label();
-            PasswordTextBox = new TextBox();
             AgeLabel = new Label();
             NameLabel = new Label();
-            UsernameTextBox = new TextBox();
+            NameTextBox = new TextBox();
             TalentsLabel = new Label();
             SubclassLabel = new Label();
             ClassLabel = new Label();
             button1 = new Button();
-            comboBox1 = new ComboBox();
-            comboBox2 = new ComboBox();
+            ClassComboBox = new ComboBox();
+            SubclassComboBox = new ComboBox();
+            WizardLabel1 = new Label();
+            WizardLabel2 = new Label();
+            WizardComboBox2 = new ComboBox();
+            WizardComboBox1 = new ComboBox();
+            XPUpDown = new NumericUpDown();
+            HealthUpDown = new NumericUpDown();
+            CopperUpDown = new NumericUpDown();
+            AgeUpDown = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)XPUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)HealthUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CopperUpDown).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)AgeUpDown).BeginInit();
             SuspendLayout();
             // 
             // CopperLabel
@@ -55,20 +63,6 @@
             CopperLabel.TabIndex = 19;
             CopperLabel.Text = "Copper";
             // 
-            // BirthdayTextBox
-            // 
-            BirthdayTextBox.Location = new Point(142, 229);
-            BirthdayTextBox.Name = "BirthdayTextBox";
-            BirthdayTextBox.Size = new Size(150, 31);
-            BirthdayTextBox.TabIndex = 18;
-            // 
-            // FullNameTextBox
-            // 
-            FullNameTextBox.Location = new Point(142, 178);
-            FullNameTextBox.Name = "FullNameTextBox";
-            FullNameTextBox.Size = new Size(150, 31);
-            FullNameTextBox.TabIndex = 17;
-            // 
             // XPLabel
             // 
             XPLabel.AutoSize = true;
@@ -78,13 +72,6 @@
             XPLabel.TabIndex = 16;
             XPLabel.Text = "XP";
             // 
-            // EmailTextBox
-            // 
-            EmailTextBox.Location = new Point(142, 126);
-            EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(150, 31);
-            EmailTextBox.TabIndex = 15;
-            // 
             // HealthLabel
             // 
             HealthLabel.AutoSize = true;
@@ -93,13 +80,6 @@
             HealthLabel.Size = new Size(63, 25);
             HealthLabel.TabIndex = 14;
             HealthLabel.Text = "Health";
-            // 
-            // PasswordTextBox
-            // 
-            PasswordTextBox.Location = new Point(142, 79);
-            PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.Size = new Size(150, 31);
-            PasswordTextBox.TabIndex = 13;
             // 
             // AgeLabel
             // 
@@ -119,12 +99,12 @@
             NameLabel.TabIndex = 11;
             NameLabel.Text = "Name";
             // 
-            // UsernameTextBox
+            // NameTextBox
             // 
-            UsernameTextBox.Location = new Point(142, 25);
-            UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(150, 31);
-            UsernameTextBox.TabIndex = 10;
+            NameTextBox.Location = new Point(142, 25);
+            NameTextBox.Name = "NameTextBox";
+            NameTextBox.Size = new Size(150, 31);
+            NameTextBox.TabIndex = 10;
             // 
             // TalentsLabel
             // 
@@ -162,46 +142,121 @@
             button1.Text = "Confirm Changes";
             button1.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // ClassComboBox
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Items.AddRange(new object[] { "Cleric", "Noble", "Ranger", "Rogue", "Spellbinder", "Warrior", "Wizard" });
-            comboBox1.Location = new Point(142, 277);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(150, 33);
-            comboBox1.TabIndex = 24;
+            ClassComboBox.FormattingEnabled = true;
+            ClassComboBox.Items.AddRange(new object[] { "Cleric", "Noble", "Ranger", "Rogue", "Spellbinder", "Warrior", "Wizard" });
+            ClassComboBox.Location = new Point(142, 277);
+            ClassComboBox.Name = "ClassComboBox";
+            ClassComboBox.Size = new Size(150, 33);
+            ClassComboBox.TabIndex = 24;
+            ClassComboBox.SelectedIndexChanged += ClassComboBox_SelectedIndexChanged;
             // 
-            // comboBox2
+            // SubclassComboBox
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(142, 320);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(150, 33);
-            comboBox2.TabIndex = 25;
+            SubclassComboBox.FormattingEnabled = true;
+            SubclassComboBox.Location = new Point(142, 320);
+            SubclassComboBox.Name = "SubclassComboBox";
+            SubclassComboBox.Size = new Size(150, 33);
+            SubclassComboBox.TabIndex = 25;
+            // 
+            // WizardLabel1
+            // 
+            WizardLabel1.AutoSize = true;
+            WizardLabel1.Location = new Point(12, 323);
+            WizardLabel1.Name = "WizardLabel1";
+            WizardLabel1.Size = new Size(88, 25);
+            WizardLabel1.TabIndex = 26;
+            WizardLabel1.Text = "Elemental";
+            WizardLabel1.Visible = false;
+            // 
+            // WizardLabel2
+            // 
+            WizardLabel2.AutoSize = true;
+            WizardLabel2.Location = new Point(12, 366);
+            WizardLabel2.Name = "WizardLabel2";
+            WizardLabel2.Size = new Size(83, 25);
+            WizardLabel2.TabIndex = 27;
+            WizardLabel2.Text = "Manifold";
+            WizardLabel2.Visible = false;
+            // 
+            // WizardComboBox2
+            // 
+            WizardComboBox2.FormattingEnabled = true;
+            WizardComboBox2.Location = new Point(142, 363);
+            WizardComboBox2.Name = "WizardComboBox2";
+            WizardComboBox2.Size = new Size(150, 33);
+            WizardComboBox2.TabIndex = 28;
+            WizardComboBox2.Visible = false;
+            // 
+            // WizardComboBox1
+            // 
+            WizardComboBox1.FormattingEnabled = true;
+            WizardComboBox1.Location = new Point(142, 320);
+            WizardComboBox1.Name = "WizardComboBox1";
+            WizardComboBox1.Size = new Size(150, 33);
+            WizardComboBox1.TabIndex = 29;
+            WizardComboBox1.Visible = false;
+            // 
+            // XPUpDown
+            // 
+            XPUpDown.Location = new Point(142, 176);
+            XPUpDown.Name = "XPUpDown";
+            XPUpDown.Size = new Size(150, 31);
+            XPUpDown.TabIndex = 30;
+            // 
+            // HealthUpDown
+            // 
+            HealthUpDown.Location = new Point(142, 126);
+            HealthUpDown.Name = "HealthUpDown";
+            HealthUpDown.Size = new Size(150, 31);
+            HealthUpDown.TabIndex = 31;
+            // 
+            // CopperUpDown
+            // 
+            CopperUpDown.Location = new Point(142, 229);
+            CopperUpDown.Name = "CopperUpDown";
+            CopperUpDown.Size = new Size(150, 31);
+            CopperUpDown.TabIndex = 32;
+            // 
+            // AgeUpDown
+            // 
+            AgeUpDown.Location = new Point(142, 79);
+            AgeUpDown.Name = "AgeUpDown";
+            AgeUpDown.Size = new Size(150, 31);
+            AgeUpDown.TabIndex = 33;
             // 
             // EditCharacterForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(767, 450);
-            Controls.Add(comboBox2);
-            Controls.Add(comboBox1);
+            Controls.Add(AgeUpDown);
+            Controls.Add(CopperUpDown);
+            Controls.Add(HealthUpDown);
+            Controls.Add(XPUpDown);
+            Controls.Add(WizardComboBox1);
+            Controls.Add(WizardComboBox2);
+            Controls.Add(WizardLabel2);
+            Controls.Add(WizardLabel1);
+            Controls.Add(SubclassComboBox);
+            Controls.Add(ClassComboBox);
             Controls.Add(button1);
             Controls.Add(TalentsLabel);
             Controls.Add(SubclassLabel);
             Controls.Add(ClassLabel);
             Controls.Add(CopperLabel);
-            Controls.Add(BirthdayTextBox);
-            Controls.Add(FullNameTextBox);
             Controls.Add(XPLabel);
-            Controls.Add(EmailTextBox);
             Controls.Add(HealthLabel);
-            Controls.Add(PasswordTextBox);
             Controls.Add(AgeLabel);
             Controls.Add(NameLabel);
-            Controls.Add(UsernameTextBox);
+            Controls.Add(NameTextBox);
             Name = "EditCharacterForm";
             Text = "Edit Character";
+            ((System.ComponentModel.ISupportInitialize)XPUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)HealthUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CopperUpDown).EndInit();
+            ((System.ComponentModel.ISupportInitialize)AgeUpDown).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -209,20 +264,24 @@
         #endregion
 
         private Label CopperLabel;
-        private TextBox BirthdayTextBox;
-        private TextBox FullNameTextBox;
         private Label XPLabel;
-        private TextBox EmailTextBox;
         private Label HealthLabel;
-        private TextBox PasswordTextBox;
         private Label AgeLabel;
         private Label NameLabel;
-        private TextBox UsernameTextBox;
+        private TextBox NameTextBox;
         private Label TalentsLabel;
         private Label SubclassLabel;
         private Label ClassLabel;
         private Button button1;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox ClassComboBox;
+        private ComboBox SubclassComboBox;
+        private Label WizardLabel1;
+        private Label WizardLabel2;
+        private ComboBox WizardComboBox2;
+        private ComboBox WizardComboBox1;
+        private NumericUpDown XPUpDown;
+        private NumericUpDown HealthUpDown;
+        private NumericUpDown CopperUpDown;
+        private NumericUpDown AgeUpDown;
     }
 }

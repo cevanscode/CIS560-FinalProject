@@ -31,7 +31,6 @@
             CreateAccountButton = new Button();
             label3 = new Label();
             label2 = new Label();
-            BirthdayTextBox = new TextBox();
             FullNameTextBox = new TextBox();
             label1 = new Label();
             label4 = new Label();
@@ -41,6 +40,7 @@
             EmailTextBox = new TextBox();
             CancelButton = new Button();
             label6 = new Label();
+            BirthdayPicker = new DateTimePicker();
             SuspendLayout();
             // 
             // CreateAccountButton
@@ -71,18 +71,11 @@
             label2.TabIndex = 7;
             label2.Text = "Create Password";
             // 
-            // BirthdayTextBox
-            // 
-            BirthdayTextBox.Location = new Point(224, 130);
-            BirthdayTextBox.Name = "BirthdayTextBox";
-            BirthdayTextBox.Size = new Size(150, 31);
-            BirthdayTextBox.TabIndex = 6;
-            // 
             // FullNameTextBox
             // 
             FullNameTextBox.Location = new Point(224, 70);
             FullNameTextBox.Name = "FullNameTextBox";
-            FullNameTextBox.Size = new Size(150, 31);
+            FullNameTextBox.Size = new Size(300, 31);
             FullNameTextBox.TabIndex = 5;
             // 
             // label1
@@ -107,14 +100,14 @@
             // 
             PasswordTextBox.Location = new Point(224, 302);
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.Size = new Size(150, 31);
+            PasswordTextBox.Size = new Size(300, 31);
             PasswordTextBox.TabIndex = 10;
             // 
             // UsernameTextBox
             // 
             UsernameTextBox.Location = new Point(224, 242);
             UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(150, 31);
+            UsernameTextBox.Size = new Size(300, 31);
             UsernameTextBox.TabIndex = 9;
             // 
             // label5
@@ -130,7 +123,7 @@
             // 
             EmailTextBox.Location = new Point(224, 186);
             EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(150, 31);
+            EmailTextBox.Size = new Size(300, 31);
             EmailTextBox.TabIndex = 13;
             // 
             // CancelButton
@@ -153,11 +146,19 @@
             label6.TabIndex = 16;
             label6.Text = "Sign Up";
             // 
+            // BirthdayPicker
+            // 
+            BirthdayPicker.Location = new Point(224, 130);
+            BirthdayPicker.Name = "BirthdayPicker";
+            BirthdayPicker.Size = new Size(300, 31);
+            BirthdayPicker.TabIndex = 17;
+            // 
             // SignUp
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(428, 444);
+            ClientSize = new Size(544, 444);
+            Controls.Add(BirthdayPicker);
             Controls.Add(label6);
             Controls.Add(CancelButton);
             Controls.Add(label5);
@@ -168,7 +169,6 @@
             Controls.Add(UsernameTextBox);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(BirthdayTextBox);
             Controls.Add(FullNameTextBox);
             Controls.Add(CreateAccountButton);
             Name = "SignUp";
@@ -182,7 +182,6 @@
         private Button CreateAccountButton;
         private Label label3;
         private Label label2;
-        private TextBox BirthdayTextBox;
         private TextBox FullNameTextBox;
         private Label label1;
         private Label label4;
@@ -192,5 +191,6 @@
         private TextBox EmailTextBox;
         private Button CancelButton;
         private Label label6;
+        private DateTimePicker BirthdayPicker;
     }
 }

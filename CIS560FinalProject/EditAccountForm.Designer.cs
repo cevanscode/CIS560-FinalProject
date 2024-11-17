@@ -36,16 +36,16 @@
             EmailTextBox = new TextBox();
             FullNameLabel = new Label();
             FullNameTextBox = new TextBox();
-            BirthdayTextBox = new TextBox();
             BirthdayLabel = new Label();
             button1 = new Button();
+            BirthdayPicker = new DateTimePicker();
             SuspendLayout();
             // 
             // UsernameTextBox
             // 
             UsernameTextBox.Location = new Point(142, 25);
             UsernameTextBox.Name = "UsernameTextBox";
-            UsernameTextBox.Size = new Size(150, 31);
+            UsernameTextBox.Size = new Size(294, 31);
             UsernameTextBox.TabIndex = 0;
             // 
             // UsernameLabel
@@ -70,7 +70,7 @@
             // 
             PasswordTextBox.Location = new Point(142, 79);
             PasswordTextBox.Name = "PasswordTextBox";
-            PasswordTextBox.Size = new Size(150, 31);
+            PasswordTextBox.Size = new Size(294, 31);
             PasswordTextBox.TabIndex = 3;
             // 
             // EmailLabel
@@ -86,7 +86,7 @@
             // 
             EmailTextBox.Location = new Point(142, 126);
             EmailTextBox.Name = "EmailTextBox";
-            EmailTextBox.Size = new Size(150, 31);
+            EmailTextBox.Size = new Size(294, 31);
             EmailTextBox.TabIndex = 5;
             // 
             // FullNameLabel
@@ -102,15 +102,8 @@
             // 
             FullNameTextBox.Location = new Point(142, 178);
             FullNameTextBox.Name = "FullNameTextBox";
-            FullNameTextBox.Size = new Size(150, 31);
+            FullNameTextBox.Size = new Size(294, 31);
             FullNameTextBox.TabIndex = 7;
-            // 
-            // BirthdayTextBox
-            // 
-            BirthdayTextBox.Location = new Point(142, 229);
-            BirthdayTextBox.Name = "BirthdayTextBox";
-            BirthdayTextBox.Size = new Size(150, 31);
-            BirthdayTextBox.TabIndex = 8;
             // 
             // BirthdayLabel
             // 
@@ -123,21 +116,28 @@
             // 
             // button1
             // 
-            button1.Location = new Point(106, 404);
+            button1.Location = new Point(106, 284);
             button1.Name = "button1";
             button1.Size = new Size(163, 34);
             button1.TabIndex = 10;
             button1.Text = "Confirm Changes";
             button1.UseVisualStyleBackColor = true;
             // 
+            // BirthdayPicker
+            // 
+            BirthdayPicker.Location = new Point(142, 229);
+            BirthdayPicker.Name = "BirthdayPicker";
+            BirthdayPicker.Size = new Size(294, 31);
+            BirthdayPicker.TabIndex = 11;
+            // 
             // EditAccountForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(372, 450);
+            ClientSize = new Size(448, 346);
+            Controls.Add(BirthdayPicker);
             Controls.Add(button1);
             Controls.Add(BirthdayLabel);
-            Controls.Add(BirthdayTextBox);
             Controls.Add(FullNameTextBox);
             Controls.Add(FullNameLabel);
             Controls.Add(EmailTextBox);
@@ -162,8 +162,8 @@
         private TextBox EmailTextBox;
         private Label FullNameLabel;
         private TextBox FullNameTextBox;
-        private TextBox BirthdayTextBox;
         private Label BirthdayLabel;
         private Button button1;
+        private DateTimePicker BirthdayPicker;
     }
 }
