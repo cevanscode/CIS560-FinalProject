@@ -39,6 +39,7 @@
             BirthdayLabel = new Label();
             button1 = new Button();
             BirthdayPicker = new DateTimePicker();
+            CancelButton = new Button();
             SuspendLayout();
             // 
             // UsernameTextBox
@@ -51,18 +52,20 @@
             // UsernameLabel
             // 
             UsernameLabel.AutoSize = true;
+            UsernameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             UsernameLabel.Location = new Point(12, 28);
             UsernameLabel.Name = "UsernameLabel";
-            UsernameLabel.Size = new Size(91, 25);
+            UsernameLabel.Size = new Size(97, 25);
             UsernameLabel.TabIndex = 1;
             UsernameLabel.Text = "Username";
             // 
             // PasswordLabel
             // 
             PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             PasswordLabel.Location = new Point(12, 79);
             PasswordLabel.Name = "PasswordLabel";
-            PasswordLabel.Size = new Size(87, 25);
+            PasswordLabel.Size = new Size(92, 25);
             PasswordLabel.TabIndex = 2;
             PasswordLabel.Text = "Password";
             // 
@@ -76,9 +79,10 @@
             // EmailLabel
             // 
             EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             EmailLabel.Location = new Point(12, 126);
             EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(54, 25);
+            EmailLabel.Size = new Size(58, 25);
             EmailLabel.TabIndex = 4;
             EmailLabel.Text = "Email";
             // 
@@ -92,9 +96,10 @@
             // FullNameLabel
             // 
             FullNameLabel.AutoSize = true;
+            FullNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             FullNameLabel.Location = new Point(12, 178);
             FullNameLabel.Name = "FullNameLabel";
-            FullNameLabel.Size = new Size(91, 25);
+            FullNameLabel.Size = new Size(97, 25);
             FullNameLabel.TabIndex = 6;
             FullNameLabel.Text = "Full Name";
             // 
@@ -108,15 +113,16 @@
             // BirthdayLabel
             // 
             BirthdayLabel.AutoSize = true;
+            BirthdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             BirthdayLabel.Location = new Point(12, 229);
             BirthdayLabel.Name = "BirthdayLabel";
-            BirthdayLabel.Size = new Size(77, 25);
+            BirthdayLabel.Size = new Size(86, 25);
             BirthdayLabel.TabIndex = 9;
             BirthdayLabel.Text = "Birthday";
             // 
             // button1
             // 
-            button1.Location = new Point(106, 284);
+            button1.Location = new Point(69, 284);
             button1.Name = "button1";
             button1.Size = new Size(163, 34);
             button1.TabIndex = 10;
@@ -130,11 +136,22 @@
             BirthdayPicker.Size = new Size(294, 31);
             BirthdayPicker.TabIndex = 11;
             // 
+            // CancelButton
+            // 
+            CancelButton.Location = new Point(253, 284);
+            CancelButton.Name = "CancelButton";
+            CancelButton.Size = new Size(112, 34);
+            CancelButton.TabIndex = 12;
+            CancelButton.Text = "Cancel";
+            CancelButton.UseVisualStyleBackColor = true;
+            CancelButton.Click += CancelButton_Click;
+            // 
             // EditAccountForm
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(448, 346);
+            Controls.Add(CancelButton);
             Controls.Add(BirthdayPicker);
             Controls.Add(button1);
             Controls.Add(BirthdayLabel);
@@ -165,5 +182,6 @@
         private Label BirthdayLabel;
         private Button button1;
         private DateTimePicker BirthdayPicker;
+        private Button CancelButton;
     }
 }

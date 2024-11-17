@@ -69,7 +69,10 @@ namespace CIS560FinalProject
 
         private void DeleteAccountButton_Click(object sender, EventArgs e)
         {
+            //database removal stuff here
 
+            //return to login menu
+            this.Close();
         }
     }
 }

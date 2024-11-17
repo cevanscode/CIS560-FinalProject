@@ -45,7 +45,7 @@
             // 
             // CreateAccountButton
             // 
-            CreateAccountButton.Location = new Point(130, 348);
+            CreateAccountButton.Location = new Point(208, 348);
             CreateAccountButton.Name = "CreateAccountButton";
             CreateAccountButton.Size = new Size(163, 34);
             CreateAccountButton.TabIndex = 0;
@@ -56,18 +56,20 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label3.Location = new Point(60, 242);
             label3.Name = "label3";
-            label3.Size = new Size(146, 25);
+            label3.Size = new Size(157, 25);
             label3.TabIndex = 8;
             label3.Text = "Create Username";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label2.Location = new Point(64, 305);
             label2.Name = "label2";
-            label2.Size = new Size(142, 25);
+            label2.Size = new Size(152, 25);
             label2.TabIndex = 7;
             label2.Text = "Create Password";
             // 
@@ -81,18 +83,20 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label1.Location = new Point(70, 70);
             label1.Name = "label1";
-            label1.Size = new Size(136, 25);
+            label1.Size = new Size(147, 25);
             label1.TabIndex = 12;
             label1.Text = "Enter Full Name";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(70, 130);
             label4.Name = "label4";
-            label4.Size = new Size(122, 25);
+            label4.Size = new Size(136, 25);
             label4.TabIndex = 11;
             label4.Text = "Enter Birthday";
             // 
@@ -113,9 +117,10 @@
             // label5
             // 
             label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             label5.Location = new Point(70, 186);
             label5.Name = "label5";
-            label5.Size = new Size(99, 25);
+            label5.Size = new Size(108, 25);
             label5.TabIndex = 14;
             label5.Text = "Enter Email";
             // 
@@ -128,7 +133,7 @@
             // 
             // CancelButton
             // 
-            CancelButton.Location = new Point(154, 388);
+            CancelButton.Location = new Point(232, 388);
             CancelButton.Name = "CancelButton";
             CancelButton.Size = new Size(112, 34);
             CancelButton.TabIndex = 15;
@@ -140,7 +145,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI Semibold", 16F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(155, 15);
+            label6.Location = new Point(233, 15);
             label6.Name = "label6";
             label6.Size = new Size(134, 45);
             label6.TabIndex = 16;
