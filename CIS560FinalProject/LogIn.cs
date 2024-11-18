@@ -24,7 +24,7 @@ namespace CIS560FinalProject
         /// <param name="e">Information about the event</param>
         private void StartNoLoginButton_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm(false);
+            UserForm userForm = new UserForm(); //no account necessary; uses first constructor
             userForm.FormClosed += (s, args) => this.Show();
             userForm.Show();
             this.Hide();
@@ -37,7 +37,11 @@ namespace CIS560FinalProject
         /// <param name="e">Information about the event</param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            UserForm userForm = new UserForm(true);
+            Account loginAccount = new Account();
+
+            //Find the account from the database
+
+            UserForm userForm = new UserForm(loginAccount);
             userForm.FormClosed += (s, args) => this.Show();
             userForm.Show();
             this.Hide();
