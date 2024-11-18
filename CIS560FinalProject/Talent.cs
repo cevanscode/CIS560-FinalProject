@@ -26,7 +26,7 @@ namespace CIS560FinalProject
         /// <summary>
         /// The talent's rank
         /// </summary>
-        public int? TalentRank
+        public int TalentRank
         {
             get;
             set; //restrict to 1, 2, 3
