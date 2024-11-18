@@ -12,6 +12,11 @@ namespace CIS560FinalProject
     public class Account
     {
         /// <summary>
+        /// The account's identifier
+        /// </summary>
+        public int AccountID {  get; set; }
+
+        /// <summary>
         /// The account's Username
         /// </summary>
         public string? Username { get; set; }

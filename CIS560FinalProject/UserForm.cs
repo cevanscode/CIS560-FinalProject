@@ -13,31 +13,31 @@ namespace CIS560FinalProject
     public partial class UserForm : Form
     {
         private bool _loggedIn = false;
+        private Character? _viewCharacter;
+        private Account? _viewAccount;
+
+        public UserForm()
+        {
+            InitializeComponent();
+            UserTabs.TabPages[0].Enabled = false;
+            UserTabs.TabPages[1].Enabled = false;
+            UserTabs.Selecting += UserTabDeselect!;
+            UserTabs.SelectedIndex = 2;
+        }
 
         /// <summary>
         /// Constructor
         /// </summary>
         /// <param name="loggedIn">If the user logged in to create this form</param>
-        public UserForm(bool loggedIn)
+        public UserForm(Account a)
         {
             InitializeComponent();
+            UserTabs.TabPages[0].Enabled = true;
+            UserTabs.TabPages[1].Enabled = true;
+            UserTabs.Selecting -= UserTabDeselect!;
+            UserTabs.SelectedIndex = 0;
 
-            _loggedIn = loggedIn;
-
-            if (!_loggedIn)
-            {
-                UserTabs.TabPages[0].Enabled = false;
-                UserTabs.TabPages[1].Enabled = false;
-                UserTabs.Selecting += UserTabDeselect!;
-                UserTabs.SelectedIndex = 2;
-            }
-            else
-            {
-                UserTabs.TabPages[0].Enabled = true;
-                UserTabs.TabPages[1].Enabled = true;
-                UserTabs.Selecting -= UserTabDeselect!;
-                UserTabs.SelectedIndex = 0;
-            }
+            _viewAccount = a;
         }
 
         /// <summary>
