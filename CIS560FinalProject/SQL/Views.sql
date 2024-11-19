@@ -1,4 +1,5 @@
 DROP VIEW IF EXISTS ShowSubclassPopularity;
+DROP VIEW IF EXISTS MostChosenTalentsBySubclass;
 GO
 
 CREATE VIEW SubclassPopularity
