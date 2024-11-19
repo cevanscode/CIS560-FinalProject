@@ -44,6 +44,14 @@
             DeleteAccountButton = new Button();
             ModifyAccountButton = new Button();
             CharacterTab = new TabPage();
+            FillSubclassLabel = new Label();
+            FillClassLabel = new Label();
+            FillCopperLabel = new Label();
+            FillXPLabel = new Label();
+            FillHealthLabel = new Label();
+            listView1 = new ListView();
+            CharacterTalentsLabel = new Label();
+            SubclassLabel = new Label();
             ClassLabel = new Label();
             CopperLabel = new Label();
             XPLabel = new Label();
@@ -54,17 +62,15 @@
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
             RulesTab = new TabPage();
-            SubclassLabel = new Label();
-            CharacterTalentsLabel = new Label();
-            listView1 = new ListView();
-            FillHealthLabel = new Label();
-            FillXPLabel = new Label();
-            FillCopperLabel = new Label();
-            FillClassLabel = new Label();
-            FillSubclassLabel = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            EncyclopediaClassButton = new Button();
+            EncyclopediaSubclassButton = new Button();
+            EncyclopediaTalentsButton = new Button();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
+            RulesTab.SuspendLayout();
             SuspendLayout();
             // 
             // UserTabs
@@ -253,6 +259,79 @@
             CharacterTab.Text = "Character";
             CharacterTab.UseVisualStyleBackColor = true;
             // 
+            // FillSubclassLabel
+            // 
+            FillSubclassLabel.AutoSize = true;
+            FillSubclassLabel.Location = new Point(121, 275);
+            FillSubclassLabel.Name = "FillSubclassLabel";
+            FillSubclassLabel.Size = new Size(106, 25);
+            FillSubclassLabel.TabIndex = 16;
+            FillSubclassLabel.Text = "Fill Subclass";
+            // 
+            // FillClassLabel
+            // 
+            FillClassLabel.AutoSize = true;
+            FillClassLabel.Location = new Point(121, 237);
+            FillClassLabel.Name = "FillClassLabel";
+            FillClassLabel.Size = new Size(78, 25);
+            FillClassLabel.TabIndex = 15;
+            FillClassLabel.Text = "Fill Class";
+            // 
+            // FillCopperLabel
+            // 
+            FillCopperLabel.AutoSize = true;
+            FillCopperLabel.Location = new Point(121, 198);
+            FillCopperLabel.Name = "FillCopperLabel";
+            FillCopperLabel.Size = new Size(97, 25);
+            FillCopperLabel.TabIndex = 14;
+            FillCopperLabel.Text = "Fill Copper";
+            // 
+            // FillXPLabel
+            // 
+            FillXPLabel.AutoSize = true;
+            FillXPLabel.Location = new Point(121, 163);
+            FillXPLabel.Name = "FillXPLabel";
+            FillXPLabel.Size = new Size(59, 25);
+            FillXPLabel.TabIndex = 13;
+            FillXPLabel.Text = "Fill XP";
+            // 
+            // FillHealthLabel
+            // 
+            FillHealthLabel.AutoSize = true;
+            FillHealthLabel.Location = new Point(121, 126);
+            FillHealthLabel.Name = "FillHealthLabel";
+            FillHealthLabel.Size = new Size(89, 25);
+            FillHealthLabel.TabIndex = 12;
+            FillHealthLabel.Text = "Fill Health";
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(248, 96);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(533, 209);
+            listView1.TabIndex = 11;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // CharacterTalentsLabel
+            // 
+            CharacterTalentsLabel.AutoSize = true;
+            CharacterTalentsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            CharacterTalentsLabel.Location = new Point(458, 68);
+            CharacterTalentsLabel.Name = "CharacterTalentsLabel";
+            CharacterTalentsLabel.Size = new Size(75, 25);
+            CharacterTalentsLabel.TabIndex = 10;
+            CharacterTalentsLabel.Text = "Talents";
+            // 
+            // SubclassLabel
+            // 
+            SubclassLabel.AutoSize = true;
+            SubclassLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            SubclassLabel.Location = new Point(29, 275);
+            SubclassLabel.Name = "SubclassLabel";
+            SubclassLabel.Size = new Size(84, 25);
+            SubclassLabel.TabIndex = 9;
+            SubclassLabel.Text = "Subclass";
+            // 
             // ClassLabel
             // 
             ClassLabel.AutoSize = true;
@@ -343,6 +422,11 @@
             // 
             // RulesTab
             // 
+            RulesTab.Controls.Add(EncyclopediaTalentsButton);
+            RulesTab.Controls.Add(EncyclopediaSubclassButton);
+            RulesTab.Controls.Add(EncyclopediaClassButton);
+            RulesTab.Controls.Add(label2);
+            RulesTab.Controls.Add(label1);
             RulesTab.Location = new Point(4, 34);
             RulesTab.Name = "RulesTab";
             RulesTab.Padding = new Padding(3);
@@ -351,78 +435,50 @@
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
             // 
-            // SubclassLabel
+            // label1
             // 
-            SubclassLabel.AutoSize = true;
-            SubclassLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            SubclassLabel.Location = new Point(29, 275);
-            SubclassLabel.Name = "SubclassLabel";
-            SubclassLabel.Size = new Size(84, 25);
-            SubclassLabel.TabIndex = 9;
-            SubclassLabel.Text = "Subclass";
+            label1.AutoSize = true;
+            label1.Location = new Point(349, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 25);
+            label1.TabIndex = 0;
             // 
-            // CharacterTalentsLabel
+            // label2
             // 
-            CharacterTalentsLabel.AutoSize = true;
-            CharacterTalentsLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            CharacterTalentsLabel.Location = new Point(458, 68);
-            CharacterTalentsLabel.Name = "CharacterTalentsLabel";
-            CharacterTalentsLabel.Size = new Size(75, 25);
-            CharacterTalentsLabel.TabIndex = 10;
-            CharacterTalentsLabel.Text = "Talents";
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(241, 3);
+            label2.Name = "label2";
+            label2.Size = new Size(314, 48);
+            label2.TabIndex = 3;
+            label2.Text = "Table of Contents";
             // 
-            // listView1
+            // EncyclopediaClassButton
             // 
-            listView1.Location = new Point(248, 96);
-            listView1.Name = "listView1";
-            listView1.Size = new Size(533, 209);
-            listView1.TabIndex = 11;
-            listView1.UseCompatibleStateImageBehavior = false;
+            EncyclopediaClassButton.Location = new Point(232, 68);
+            EncyclopediaClassButton.Name = "EncyclopediaClassButton";
+            EncyclopediaClassButton.Size = new Size(300, 100);
+            EncyclopediaClassButton.TabIndex = 4;
+            EncyclopediaClassButton.Text = "Classes";
+            EncyclopediaClassButton.UseVisualStyleBackColor = true;
             // 
-            // FillHealthLabel
+            // EncyclopediaSubclassButton
             // 
-            FillHealthLabel.AutoSize = true;
-            FillHealthLabel.Location = new Point(121, 126);
-            FillHealthLabel.Name = "FillHealthLabel";
-            FillHealthLabel.Size = new Size(89, 25);
-            FillHealthLabel.TabIndex = 12;
-            FillHealthLabel.Text = "Fill Health";
+            EncyclopediaSubclassButton.Location = new Point(232, 185);
+            EncyclopediaSubclassButton.Name = "EncyclopediaSubclassButton";
+            EncyclopediaSubclassButton.Size = new Size(300, 100);
+            EncyclopediaSubclassButton.TabIndex = 5;
+            EncyclopediaSubclassButton.Text = "Subclasses";
+            EncyclopediaSubclassButton.UseVisualStyleBackColor = true;
             // 
-            // FillXPLabel
+            // EncyclopediaTalentsButton
             // 
-            FillXPLabel.AutoSize = true;
-            FillXPLabel.Location = new Point(121, 163);
-            FillXPLabel.Name = "FillXPLabel";
-            FillXPLabel.Size = new Size(59, 25);
-            FillXPLabel.TabIndex = 13;
-            FillXPLabel.Text = "Fill XP";
-            // 
-            // FillCopperLabel
-            // 
-            FillCopperLabel.AutoSize = true;
-            FillCopperLabel.Location = new Point(121, 198);
-            FillCopperLabel.Name = "FillCopperLabel";
-            FillCopperLabel.Size = new Size(97, 25);
-            FillCopperLabel.TabIndex = 14;
-            FillCopperLabel.Text = "Fill Copper";
-            // 
-            // FillClassLabel
-            // 
-            FillClassLabel.AutoSize = true;
-            FillClassLabel.Location = new Point(121, 237);
-            FillClassLabel.Name = "FillClassLabel";
-            FillClassLabel.Size = new Size(78, 25);
-            FillClassLabel.TabIndex = 15;
-            FillClassLabel.Text = "Fill Class";
-            // 
-            // FillSubclassLabel
-            // 
-            FillSubclassLabel.AutoSize = true;
-            FillSubclassLabel.Location = new Point(121, 275);
-            FillSubclassLabel.Name = "FillSubclassLabel";
-            FillSubclassLabel.Size = new Size(106, 25);
-            FillSubclassLabel.TabIndex = 16;
-            FillSubclassLabel.Text = "Fill Subclass";
+            EncyclopediaTalentsButton.Location = new Point(232, 304);
+            EncyclopediaTalentsButton.Name = "EncyclopediaTalentsButton";
+            EncyclopediaTalentsButton.Size = new Size(300, 100);
+            EncyclopediaTalentsButton.TabIndex = 6;
+            EncyclopediaTalentsButton.Text = "Talents";
+            EncyclopediaTalentsButton.UseVisualStyleBackColor = true;
             // 
             // UserForm
             // 
@@ -437,6 +493,8 @@
             AccountTab.PerformLayout();
             CharacterTab.ResumeLayout(false);
             CharacterTab.PerformLayout();
+            RulesTab.ResumeLayout(false);
+            RulesTab.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -476,5 +534,10 @@
         private Label FillSubclassLabel;
         private Label FillClassLabel;
         private Label FillCopperLabel;
+        private Label label2;
+        private Label label1;
+        private Button EncyclopediaTalentsButton;
+        private Button EncyclopediaSubclassButton;
+        private Button EncyclopediaClassButton;
     }
 }
