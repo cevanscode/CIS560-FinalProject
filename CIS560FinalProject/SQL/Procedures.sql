@@ -2,6 +2,11 @@ DROP PROCEDURE IF EXISTS TryLogin;
 DROP PROCEDURE IF EXISTS GetCharacter;
 DROP PROCEDURE IF EXISTS GetCharacterID;
 DROP PROCEDURE IF EXISTS GetTalentsForCharacter;
+DROP PROCEDURE IF EXISTS GetClasses;
+DROP PROCEDURE IF EXISTS GetSubclasses;
+DROP PROCEDURE IF EXISTS GetTalents;
+DROP PROCEDURE IF EXISTS GetTalentsForClass;
+DROP PROCEDURE IF EXISTS GetTalentsForSubclass;
 GO
 
 
@@ -31,7 +36,7 @@ AS
 SELECT C.CharacterID
 FROM [Character] C
 	INNER JOIN Accounts A ON C.AccountID = A.AccountID
-		AND A.UserName = @UserName AND A.[Password] = @Password
+		AND A.UserName = @UserName AND A.[Password] = @Password;
 GO
 
 CREATE PROCEDURE GetTalentsForCharacter @CharacterID INT
@@ -48,4 +53,40 @@ FROM CharacterSubclass CS
 		AND CS.CharacterSubclassID = CT.CharacterSubclassID
 	INNER JOIN SubclassTalent ST ON CT.SubclassTalentID = ST.SubclassTalentID
 	INNER JOIN Talent T ON ST.TalentID = T.TalentID
-ORDER BY T.[Rank] DESC, T.[TalentType] ASC, T.[Name] DESC
+ORDER BY T.[Rank] DESC, T.[TalentType] ASC, T.[Name] DESC;
+GO
+
+CREATE PROCEDURE GetClasses
+AS
+SELECT *
+FROM UNINITIALIZED
+;
+GO
+
+CREATE PROCEDURE GetSubclasses
+AS
+SELECT *
+FROM UNINITIALIZED
+;
+GO
+
+CREATE PROCEDURE GetTalents
+AS
+SELECT *
+FROM UNINITIALIZED
+;
+GO
+
+CREATE PROCEDURE GetTalentsForClass @ClassID INT
+AS
+SELECT *
+FROM UNINITIALIZED
+;
+GO
+
+CREATE PROCEDURE GetTalentsForSubclass @SubclassID INT
+AS
+SELECT *
+FROM UNINITIALIZED
+;
+GO
