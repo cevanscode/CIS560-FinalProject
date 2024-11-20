@@ -16,9 +16,14 @@ namespace CIS560FinalProject
         private Character? _viewCharacter;
         private Account? _viewAccount;
 
+        /// <summary>
+        /// Constructor that takes no account (used when user is not logging in)
+        /// </summary>
         public UserForm()
         {
             InitializeComponent();
+
+            //Disables Account and Character tabs.
             UserTabs.TabPages[0].Enabled = false;
             UserTabs.TabPages[1].Enabled = false;
             UserTabs.Selecting += UserTabDeselect!;
@@ -26,12 +31,14 @@ namespace CIS560FinalProject
         }
 
         /// <summary>
-        /// Constructor
+        /// Constructor that takes an account (used when the user is logging in)
         /// </summary>
-        /// <param name="loggedIn">If the user logged in to create this form</param>
+        /// <param name="a">The account that is being used to log in</param>
         public UserForm(Account a)
         {
             InitializeComponent();
+
+            //Enables Account and Character tabs
             UserTabs.TabPages[0].Enabled = true;
             UserTabs.TabPages[1].Enabled = true;
             UserTabs.Selecting -= UserTabDeselect!;

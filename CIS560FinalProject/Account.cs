@@ -37,6 +37,11 @@ namespace CIS560FinalProject
         public string? FullName { get; set; }
 
         /// <summary>
+        /// If the account has admin level access
+        /// </summary>
+        public bool IsAdmin { get; set; }
+
+        /// <summary>
         /// The account's Birthday
         /// </summary>
         public DateTime Birthday { get; set; }

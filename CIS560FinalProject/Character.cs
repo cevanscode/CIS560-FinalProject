@@ -54,7 +54,7 @@ namespace CIS560FinalProject
         /// <summary>
         /// The character's subclass
         /// </summary>
-        public Subclass? CharacterSubclass { get; set; }
+        public Subclass? CharacterSubclass { get; set; } //wizard moment
 
         /// <summary>
         /// The talents the character has
