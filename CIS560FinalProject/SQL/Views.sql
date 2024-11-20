@@ -11,7 +11,8 @@ ORDER BY COUNT(CS.SubclassID) DESC;
 GO
 
 -- Managing permissions for SubclassPopularity
-DENY ALL ON VIEW::ShowSubclassPopularity TO PUBLIC;
+--DENY ALL ON VIEW::ShowSubclassPopularity TO PUBLIC;
+GRANT ALL ON VIEW::ShowSubclassPopularity TO PUBLIC;
 GRANT SELECT ON VIEW::ShowSubclassPopularity TO PUBLIC;
 GO
 
@@ -30,8 +31,9 @@ ORDER BY COUNT(CT.TalentID) DESC;
 GO
 
 -- Managing permissions for MostChosenTalentsBySubclass
-DENY ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
-GRANT SELECT ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
+--DENY ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
+GRANT ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
+--GRANT SELECT ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
 GO
 
 /*
