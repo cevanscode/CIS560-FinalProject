@@ -1,5 +1,4 @@
 DROP PROCEDURE IF EXISTS TryLogin;
-DROP PROCEDURE IF EXISTS CreateAccount;
 DROP PROCEDURE IF EXISTS GetCharacter;
 DROP PROCEDURE IF EXISTS GetTalentsForCharacter;
 DROP PROCEDURE IF EXISTS GetClasses;
@@ -7,6 +6,8 @@ DROP PROCEDURE IF EXISTS GetSubclasses;
 DROP PROCEDURE IF EXISTS GetTalents;
 DROP PROCEDURE IF EXISTS GetTalentsForClass;
 DROP PROCEDURE IF EXISTS GetTalentsForSubclass;
+DROP PROCEDURE IF EXISTS CreateAccount;
+DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 GO
 
 
@@ -18,12 +19,6 @@ SELECT A.UserName, A.Email, FullName, Birthday
 FROM Accounts A
 	INNER JOIN [Character] C ON A.AccountID = C.AccountID
 WHERE A.UserName = @Username AND A.AccountPassword = @Password;
-GO
-
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
-AS
-INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
-VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
 
 CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password VarBinary
@@ -113,4 +108,40 @@ FROM Subclass S
 		AND S.SubclassName = @SubclassName
 	INNER JOIN Talent T ON ST.TalentID = T.TalentID
 ORDER BY S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
+GO
+
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+AS
+INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
+VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
+GO
+
+CREATE PROCEDURE MergeCharacterDetails @UserName NVARCHAR(50),
+	@Password VarBinary,
+	@CharacterName NVARCHAR(32),
+	@CharacterAge INT,
+	@Health INT,
+	@XP INT,
+	@Copper INT
+AS
+WITH FindCharacter(CharacterID) AS
+(
+	SELECT C.CharacterID
+	FROM Account A
+		INNER JOIN [Character] C ON A.AccountID = C.AccountID
+	WHERE A.UserName = @UserName AND A.AccountPassword = @Password
+)
+MERGE [Character] C
+USING FindCharacter FC ON FC.CharacterID = C.CharacterID
+WHEN MATCHED THEN
+	UPDATE
+	SET
+		CharacterName = @CharacterName,
+		CharacterAge = @CharacterAge,
+		Health = @Health,
+		XP = @XP,
+		Copper = @Copper
+WHEN NOT MATCHED AND FC.CharacterID IS NULL THEN
+	INSERT(CharacterName, CharacterAge, Health, XP, Copper)
+	VALUES(@CharacterName, @CharacterAge, @Health, @XP, @Copper);
 GO
