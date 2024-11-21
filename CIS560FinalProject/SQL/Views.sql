@@ -18,11 +18,7 @@ GO
 
 CREATE VIEW MostChosenTalentsBySubclass
 AS
-SELECT S.Name,      --Should the ClassID be an enum? 
-                    --I'm probably going to need to do a switch/
-                    --case any time we want to print out
-                    --the Class Names
-        COUNT(CT.TalentID) AS NumberOfTalent
+SELECT S.Name, COUNT(CT.TalentID) AS NumberOfTalent
 FROM Subclass S 
     INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
     INNER JOIN CharacterTalent CT ON ST.SubclassTalentID = CT.SubclassTalentID
@@ -35,9 +31,3 @@ GO
 GRANT ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
 --GRANT SELECT ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
 GO
-
-/*
-Current plan for controlling access to the Accounts table:
-create a view that uses the querying person's username to
-grab a single row from the Accounts table.
-*/
