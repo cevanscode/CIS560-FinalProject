@@ -44,10 +44,10 @@ AS
 SELECT CT.CharacterTalentID,
 	CT.CharacterSubclassID,
 	CT.Amount,
-	T.[Name],
-	T.[Description],
-	T.[Rank],
-	T.[TalentType]
+	T.TalentName,
+	T.TalentDescription,
+	T.TalentRank,
+	T.TalentType
 FROM CharacterSubclass CS
 	INNER JOIN CharacterTalent CT ON CS.CharacterID = @CharacterID
 		AND CS.CharacterSubclassID = CT.CharacterSubclassID
@@ -58,35 +58,61 @@ GO
 
 CREATE PROCEDURE GetClasses
 AS
-SELECT *
-FROM UNINITIALIZED
-;
+SELECT C.ClassName, C.ClassDescription
+FROM Class C
+ORDER BY C.ClassName DESC;
 GO
 
 CREATE PROCEDURE GetSubclasses
 AS
-SELECT *
-FROM UNINITIALIZED
-;
+SELECT C.ClassName, S.SubclassName, S.SubclassDescription
+FROM Class C
+	INNER JOIN Subclass S ON C.ClassID = S.ClassID
+ORDER BY C.ClassName DESC, S.SubclassName DESC;
 GO
 
 CREATE PROCEDURE GetTalents
 AS
-SELECT *
-FROM UNINITIALIZED
-;
+SELECT C.ClassName,
+	S.SubclassName,
+	T.TalentName,
+	T.TalentDescription,
+	T.TalentRank,
+	T.TalentType
+FROM Class C
+	INNER JOIN Subclass S ON C.ClassID = S.ClassID
+	INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
+	INNER JOIN Talent T ON ST.TalentID = T.TalentID
+ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
-CREATE PROCEDURE GetTalentsForClass @ClassID INT
+CREATE PROCEDURE GetTalentsForClass @ClassName NVarChar
 AS
-SELECT *
-FROM UNINITIALIZED
-;
+SELECT C.ClassName,
+	S.SubclassName,
+	T.TalentName,
+	T.TalentDescription,
+	T.TalentRank,
+	T.TalentType
+FROM Class C
+	INNER JOIN Subclass S ON C.ClassID = S.ClassID
+		AND C.ClassName = @ClassName
+	INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
+	INNER JOIN Talent T ON ST.TalentID = T.TalentID
+ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
-CREATE PROCEDURE GetTalentsForSubclass @SubclassID INT
+CREATE PROCEDURE GetTalentsForSubclass @SubclassName NVarChar
 AS
-SELECT *
-FROM UNINITIALIZED
-;
+SELECT C.ClassName,
+	S.SubclassName,
+	T.TalentName,
+	T.TalentDescription,
+	T.TalentRank,
+	T.TalentType
+FROM Subclass S
+	INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
+		AND S.SubclassName = @SubclassName
+	INNER JOIN Talent T ON ST.TalentID = T.TalentID
+ORDER BY S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
