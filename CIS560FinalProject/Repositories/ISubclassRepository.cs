@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CIS560FinalProject.Repositories
+namespace CIS560FinalProject
 {
     public interface ISubclassRepository
     {

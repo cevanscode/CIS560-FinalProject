@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -45,5 +46,16 @@ namespace CIS560FinalProject
         /// The account's Birthday
         /// </summary>
         public DateTime Birthday { get; set; }
+
+        public Account(int accountID, string username, string password, string email, string fullName, DateTime birthday, bool isAdmin)
+        {
+            AccountID = accountID;
+            Username = username;
+            Password = password;
+            Email = email;
+            FullName = fullName;
+            Birthday = birthday;
+            IsAdmin = isAdmin;
+        }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CIS560FinalProject.Repositories
+namespace CIS560FinalProject
 {
     public interface IAccountRepository
     {
@@ -31,6 +31,6 @@ namespace CIS560FinalProject.Repositories
         /// <param name="isAdmin">If the user is an admin</param>
         /// <param name="birthday">The account holder's birthday</param>
         /// <returns>The created Account</returns>
-        Account CreateAccount( string? userName, string? password, string? email, string? fullName, bool isAdmin, DateTime birthday);
+        Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday, bool isAdmin);
     }
 }
