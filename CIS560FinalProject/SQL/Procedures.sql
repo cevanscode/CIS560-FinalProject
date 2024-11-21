@@ -1,4 +1,5 @@
 DROP PROCEDURE IF EXISTS TryLogin;
+DROP PROCEDURE IF EXISTS CreateAccount;
 DROP PROCEDURE IF EXISTS GetCharacter;
 DROP PROCEDURE IF EXISTS GetTalentsForCharacter;
 DROP PROCEDURE IF EXISTS GetClasses;
@@ -11,7 +12,7 @@ GO
 
 
 
-CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password Binary(40)
+CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password VarBinary
 AS
 SELECT A.UserName, A.Email, FullName, Birthday
 FROM Accounts A
@@ -19,8 +20,13 @@ FROM Accounts A
 WHERE A.UserName = @Username AND A.[Password] = @Password;
 GO
 
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50)
+AS
+SELECT *
+FROM UNIMPLEMENTED
+GO
 
-CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password Binary(40)
+CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password VarBinary
 AS
 SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
 	CS.ClassID, CS.SubclassID, C.CharacterID
@@ -30,7 +36,7 @@ FROM Accounts A
 WHERE A.UserName = @Username AND A.[Password] = @Password;
 GO
 
-CREATE PROCEDURE GetTalentsForCharacter @CharacterID INT
+CREATE PROCEDURE GetTalentsForCharacter @CharacterName NVARCHAR(32)
 AS
 SELECT CT.CharacterTalentID,
 	CT.CharacterSubclassID,
@@ -40,8 +46,9 @@ SELECT CT.CharacterTalentID,
 	T.TalentRank,
 	T.TalentType
 FROM CharacterSubclass CS
-	INNER JOIN CharacterTalent CT ON CS.CharacterID = @CharacterID
-		AND CS.CharacterSubclassID = CT.CharacterSubclassID
+	INNER JOIN [Character] C ON C.CharacterName = @CharacterName
+		AND C.CharacterID = CS.CharacterID
+	INNER JOIN CharacterTalent CT ON CS.CharacterSubclassID = CT.CharacterSubclassID
 	INNER JOIN SubclassTalent ST ON CT.SubclassTalentID = ST.SubclassTalentID
 	INNER JOIN Talent T ON ST.TalentID = T.TalentID
 ORDER BY T.[Rank] DESC, T.[TalentType] ASC, T.[Name] DESC;
