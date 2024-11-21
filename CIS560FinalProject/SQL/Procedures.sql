@@ -17,13 +17,13 @@ AS
 SELECT A.UserName, A.Email, FullName, Birthday
 FROM Accounts A
 	INNER JOIN [Character] C ON A.AccountID = C.AccountID
-WHERE A.UserName = @Username AND A.[Password] = @Password;
+WHERE A.UserName = @Username AND A.AccountPassword = @Password;
 GO
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50)
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
-SELECT *
-FROM UNIMPLEMENTED
+INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
+VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
 
 CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password VarBinary
@@ -33,7 +33,7 @@ SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
 FROM Accounts A
 	INNER JOIN [Character] C ON A.AccountID = C.AccountID
 	INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
-WHERE A.UserName = @Username AND A.[Password] = @Password;
+WHERE A.UserName = @Username AND A.AccountPassword = @Password;
 GO
 
 CREATE PROCEDURE GetTalentsForCharacter @CharacterName NVARCHAR(32)
