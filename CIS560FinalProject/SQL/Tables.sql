@@ -16,9 +16,9 @@ GO
 CREATE TABLE Accounts 
 (
 	AccountID INT NOT NULL PRIMARY KEY,
-	UserName NVARCHAR NOT NULL,
-	[Password] NVARCHAR NOT NULL,
-	Email NVARCHAR NOT NULL,
+	UserName NVARCHAR(50) NOT NULL,
+	[Password] Binary NOT NULL,
+	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,
 	-- LinkedAccountID INT FOREIGN KEY REFERENCES Accounts(AccountID)
@@ -30,7 +30,7 @@ GO
 CREATE TABLE [Character]
 (
 	CharacterID INT NOT NULL PRIMARY KEY,
-	CharacterName NVARCHAR NOT NULL,
+	CharacterName NVARCHAR(32) NOT NULL,
 	CharacterAge INT NOT NULL,
 	AccountID INT NOT NULL FOREIGN KEY
 		REFERENCES Accounts(AccountID),
@@ -47,8 +47,10 @@ CREATE TABLE CharacterSubclass
 	CharacterSubclassID INT NOT NULL PRIMARY KEY,
 	CharacterID INT NOT NULL FOREIGN KEY
 		REFERENCES [Character](CharacterID),
+	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
 	
+	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
 	UNIQUE(SubclassID)
 );
 GO
@@ -56,24 +58,22 @@ GO
 CREATE TABLE Talent 
 (
 	TalentID INT NOT NULL PRIMARY KEY,
-	TalentName NVARCHAR NOT NULL,
-	TalentDescription NVARCHAR,
-	[Rank] INT NOT NULL, 
-	[TalentType] INT NOT NULL
+	TalentName NVARCHAR(30) NOT NULL,
+	TalentDescription NVARCHAR(500),
+	TalentRank INT NOT NULL, 
+	TalentType INT NOT NULL
 
-	UNIQUE(TalentName, [Rank], TalentType)
+	UNIQUE(TalentName, TalentRank, TalentType)
 );
 GO
 
-CREATE TABLE SubclassTalent 
+CREATE TABLE SubclassTalent
 (
 	SubclassTalentID INT NOT NULL PRIMARY KEY,
-	[Description] NVARCHAR,
-	[Name] NVARCHAR,
 	TalentID INT NOT NULL FOREIGN KEY
 		REFERENCES Talent(TalentID)
 
-	UNIQUE([Name])
+	UNIQUE(SubclassTalentName)
 );
 GO
 
@@ -94,8 +94,8 @@ GO
 CREATE TABLE Class 
 (
 	ClassID INT NOT NULL PRIMARY KEY,
-	ClassDescription NVARCHAR,
-	ClassName NVARCHAR NOT NULL
+	ClassDescription NVARCHAR(500),
+	ClassName NVARCHAR(30) NOT NULL
 
 	UNIQUE(ClassName)
 );
@@ -106,9 +106,9 @@ CREATE TABLE Subclass
 	SubclassID INT NOT NULL PRIMARY KEY,
 	ClassID INT NOT NULL FOREIGN KEY
 		REFERENCES Class(ClassID),
-	[Name] NVARCHAR NOT NULL
+	SubclassName NVARCHAR(30) NOT NULL
 
 	UNIQUE(SubclassID, ClassID),
-	UNIQUE(Name)
+	UNIQUE(SubclassName)
 );
 GO
