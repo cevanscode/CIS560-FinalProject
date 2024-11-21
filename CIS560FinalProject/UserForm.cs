@@ -42,6 +42,8 @@ namespace CIS560FinalProject
             UserTabs.TabPages[1].Enabled = true;
             UserTabs.Selecting -= UserTabDeselect!;
             UserTabs.SelectedIndex = 0;
+            CharacterOptionsListView.Visible = false;
+            CharacterOptionsListView.Items.Clear();
 
             if (a.IsAdmin == false)
             {

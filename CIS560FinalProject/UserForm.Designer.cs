@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             RulesTab = new TabPage();
+            CharacterOptionsListView = new ListView();
+            ReadButton = new Button();
             BackButton = new Button();
             EncyclopediaTalentsButton = new Button();
             EncyclopediaClassButton = new Button();
@@ -68,12 +70,15 @@
             ModifyAccountButton = new Button();
             UserTabs = new TabControl();
             tabPage1 = new TabPage();
-            ReadButton = new Button();
-            CharacterOptionsListView = new ListView();
+            ClassPopularityButton = new Button();
+            TalentPopularityButton = new Button();
+            TalentRankingsButton = new Button();
+            CopperAccumulationButton = new Button();
             RulesTab.SuspendLayout();
             CharacterTab.SuspendLayout();
             AccountTab.SuspendLayout();
             UserTabs.SuspendLayout();
+            tabPage1.SuspendLayout();
             SuspendLayout();
             // 
             // RulesTab
@@ -92,6 +97,23 @@
             RulesTab.TabIndex = 2;
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
+            // 
+            // CharacterOptionsListView
+            // 
+            CharacterOptionsListView.Location = new Point(133, 75);
+            CharacterOptionsListView.Name = "CharacterOptionsListView";
+            CharacterOptionsListView.Size = new Size(528, 263);
+            CharacterOptionsListView.TabIndex = 9;
+            CharacterOptionsListView.UseCompatibleStateImageBehavior = false;
+            // 
+            // ReadButton
+            // 
+            ReadButton.Location = new Point(671, 370);
+            ReadButton.Name = "ReadButton";
+            ReadButton.Size = new Size(112, 34);
+            ReadButton.TabIndex = 8;
+            ReadButton.Text = "Read";
+            ReadButton.UseVisualStyleBackColor = true;
             // 
             // BackButton
             // 
@@ -492,6 +514,10 @@
             // 
             // tabPage1
             // 
+            tabPage1.Controls.Add(CopperAccumulationButton);
+            tabPage1.Controls.Add(TalentRankingsButton);
+            tabPage1.Controls.Add(TalentPopularityButton);
+            tabPage1.Controls.Add(ClassPopularityButton);
             tabPage1.Location = new Point(4, 34);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new Padding(3);
@@ -500,22 +526,41 @@
             tabPage1.Text = "AdminTab";
             tabPage1.UseVisualStyleBackColor = true;
             // 
-            // ReadButton
+            // ClassPopularityButton
             // 
-            ReadButton.Location = new Point(671, 370);
-            ReadButton.Name = "ReadButton";
-            ReadButton.Size = new Size(112, 34);
-            ReadButton.TabIndex = 8;
-            ReadButton.Text = "Read";
-            ReadButton.UseVisualStyleBackColor = true;
+            ClassPopularityButton.Location = new Point(26, 6);
+            ClassPopularityButton.Name = "ClassPopularityButton";
+            ClassPopularityButton.Size = new Size(146, 34);
+            ClassPopularityButton.TabIndex = 0;
+            ClassPopularityButton.Text = "Class Popularity";
+            ClassPopularityButton.UseVisualStyleBackColor = true;
             // 
-            // CharacterOptionsListView
+            // TalentPopularityButton
             // 
-            CharacterOptionsListView.Location = new Point(133, 75);
-            CharacterOptionsListView.Name = "CharacterOptionsListView";
-            CharacterOptionsListView.Size = new Size(528, 263);
-            CharacterOptionsListView.TabIndex = 9;
-            CharacterOptionsListView.UseCompatibleStateImageBehavior = false;
+            TalentPopularityButton.Location = new Point(197, 6);
+            TalentPopularityButton.Name = "TalentPopularityButton";
+            TalentPopularityButton.Size = new Size(156, 34);
+            TalentPopularityButton.TabIndex = 1;
+            TalentPopularityButton.Text = "Talent Popularity";
+            TalentPopularityButton.UseVisualStyleBackColor = true;
+            // 
+            // TalentRankingsButton
+            // 
+            TalentRankingsButton.Location = new Point(376, 6);
+            TalentRankingsButton.Name = "TalentRankingsButton";
+            TalentRankingsButton.Size = new Size(150, 34);
+            TalentRankingsButton.TabIndex = 2;
+            TalentRankingsButton.Text = "Talent Rankings";
+            TalentRankingsButton.UseVisualStyleBackColor = true;
+            // 
+            // CopperAccumulationButton
+            // 
+            CopperAccumulationButton.Location = new Point(556, 6);
+            CopperAccumulationButton.Name = "CopperAccumulationButton";
+            CopperAccumulationButton.Size = new Size(203, 34);
+            CopperAccumulationButton.TabIndex = 3;
+            CopperAccumulationButton.Text = "Copper Accumulation";
+            CopperAccumulationButton.UseVisualStyleBackColor = true;
             // 
             // UserForm
             // 
@@ -532,6 +577,7 @@
             AccountTab.ResumeLayout(false);
             AccountTab.PerformLayout();
             UserTabs.ResumeLayout(false);
+            tabPage1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -579,5 +625,9 @@
         private Button BackButton;
         private ListView CharacterOptionsListView;
         private Button ReadButton;
+        private Button ClassPopularityButton;
+        private Button CopperAccumulationButton;
+        private Button TalentRankingsButton;
+        private Button TalentPopularityButton;
     }
 }
