@@ -21,6 +21,9 @@ FROM Accounts A
 WHERE A.UserName = @Username AND A.AccountPassword = @Password;
 GO
 
+
+
+
 CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password VarBinary
 AS
 SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
@@ -30,6 +33,9 @@ FROM Accounts A
 	INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
 WHERE A.UserName = @Username AND A.AccountPassword = @Password;
 GO
+
+
+
 
 CREATE PROCEDURE GetTalentsForCharacter @CharacterName NVARCHAR(32)
 AS
@@ -49,12 +55,18 @@ FROM CharacterSubclass CS
 ORDER BY T.[Rank] DESC, T.[TalentType] ASC, T.[Name] DESC;
 GO
 
+
+
+
 CREATE PROCEDURE GetClasses
 AS
 SELECT C.ClassName, C.ClassDescription
 FROM Class C
 ORDER BY C.ClassName DESC;
 GO
+
+
+
 
 CREATE PROCEDURE GetSubclasses
 AS
@@ -63,6 +75,9 @@ FROM Class C
 	INNER JOIN Subclass S ON C.ClassID = S.ClassID
 ORDER BY C.ClassName DESC, S.SubclassName DESC;
 GO
+
+
+
 
 CREATE PROCEDURE GetTalents
 AS
@@ -78,6 +93,9 @@ FROM Class C
 	INNER JOIN Talent T ON ST.TalentID = T.TalentID
 ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
+
+
+
 
 CREATE PROCEDURE GetTalentsForClass @ClassName NVarChar
 AS
@@ -95,6 +113,9 @@ FROM Class C
 ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
+
+
+
 CREATE PROCEDURE GetTalentsForSubclass @SubclassName NVarChar
 AS
 SELECT C.ClassName,
@@ -110,11 +131,28 @@ FROM Subclass S
 ORDER BY S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
+
+
+
+CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password VarBinary
+AS
+IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
+BEGIN
+	SELECT * FROM Accounts A ORDER BY A.AccountID ASC
+END
+GO
+
+
+
+
 CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
+
+
+
 
 CREATE PROCEDURE MergeCharacterDetails @UserName NVARCHAR(50),
 	@Password VarBinary,
