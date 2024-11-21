@@ -14,6 +14,11 @@ namespace CIS560FinalProject
         public string? SubclassName { get; set; }
 
         /// <summary>
+        /// The subclass's description
+        /// </summary>
+        public string? SubclassDescription { get; set; }
+
+        /// <summary>
         /// The subclass's identifer
         /// </summary>
         public int SubclassID { get; set; }

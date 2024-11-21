@@ -12,7 +12,6 @@ namespace CIS560FinalProject
 {
     public partial class UserForm : Form
     {
-        private bool _loggedIn = false;
         private Character? _viewCharacter;
         private Account? _viewAccount;
 
@@ -43,6 +42,15 @@ namespace CIS560FinalProject
             UserTabs.TabPages[1].Enabled = true;
             UserTabs.Selecting -= UserTabDeselect!;
             UserTabs.SelectedIndex = 0;
+
+            if (a.IsAdmin == false)
+            {
+                UserTabs.TabPages[3].Enabled = false;
+            }
+            else
+            {
+                UserTabs.TabPages[3].Enabled = true;
+            }
 
             _viewAccount = a;
         }
@@ -80,6 +88,51 @@ namespace CIS560FinalProject
 
             //return to login menu
             this.Close();
+        }
+
+        private void EncyclopediaClassButton_Click(object sender, EventArgs e)
+        {
+            //subclasses within the scope of classes.
+            RuleBookStartStop(true, "class");
+        }
+
+        private void EncyclopediaTalentsButton_Click(object sender, EventArgs e)
+        {
+            RuleBookStartStop(true, "talent");
+
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            RuleBookStartStop(false, "back");
+
+        }
+
+        private void RuleBookStartStop(bool open, string source)
+        {
+            if (open)
+            {
+                BackButton.Visible = true;
+                EncyclopediaClassButton.Visible = false;
+                EncyclopediaTalentsButton.Visible = false;
+                CharacterOptionsListView.Visible = true;
+
+                if (source == "class")
+                {
+                    //set the binding of the listview here
+                }
+                else if (source == "talent")
+                {
+                    //set the binding of the listview here
+                }
+            }
+            else
+            {
+                BackButton.Visible = false;
+                EncyclopediaClassButton.Visible = true;
+                EncyclopediaTalentsButton.Visible = true;
+                CharacterOptionsListView.Visible = false;
+            }
         }
     }
 }

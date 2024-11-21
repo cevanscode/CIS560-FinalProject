@@ -28,21 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            UserTabs = new TabControl();
-            AccountTab = new TabPage();
-            FillEmailLabel = new Label();
-            FillBDLabel = new Label();
-            FillFNLabel = new Label();
-            FillPWLabel = new Label();
-            FillUNLabel = new Label();
-            AccountLabel = new Label();
-            PasswordLabel = new Label();
-            EmailLabel = new Label();
-            BirthdayLabel = new Label();
-            FullNameLabel = new Label();
-            UserNameLabel = new Label();
-            DeleteAccountButton = new Button();
-            ModifyAccountButton = new Button();
+            RulesTab = new TabPage();
+            BackButton = new Button();
+            EncyclopediaTalentsButton = new Button();
+            EncyclopediaClassButton = new Button();
+            TitleLabel = new Label();
+            label1 = new Label();
             CharacterTab = new TabPage();
             FillSubclassLabel = new Label();
             FillClassLabel = new Label();
@@ -61,176 +52,95 @@
             CharacterLabel = new Label();
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
-            RulesTab = new TabPage();
-            label1 = new Label();
-            label2 = new Label();
-            EncyclopediaClassButton = new Button();
-            EncyclopediaSubclassButton = new Button();
-            EncyclopediaTalentsButton = new Button();
-            UserTabs.SuspendLayout();
-            AccountTab.SuspendLayout();
-            CharacterTab.SuspendLayout();
+            AccountTab = new TabPage();
+            FillEmailLabel = new Label();
+            FillBDLabel = new Label();
+            FillFNLabel = new Label();
+            FillPWLabel = new Label();
+            FillUNLabel = new Label();
+            AccountLabel = new Label();
+            PasswordLabel = new Label();
+            EmailLabel = new Label();
+            BirthdayLabel = new Label();
+            FullNameLabel = new Label();
+            UserNameLabel = new Label();
+            DeleteAccountButton = new Button();
+            ModifyAccountButton = new Button();
+            UserTabs = new TabControl();
+            tabPage1 = new TabPage();
+            ReadButton = new Button();
+            CharacterOptionsListView = new ListView();
             RulesTab.SuspendLayout();
+            CharacterTab.SuspendLayout();
+            AccountTab.SuspendLayout();
+            UserTabs.SuspendLayout();
             SuspendLayout();
             // 
-            // UserTabs
+            // RulesTab
             // 
-            UserTabs.Controls.Add(AccountTab);
-            UserTabs.Controls.Add(CharacterTab);
-            UserTabs.Controls.Add(RulesTab);
-            UserTabs.Location = new Point(3, 3);
-            UserTabs.Name = "UserTabs";
-            UserTabs.SelectedIndex = 0;
-            UserTabs.Size = new Size(797, 448);
-            UserTabs.TabIndex = 0;
+            RulesTab.Controls.Add(CharacterOptionsListView);
+            RulesTab.Controls.Add(ReadButton);
+            RulesTab.Controls.Add(BackButton);
+            RulesTab.Controls.Add(EncyclopediaTalentsButton);
+            RulesTab.Controls.Add(EncyclopediaClassButton);
+            RulesTab.Controls.Add(TitleLabel);
+            RulesTab.Controls.Add(label1);
+            RulesTab.Location = new Point(4, 34);
+            RulesTab.Name = "RulesTab";
+            RulesTab.Padding = new Padding(3);
+            RulesTab.Size = new Size(789, 410);
+            RulesTab.TabIndex = 2;
+            RulesTab.Text = " Rules Encyclopedia";
+            RulesTab.UseVisualStyleBackColor = true;
             // 
-            // AccountTab
+            // BackButton
             // 
-            AccountTab.Controls.Add(FillEmailLabel);
-            AccountTab.Controls.Add(FillBDLabel);
-            AccountTab.Controls.Add(FillFNLabel);
-            AccountTab.Controls.Add(FillPWLabel);
-            AccountTab.Controls.Add(FillUNLabel);
-            AccountTab.Controls.Add(AccountLabel);
-            AccountTab.Controls.Add(PasswordLabel);
-            AccountTab.Controls.Add(EmailLabel);
-            AccountTab.Controls.Add(BirthdayLabel);
-            AccountTab.Controls.Add(FullNameLabel);
-            AccountTab.Controls.Add(UserNameLabel);
-            AccountTab.Controls.Add(DeleteAccountButton);
-            AccountTab.Controls.Add(ModifyAccountButton);
-            AccountTab.Location = new Point(4, 34);
-            AccountTab.Name = "AccountTab";
-            AccountTab.Padding = new Padding(3);
-            AccountTab.Size = new Size(789, 410);
-            AccountTab.TabIndex = 0;
-            AccountTab.Text = "Account";
-            AccountTab.UseVisualStyleBackColor = true;
+            BackButton.Location = new Point(6, 367);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(112, 34);
+            BackButton.TabIndex = 7;
+            BackButton.Text = "Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Visible = false;
+            BackButton.Click += BackButton_Click;
             // 
-            // FillEmailLabel
+            // EncyclopediaTalentsButton
             // 
-            FillEmailLabel.AutoSize = true;
-            FillEmailLabel.Location = new Point(313, 328);
-            FillEmailLabel.Name = "FillEmailLabel";
-            FillEmailLabel.Size = new Size(80, 25);
-            FillEmailLabel.TabIndex = 12;
-            FillEmailLabel.Text = "Fill Email";
+            EncyclopediaTalentsButton.Location = new Point(232, 301);
+            EncyclopediaTalentsButton.Name = "EncyclopediaTalentsButton";
+            EncyclopediaTalentsButton.Size = new Size(300, 100);
+            EncyclopediaTalentsButton.TabIndex = 6;
+            EncyclopediaTalentsButton.Text = "Talents";
+            EncyclopediaTalentsButton.UseVisualStyleBackColor = true;
+            EncyclopediaTalentsButton.Click += EncyclopediaTalentsButton_Click;
             // 
-            // FillBDLabel
+            // EncyclopediaClassButton
             // 
-            FillBDLabel.AutoSize = true;
-            FillBDLabel.Location = new Point(313, 256);
-            FillBDLabel.Name = "FillBDLabel";
-            FillBDLabel.Size = new Size(103, 25);
-            FillBDLabel.TabIndex = 11;
-            FillBDLabel.Text = "Fill Birthday";
+            EncyclopediaClassButton.Location = new Point(232, 124);
+            EncyclopediaClassButton.Name = "EncyclopediaClassButton";
+            EncyclopediaClassButton.Size = new Size(300, 100);
+            EncyclopediaClassButton.TabIndex = 4;
+            EncyclopediaClassButton.Text = "Classes";
+            EncyclopediaClassButton.UseVisualStyleBackColor = true;
+            EncyclopediaClassButton.Click += EncyclopediaClassButton_Click;
             // 
-            // FillFNLabel
+            // TitleLabel
             // 
-            FillFNLabel.AutoSize = true;
-            FillFNLabel.Location = new Point(313, 184);
-            FillFNLabel.Name = "FillFNLabel";
-            FillFNLabel.Size = new Size(117, 25);
-            FillFNLabel.TabIndex = 10;
-            FillFNLabel.Text = "Fill Full Name";
+            TitleLabel.AutoSize = true;
+            TitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            TitleLabel.Location = new Point(241, 3);
+            TitleLabel.Name = "TitleLabel";
+            TitleLabel.Size = new Size(314, 48);
+            TitleLabel.TabIndex = 3;
+            TitleLabel.Text = "Table of Contents";
             // 
-            // FillPWLabel
+            // label1
             // 
-            FillPWLabel.AutoSize = true;
-            FillPWLabel.Location = new Point(313, 119);
-            FillPWLabel.Name = "FillPWLabel";
-            FillPWLabel.Size = new Size(113, 25);
-            FillPWLabel.TabIndex = 9;
-            FillPWLabel.Text = "Fill Password";
-            // 
-            // FillUNLabel
-            // 
-            FillUNLabel.AutoSize = true;
-            FillUNLabel.Location = new Point(313, 62);
-            FillUNLabel.Name = "FillUNLabel";
-            FillUNLabel.Size = new Size(117, 25);
-            FillUNLabel.TabIndex = 8;
-            FillUNLabel.Text = "Fill Username";
-            // 
-            // AccountLabel
-            // 
-            AccountLabel.AutoSize = true;
-            AccountLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            AccountLabel.Location = new Point(204, 3);
-            AccountLabel.Name = "AccountLabel";
-            AccountLabel.Size = new Size(372, 48);
-            AccountLabel.TabIndex = 7;
-            AccountLabel.Text = "Account Information";
-            // 
-            // PasswordLabel
-            // 
-            PasswordLabel.AutoSize = true;
-            PasswordLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            PasswordLabel.Location = new Point(163, 119);
-            PasswordLabel.Name = "PasswordLabel";
-            PasswordLabel.Size = new Size(92, 25);
-            PasswordLabel.TabIndex = 6;
-            PasswordLabel.Text = "Password";
-            // 
-            // EmailLabel
-            // 
-            EmailLabel.AutoSize = true;
-            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            EmailLabel.Location = new Point(163, 328);
-            EmailLabel.Name = "EmailLabel";
-            EmailLabel.Size = new Size(58, 25);
-            EmailLabel.TabIndex = 5;
-            EmailLabel.Text = "Email";
-            // 
-            // BirthdayLabel
-            // 
-            BirthdayLabel.AutoSize = true;
-            BirthdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            BirthdayLabel.Location = new Point(163, 256);
-            BirthdayLabel.Name = "BirthdayLabel";
-            BirthdayLabel.Size = new Size(86, 25);
-            BirthdayLabel.TabIndex = 4;
-            BirthdayLabel.Text = "Birthday";
-            // 
-            // FullNameLabel
-            // 
-            FullNameLabel.AutoSize = true;
-            FullNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            FullNameLabel.Location = new Point(163, 184);
-            FullNameLabel.Name = "FullNameLabel";
-            FullNameLabel.Size = new Size(97, 25);
-            FullNameLabel.TabIndex = 3;
-            FullNameLabel.Text = "Full Name";
-            // 
-            // UserNameLabel
-            // 
-            UserNameLabel.AutoSize = true;
-            UserNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            UserNameLabel.Location = new Point(163, 62);
-            UserNameLabel.Name = "UserNameLabel";
-            UserNameLabel.Size = new Size(97, 25);
-            UserNameLabel.TabIndex = 2;
-            UserNameLabel.Text = "Username";
-            // 
-            // DeleteAccountButton
-            // 
-            DeleteAccountButton.Location = new Point(490, 363);
-            DeleteAccountButton.Name = "DeleteAccountButton";
-            DeleteAccountButton.Size = new Size(151, 34);
-            DeleteAccountButton.TabIndex = 1;
-            DeleteAccountButton.Text = "Delete Account";
-            DeleteAccountButton.UseVisualStyleBackColor = true;
-            DeleteAccountButton.Click += DeleteAccountButton_Click;
-            // 
-            // ModifyAccountButton
-            // 
-            ModifyAccountButton.Location = new Point(158, 363);
-            ModifyAccountButton.Name = "ModifyAccountButton";
-            ModifyAccountButton.Size = new Size(112, 34);
-            ModifyAccountButton.TabIndex = 0;
-            ModifyAccountButton.Text = "Modify";
-            ModifyAccountButton.UseVisualStyleBackColor = true;
-            ModifyAccountButton.Click += ModifyAccountButton_Click;
+            label1.AutoSize = true;
+            label1.Location = new Point(349, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 25);
+            label1.TabIndex = 0;
             // 
             // CharacterTab
             // 
@@ -420,65 +330,192 @@
             ModifyCharacterButton.UseVisualStyleBackColor = true;
             ModifyCharacterButton.Click += ModifyCharacterButton_Click;
             // 
-            // RulesTab
+            // AccountTab
             // 
-            RulesTab.Controls.Add(EncyclopediaTalentsButton);
-            RulesTab.Controls.Add(EncyclopediaSubclassButton);
-            RulesTab.Controls.Add(EncyclopediaClassButton);
-            RulesTab.Controls.Add(label2);
-            RulesTab.Controls.Add(label1);
-            RulesTab.Location = new Point(4, 34);
-            RulesTab.Name = "RulesTab";
-            RulesTab.Padding = new Padding(3);
-            RulesTab.Size = new Size(789, 410);
-            RulesTab.TabIndex = 2;
-            RulesTab.Text = " Rules Encyclopedia";
-            RulesTab.UseVisualStyleBackColor = true;
+            AccountTab.Controls.Add(FillEmailLabel);
+            AccountTab.Controls.Add(FillBDLabel);
+            AccountTab.Controls.Add(FillFNLabel);
+            AccountTab.Controls.Add(FillPWLabel);
+            AccountTab.Controls.Add(FillUNLabel);
+            AccountTab.Controls.Add(AccountLabel);
+            AccountTab.Controls.Add(PasswordLabel);
+            AccountTab.Controls.Add(EmailLabel);
+            AccountTab.Controls.Add(BirthdayLabel);
+            AccountTab.Controls.Add(FullNameLabel);
+            AccountTab.Controls.Add(UserNameLabel);
+            AccountTab.Controls.Add(DeleteAccountButton);
+            AccountTab.Controls.Add(ModifyAccountButton);
+            AccountTab.Location = new Point(4, 34);
+            AccountTab.Name = "AccountTab";
+            AccountTab.Padding = new Padding(3);
+            AccountTab.Size = new Size(789, 410);
+            AccountTab.TabIndex = 0;
+            AccountTab.Text = "Account";
+            AccountTab.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // FillEmailLabel
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(349, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 25);
-            label1.TabIndex = 0;
+            FillEmailLabel.AutoSize = true;
+            FillEmailLabel.Location = new Point(313, 328);
+            FillEmailLabel.Name = "FillEmailLabel";
+            FillEmailLabel.Size = new Size(80, 25);
+            FillEmailLabel.TabIndex = 12;
+            FillEmailLabel.Text = "Fill Email";
             // 
-            // label2
+            // FillBDLabel
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.Location = new Point(241, 3);
-            label2.Name = "label2";
-            label2.Size = new Size(314, 48);
-            label2.TabIndex = 3;
-            label2.Text = "Table of Contents";
+            FillBDLabel.AutoSize = true;
+            FillBDLabel.Location = new Point(313, 256);
+            FillBDLabel.Name = "FillBDLabel";
+            FillBDLabel.Size = new Size(103, 25);
+            FillBDLabel.TabIndex = 11;
+            FillBDLabel.Text = "Fill Birthday";
             // 
-            // EncyclopediaClassButton
+            // FillFNLabel
             // 
-            EncyclopediaClassButton.Location = new Point(232, 68);
-            EncyclopediaClassButton.Name = "EncyclopediaClassButton";
-            EncyclopediaClassButton.Size = new Size(300, 100);
-            EncyclopediaClassButton.TabIndex = 4;
-            EncyclopediaClassButton.Text = "Classes";
-            EncyclopediaClassButton.UseVisualStyleBackColor = true;
+            FillFNLabel.AutoSize = true;
+            FillFNLabel.Location = new Point(313, 184);
+            FillFNLabel.Name = "FillFNLabel";
+            FillFNLabel.Size = new Size(117, 25);
+            FillFNLabel.TabIndex = 10;
+            FillFNLabel.Text = "Fill Full Name";
             // 
-            // EncyclopediaSubclassButton
+            // FillPWLabel
             // 
-            EncyclopediaSubclassButton.Location = new Point(232, 185);
-            EncyclopediaSubclassButton.Name = "EncyclopediaSubclassButton";
-            EncyclopediaSubclassButton.Size = new Size(300, 100);
-            EncyclopediaSubclassButton.TabIndex = 5;
-            EncyclopediaSubclassButton.Text = "Subclasses";
-            EncyclopediaSubclassButton.UseVisualStyleBackColor = true;
+            FillPWLabel.AutoSize = true;
+            FillPWLabel.Location = new Point(313, 119);
+            FillPWLabel.Name = "FillPWLabel";
+            FillPWLabel.Size = new Size(113, 25);
+            FillPWLabel.TabIndex = 9;
+            FillPWLabel.Text = "Fill Password";
             // 
-            // EncyclopediaTalentsButton
+            // FillUNLabel
             // 
-            EncyclopediaTalentsButton.Location = new Point(232, 304);
-            EncyclopediaTalentsButton.Name = "EncyclopediaTalentsButton";
-            EncyclopediaTalentsButton.Size = new Size(300, 100);
-            EncyclopediaTalentsButton.TabIndex = 6;
-            EncyclopediaTalentsButton.Text = "Talents";
-            EncyclopediaTalentsButton.UseVisualStyleBackColor = true;
+            FillUNLabel.AutoSize = true;
+            FillUNLabel.Location = new Point(313, 62);
+            FillUNLabel.Name = "FillUNLabel";
+            FillUNLabel.Size = new Size(117, 25);
+            FillUNLabel.TabIndex = 8;
+            FillUNLabel.Text = "Fill Username";
+            // 
+            // AccountLabel
+            // 
+            AccountLabel.AutoSize = true;
+            AccountLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            AccountLabel.Location = new Point(204, 3);
+            AccountLabel.Name = "AccountLabel";
+            AccountLabel.Size = new Size(372, 48);
+            AccountLabel.TabIndex = 7;
+            AccountLabel.Text = "Account Information";
+            // 
+            // PasswordLabel
+            // 
+            PasswordLabel.AutoSize = true;
+            PasswordLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            PasswordLabel.Location = new Point(163, 119);
+            PasswordLabel.Name = "PasswordLabel";
+            PasswordLabel.Size = new Size(92, 25);
+            PasswordLabel.TabIndex = 6;
+            PasswordLabel.Text = "Password";
+            // 
+            // EmailLabel
+            // 
+            EmailLabel.AutoSize = true;
+            EmailLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            EmailLabel.Location = new Point(163, 328);
+            EmailLabel.Name = "EmailLabel";
+            EmailLabel.Size = new Size(58, 25);
+            EmailLabel.TabIndex = 5;
+            EmailLabel.Text = "Email";
+            // 
+            // BirthdayLabel
+            // 
+            BirthdayLabel.AutoSize = true;
+            BirthdayLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            BirthdayLabel.Location = new Point(163, 256);
+            BirthdayLabel.Name = "BirthdayLabel";
+            BirthdayLabel.Size = new Size(86, 25);
+            BirthdayLabel.TabIndex = 4;
+            BirthdayLabel.Text = "Birthday";
+            // 
+            // FullNameLabel
+            // 
+            FullNameLabel.AutoSize = true;
+            FullNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            FullNameLabel.Location = new Point(163, 184);
+            FullNameLabel.Name = "FullNameLabel";
+            FullNameLabel.Size = new Size(97, 25);
+            FullNameLabel.TabIndex = 3;
+            FullNameLabel.Text = "Full Name";
+            // 
+            // UserNameLabel
+            // 
+            UserNameLabel.AutoSize = true;
+            UserNameLabel.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            UserNameLabel.Location = new Point(163, 62);
+            UserNameLabel.Name = "UserNameLabel";
+            UserNameLabel.Size = new Size(97, 25);
+            UserNameLabel.TabIndex = 2;
+            UserNameLabel.Text = "Username";
+            // 
+            // DeleteAccountButton
+            // 
+            DeleteAccountButton.Location = new Point(490, 363);
+            DeleteAccountButton.Name = "DeleteAccountButton";
+            DeleteAccountButton.Size = new Size(151, 34);
+            DeleteAccountButton.TabIndex = 1;
+            DeleteAccountButton.Text = "Delete Account";
+            DeleteAccountButton.UseVisualStyleBackColor = true;
+            DeleteAccountButton.Click += DeleteAccountButton_Click;
+            // 
+            // ModifyAccountButton
+            // 
+            ModifyAccountButton.Location = new Point(158, 363);
+            ModifyAccountButton.Name = "ModifyAccountButton";
+            ModifyAccountButton.Size = new Size(112, 34);
+            ModifyAccountButton.TabIndex = 0;
+            ModifyAccountButton.Text = "Modify";
+            ModifyAccountButton.UseVisualStyleBackColor = true;
+            ModifyAccountButton.Click += ModifyAccountButton_Click;
+            // 
+            // UserTabs
+            // 
+            UserTabs.Controls.Add(AccountTab);
+            UserTabs.Controls.Add(CharacterTab);
+            UserTabs.Controls.Add(RulesTab);
+            UserTabs.Controls.Add(tabPage1);
+            UserTabs.Location = new Point(3, 3);
+            UserTabs.Name = "UserTabs";
+            UserTabs.SelectedIndex = 0;
+            UserTabs.Size = new Size(797, 448);
+            UserTabs.TabIndex = 0;
+            // 
+            // tabPage1
+            // 
+            tabPage1.Location = new Point(4, 34);
+            tabPage1.Name = "tabPage1";
+            tabPage1.Padding = new Padding(3);
+            tabPage1.Size = new Size(789, 410);
+            tabPage1.TabIndex = 3;
+            tabPage1.Text = "AdminTab";
+            tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ReadButton
+            // 
+            ReadButton.Location = new Point(671, 370);
+            ReadButton.Name = "ReadButton";
+            ReadButton.Size = new Size(112, 34);
+            ReadButton.TabIndex = 8;
+            ReadButton.Text = "Read";
+            ReadButton.UseVisualStyleBackColor = true;
+            // 
+            // CharacterOptionsListView
+            // 
+            CharacterOptionsListView.Location = new Point(133, 75);
+            CharacterOptionsListView.Name = "CharacterOptionsListView";
+            CharacterOptionsListView.Size = new Size(528, 263);
+            CharacterOptionsListView.TabIndex = 9;
+            CharacterOptionsListView.UseCompatibleStateImageBehavior = false;
             // 
             // UserForm
             // 
@@ -488,56 +525,59 @@
             Controls.Add(UserTabs);
             Name = "UserForm";
             Text = "UserForm";
-            UserTabs.ResumeLayout(false);
-            AccountTab.ResumeLayout(false);
-            AccountTab.PerformLayout();
-            CharacterTab.ResumeLayout(false);
-            CharacterTab.PerformLayout();
             RulesTab.ResumeLayout(false);
             RulesTab.PerformLayout();
+            CharacterTab.ResumeLayout(false);
+            CharacterTab.PerformLayout();
+            AccountTab.ResumeLayout(false);
+            AccountTab.PerformLayout();
+            UserTabs.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TabControl UserTabs;
-        private TabPage AccountTab;
-        private TabPage CharacterTab;
         private TabPage RulesTab;
+        private Button EncyclopediaTalentsButton;
+        private Button EncyclopediaClassButton;
+        private Label TitleLabel;
+        private Label label1;
+        private TabPage CharacterTab;
+        private Label FillSubclassLabel;
+        private Label FillClassLabel;
+        private Label FillCopperLabel;
+        private Label FillXPLabel;
+        private Label FillHealthLabel;
+        private ListView listView1;
+        private Label CharacterTalentsLabel;
+        private Label SubclassLabel;
+        private Label ClassLabel;
+        private Label CopperLabel;
+        private Label XPLabel;
+        private Label HealthLabel;
+        private Label FillAgeLabel;
+        private Label AgeLabel;
+        private Label CharacterLabel;
         private Button DeleteCharacterButton;
         private Button ModifyCharacterButton;
-        private Button ModifyAccountButton;
-        private Button DeleteAccountButton;
-        private Label UserNameLabel;
-        private Label BirthdayLabel;
-        private Label FullNameLabel;
-        private Label EmailLabel;
-        private Label PasswordLabel;
-        private Label AccountLabel;
-        private Label FillUNLabel;
+        private TabPage AccountTab;
         private Label FillEmailLabel;
         private Label FillBDLabel;
         private Label FillFNLabel;
         private Label FillPWLabel;
-        private Label CharacterLabel;
-        private Label AgeLabel;
-        private Label FillAgeLabel;
-        private Label HealthLabel;
-        private Label XPLabel;
-        private Label CopperLabel;
-        private Label ClassLabel;
-        private Label SubclassLabel;
-        private Label CharacterTalentsLabel;
-        private ListView listView1;
-        private Label FillXPLabel;
-        private Label FillHealthLabel;
-        private Label FillSubclassLabel;
-        private Label FillClassLabel;
-        private Label FillCopperLabel;
-        private Label label2;
-        private Label label1;
-        private Button EncyclopediaTalentsButton;
-        private Button EncyclopediaSubclassButton;
-        private Button EncyclopediaClassButton;
+        private Label FillUNLabel;
+        private Label AccountLabel;
+        private Label PasswordLabel;
+        private Label EmailLabel;
+        private Label BirthdayLabel;
+        private Label FullNameLabel;
+        private Label UserNameLabel;
+        private Button DeleteAccountButton;
+        private Button ModifyAccountButton;
+        private TabControl UserTabs;
+        private TabPage tabPage1;
+        private Button BackButton;
+        private ListView CharacterOptionsListView;
+        private Button ReadButton;
     }
 }
