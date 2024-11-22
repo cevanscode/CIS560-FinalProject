@@ -50,6 +50,9 @@ namespace CIS560FinalProject
             FillFNLabel.Text = a.FullName;
             FillBDLabel.Text = a.Birthday.ToString(); //erm this may look weird unformatted
             FillEmailLabel.Text = a.Email;
+
+            //fill in the character if they have any here
+
         }
 
         /// <summary>

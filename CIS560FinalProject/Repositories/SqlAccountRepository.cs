@@ -14,23 +14,32 @@ namespace CIS560FinalProject
         public Account CreateAccount(string username, string password, string email, string fullName, DateTime birthday)
         {
             if (string.IsNullOrWhiteSpace(username))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
+            {
+                MessageBox.Show("Username cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
             if (string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
+            {
+                MessageBox.Show("Password cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
             if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(email));
+            {
+                MessageBox.Show("Email cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
             if (string.IsNullOrWhiteSpace(fullName))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(fullName));
+            {
+                MessageBox.Show("Full name cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
 
             var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
         }
-
-        //public Account FetchAccount(int accountID)
-        //{
-        //    var d = new FetchAccountDataDelegate(accountID);
-        //    return executor.ExecuteReader(d);
-        //}
 
         public Account FetchAccount(string username, string password)
         {
