@@ -31,22 +31,22 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-            string pw = password;
-            Encoding encoding = Encoding.ASCII;
+            //string pw = password;
+            //Encoding encoding = Encoding.ASCII;
 
-            byte[] pwBytes = encoding.GetBytes(pw);
+            //byte[] pwBytes = encoding.GetBytes(pw);
 
-            byte[] keep;
+            //byte[] keep;
 
-            using (SHA256 mySHA256 = SHA256.Create())
-            {
-                keep = mySHA256.ComputeHash(pwBytes);
-            }
+            //using (SHA256 mySHA256 = SHA256.Create())
+            //{
+            //    keep = mySHA256.ComputeHash(pwBytes);
+            //}
 
                 // Add other parameters
             command.Parameters.AddWithValue("UserName", username);
             command.Parameters.AddWithValue("Email", email);
-            command.Parameters.AddWithValue("Password", keep);
+            command.Parameters.AddWithValue("Password", password);
             command.Parameters.AddWithValue("FullName", fullName);
             command.Parameters.AddWithValue("Birthday", birthday);
         }

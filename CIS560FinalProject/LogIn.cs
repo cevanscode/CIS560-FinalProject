@@ -36,16 +36,16 @@ namespace CIS560FinalProject
             this.Hide();
         }
 
-        private bool VerifyPassword(string enteredPassword, byte[] storedHash)
-        {
-            Encoding encoding = Encoding.ASCII;
+        //private bool VerifyPassword(string enteredPassword, byte[] storedHash)
+        //{
+        //    Encoding encoding = Encoding.ASCII;
 
-            byte[] hash = encoding.GetBytes(enteredPassword);
+        //    byte[] hash = encoding.GetBytes(enteredPassword);
 
-            MessageBox.Show("Entered password hash: " + BitConverter.ToString(hash) + "vs" + "Stored password hash: " + BitConverter.ToString(storedHash));
+        //    MessageBox.Show("Entered password hash: " + BitConverter.ToString(hash) + "vs" + "Stored password hash: " + BitConverter.ToString(storedHash));
 
-            return hash.SequenceEqual(storedHash);
-        }
+        //    return hash.SequenceEqual(storedHash);
+        //}
 
         /// <summary>
         /// Logs into an account based on the information present in Username and Password fields

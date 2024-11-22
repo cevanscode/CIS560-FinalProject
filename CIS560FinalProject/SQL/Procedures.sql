@@ -135,7 +135,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar
+CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar(MAX)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
@@ -151,7 +151,7 @@ END
 GO
 
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar(MAX), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);

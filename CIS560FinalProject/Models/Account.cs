@@ -59,14 +59,14 @@ namespace CIS560FinalProject
             Birthday = birthday;
         }
 
-        public Account(int accountID, string username, Byte[] password, string email, string fullName, DateTime birthday)
-        {
-            AccountID = accountID;
-            Username = username;
-            BytePW = password;
-            Email = email;
-            FullName = fullName;
-            Birthday = birthday;
-        }
+        //public Account(int accountID, string username, Byte[] password, string email, string fullName, DateTime birthday)
+        //{
+        //    AccountID = accountID;
+        //    Username = username;
+        //    BytePW = password;
+        //    Email = email;
+        //    FullName = fullName;
+        //    Birthday = birthday;
+        //}
     }
 }

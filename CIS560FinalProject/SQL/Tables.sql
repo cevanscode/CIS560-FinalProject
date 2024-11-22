@@ -17,7 +17,7 @@ CREATE TABLE Accounts
 (
 	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
-	AccountPassword NVarChar NOT NULL,
+	AccountPassword NVarChar(MAX) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,

@@ -30,7 +30,7 @@ namespace CIS560FinalProject
                 accounts.Add(new Account(
                     reader.GetInt32("AccountID"),
                     reader.GetString("UserName"),
-                    reader.GetBytes("AccountPassword"),
+                    reader.GetString("AccountPassword"),
                     reader.GetString("Email"),
                     reader.GetString("FullName"),
                     reader.GetDateTime("Birthday", DateTimeKind.Unspecified)));
