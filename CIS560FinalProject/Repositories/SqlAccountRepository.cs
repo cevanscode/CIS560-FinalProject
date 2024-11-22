@@ -26,11 +26,23 @@ namespace CIS560FinalProject
             return executor.ExecuteNonQuery(d);
         }
 
-        public Account FetchAccount(int accountID)
+        //public Account FetchAccount(int accountID)
+        //{
+        //    var d = new FetchAccountDataDelegate(accountID);
+        //    return executor.ExecuteReader(d);
+        //}
+
+        public Account FetchAccount(string username, string password)
         {
-            var d = new FetchAccountDataDelegate(accountID);
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
+
+            var d = new FetchAccountDataDelegate(username, password);
             return executor.ExecuteReader(d);
         }
+
 
         public IReadOnlyList<Account> RetrieveAccounts()
         {

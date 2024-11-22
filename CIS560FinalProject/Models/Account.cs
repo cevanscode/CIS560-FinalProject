@@ -27,7 +27,7 @@ namespace CIS560FinalProject
         /// </summary>
         public string? Password { get; set; }
 
-        public Byte[] BytePW { get; set; }
+        //public Byte[] BytePW { get; set; }
 
         /// <summary>
         /// The account's Email

@@ -157,6 +157,24 @@ INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
 
+CREATE PROCEDURE FetchAccount 
+    @Username NVARCHAR(50), 
+    @Password NVARCHAR(MAX)
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    SELECT 
+        AccountID,
+        Username,
+        AccountPassword AS Password,
+        Email,
+        FullName,
+        Birthday
+    FROM Accounts
+    WHERE Username = @Username AND AccountPassword = @Password;
+END;
+GO
 
 
 

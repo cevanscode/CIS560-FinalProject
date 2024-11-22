@@ -15,7 +15,7 @@ namespace CIS560FinalProject
         /// </summary>
         /// <param name="accountID">The id of the account to retrieve</param>
         /// <returns>The character</returns>
-        Account FetchAccount(int accountID);
+       // Account FetchAccount(int accountID);
 
         /// <summary>
         /// Creates an account in the repository
@@ -27,5 +27,8 @@ namespace CIS560FinalProject
         /// <param name="birthday">The account holder's birthday</param>
         /// <returns>The created Account</returns>
         Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
+
+        Account FetchAccount(string username, string password);
+
     }
 }

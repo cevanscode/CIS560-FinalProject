@@ -36,6 +36,7 @@ namespace CIS560FinalProject
             this.Hide();
         }
 
+        //VerifyPassword(PasswordTextBox.Text, account.BytePW)
         //private bool VerifyPassword(string enteredPassword, byte[] storedHash)
         //{
         //    Encoding encoding = Encoding.ASCII;
@@ -61,9 +62,9 @@ namespace CIS560FinalProject
 
             foreach (Account account in accounts)
             {
-                if (account.Username == UsernameTextBox.Text && VerifyPassword(PasswordTextBox.Text, account.BytePW))
+                if (account.Username == UsernameTextBox.Text && account.Password == PasswordTextBox.Text)
                 {
-                    loginAccount = repo.FetchAccount(account.AccountID);
+                    loginAccount = repo.FetchAccount(account.Username, account.Password);
                     break;
                 }
             }
