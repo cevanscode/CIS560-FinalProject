@@ -6,13 +6,11 @@ namespace CIS560FinalProject
     internal class GetSubclassDataDelegate : DataReaderDelegate<Subclass>
     {
         private readonly string name;
-        private readonly string className;
 
-        public GetSubclassDataDelegate(string name, string className)
+        public GetSubclassDataDelegate(string name)
             : base("GetSubclass")
         {
             this.name = name;
-            this.className = className;
         }
 
         public override void PrepareCommand(Command command)
@@ -27,7 +25,7 @@ namespace CIS560FinalProject
             if (!reader.Read())
                 return null;
 
-            return new Subclass(name, reader.GetString("Description"), className);
+            return new Subclass(name, reader.GetString("Description"), reader.GetString("ClassName"));
         }
     }
 }

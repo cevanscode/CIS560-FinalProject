@@ -12,16 +12,6 @@ namespace CIS560FinalProject
     public class Character
     {
         /// <summary>
-        /// The character's identifier
-        /// </summary>
-        public int CharacterID { get; set; }
-
-        /// <summary>
-        /// The associated identifier for the account that owns this character
-        /// </summary>
-        public int AccountID { get; set; }
-
-        /// <summary>
         /// The character's name
         /// </summary>
         public string? CharacterName { get; set; }
@@ -49,29 +39,27 @@ namespace CIS560FinalProject
         /// <summary>
         /// The character's class
         /// </summary>
-        public Class CharacterClass { get; set; }
+        public string ClassName { get; set; }
 
         /// <summary>
         /// The character's subclass
         /// </summary>
-        public Subclass CharacterSubclass { get; set; } //wizard moment
+        public string SubclassName { get; set; } //wizard moment
 
         /// <summary>
         /// The talents the character has
         /// </summary>
         public List<Talent> CharacterTalents { get; set; }
 
-        public Character(int characterID, int accountID, string characterName, int characterAge, int health, int xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents)
+        public Character(string characterName, int characterAge, int health, int xp, int copper, string className, string subclassName, List<Talent> talents)
         {
-            CharacterID = characterID;
-            AccountID = accountID;
             CharacterName = characterName;
             CharacterAge = characterAge;
             Health = health;
             XP = xp;
             Copper = copper;
-            CharacterClass = characterClass;
-            CharacterSubclass = subclass;
+            ClassName = className;
+            SubclassName = subclassName;
             CharacterTalents = talents;
         }
     }
