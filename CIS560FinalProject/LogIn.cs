@@ -35,18 +35,6 @@ namespace CIS560FinalProject
             this.Hide();
         }
 
-        //VerifyPassword(PasswordTextBox.Text, account.BytePW)
-        //private bool VerifyPassword(string enteredPassword, byte[] storedHash)
-        //{
-        //    Encoding encoding = Encoding.ASCII;
-
-        //    byte[] hash = encoding.GetBytes(enteredPassword);
-
-        //    MessageBox.Show("Entered password hash: " + BitConverter.ToString(hash) + "vs" + "Stored password hash: " + BitConverter.ToString(storedHash));
-
-        //    return hash.SequenceEqual(storedHash);
-        //}
-
         /// <summary>
         /// Logs into an account based on the information present in Username and Password fields
         /// </summary>
@@ -56,8 +44,6 @@ namespace CIS560FinalProject
         {
             IReadOnlyList<Account> accounts = repo.RetrieveAccounts();
             Account? loginAccount = null;
-
-
 
             foreach (Account account in accounts)
             {

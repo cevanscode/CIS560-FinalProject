@@ -37,7 +37,7 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-            // How to handle Foreign Key Shit with the Columns?
+            // How to handle Foreign Key stuff with the Columns?
             // IE, how to Character, Class, Subclass, Talent, and Account Communicate on this side?
             command.Parameters.AddWithValue("AccountID", accountID);
             command.Parameters.AddWithValue("CharacterName", name);
