@@ -1,19 +1,36 @@
 ﻿
+using DataAccess;
+using System.CodeDom.Compiler;
+
 namespace CIS560FinalProject
 {
     public class SqlSubclassRepository : ISubclassRepository
     {
-        public Subclass CreateSubclass(string name, string description, SubclassType type)
+        private readonly SqlCommandExecutor executor;
+
+        public SqlSubclassRepository(string connectionString)
         {
-            throw new NotImplementedException();
+            executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Subclass FetchSubclass(int id)
+        public Subclass UpdateSubclass(int classID, string name, string description)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
+            if (string.IsNullOrWhiteSpace(description))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(description));
+
+            var d = new UpdateSubclassDataDelegate(classID, name, description);
+            return executor.ExecuteNonQuery(d);
         }
 
-        public IReadOnlyList<Subclass> GetAllSubclasses()
+        public Subclass GetSubclass(string name)
+        {
+            var d = new GetSubclassDataDelegate(name);
+            return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<Subclass> RetrieveSubclasses()
         {
             throw new NotImplementedException();
         }

@@ -1,19 +1,34 @@
-﻿﻿
+﻿using DataAccess;
+﻿
 namespace CIS560FinalProject
 {
     internal class SqlClassRepository : IClassRepository
     {
-        public Class CreateClass(string name, string description)
+        private readonly SqlCommandExecutor executor;
+
+        public SqlClassRepository(string connectionString)
         {
-            throw new NotImplementedException();
+            executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Class FetchClass(int id)
+        public Class UpdateClass(string name, string description)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
+            if (string.IsNullOrWhiteSpace(description))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(description));
+
+            var d = new UpdateClassDataDelegate(name, description);
+            return executor.ExecuteNonQuery(d);
         }
 
-        public IReadOnlyList<Class> GetAllClasses()
+        public Class GetClass(string name)
+        {
+            var d = new GetClassDataDelegate(name);
+            return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<Class> RetrieveClasses()
         {
             throw new NotImplementedException();
         }
