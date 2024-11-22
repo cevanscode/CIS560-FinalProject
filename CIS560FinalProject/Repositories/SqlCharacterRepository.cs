@@ -13,7 +13,7 @@ namespace CIS560FinalProject
             throw new NotImplementedException();
         }
 
-        public IReadOnlyList<Character> GetAllCharacters()
+        public IReadOnlyList<Character> RetrieveCharacters()
         {
             throw new NotImplementedException();
         }

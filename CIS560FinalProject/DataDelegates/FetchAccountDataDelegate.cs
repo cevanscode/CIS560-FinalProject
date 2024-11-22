@@ -1,28 +1,26 @@
 ﻿using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
-using DataAccess;
 
 namespace CIS560FinalProject
 {
-    internal class FetchAccountDataDelegate : IDataReaderDelegate<Account>
+    internal class FetchAccountDataDelegate : DataReaderDelegate<Account>
     {
         private readonly int accountID;
 
-        public string ProcedureName { get; }
-
         public FetchAccountDataDelegate(int accountID)
+            : base("FetchAccount")
         {
             this.accountID = accountID;
         }
 
-        public void PrepareCommand(Command command)
+        public override void PrepareCommand(Command command)
         {
             var p = command.Parameters.Add("AccountID", SqlDbType.Int);
             p.Value = accountID;
         }
 
-        public Account Translate(Command command, IDataRowReader reader)
+        public override Account Translate(Command command, IDataRowReader reader)
         {
             if (!reader.Read())
                 throw new RecordNotFoundException(accountID.ToString());

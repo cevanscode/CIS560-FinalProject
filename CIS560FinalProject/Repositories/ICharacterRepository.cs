@@ -7,7 +7,7 @@ namespace CIS560FinalProject
         /// Retrieves all characters from the database
         /// </summary>
         /// <returns>List containing all characters</returns>
-        IReadOnlyList<Character> GetAllCharacters();
+        IReadOnlyList<Character> RetrieveCharacters();
 
         /// <summary>
         /// Grabs a character from the database
