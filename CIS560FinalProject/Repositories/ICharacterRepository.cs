@@ -29,6 +29,6 @@ namespace CIS560FinalProject
         /// <param name="subclass">The character's subclass</param>
         /// <param name="talents">The talents the character has</param>
         /// <returns>A character that is created</returns>
-        Character CreateCharacter(int accountID, string name, int age, int health, uint xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents);
+        Character CreateCharacter(int accountID, string name, int age, int health, int xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents);
     }
 }
