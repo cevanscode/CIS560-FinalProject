@@ -8,6 +8,8 @@ DROP PROCEDURE IF EXISTS GetTalentsForClass;
 DROP PROCEDURE IF EXISTS GetTalentsForSubclass;
 DROP PROCEDURE IF EXISTS AdminGetAccounts;
 DROP PROCEDURE IF EXISTS CreateAccount;
+DROP PROCEDURE IF EXISTS CreateClass;
+DROP PROCEDURE IF EXISTS CreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 GO
 
@@ -146,6 +148,24 @@ CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Emai
 AS
 INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
+GO
+
+
+
+
+CREATE PROCEDURE CreateClass @ClassName NVarChar(30), @ClassDescription NVarChar(500)
+AS
+INSERT Class(ClassName, ClassDescription)
+VALUES(@ClassName, @ClassDescription)
+GO
+
+
+
+
+CREATE PROCEDURE CreateSubclass @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
+AS
+INSERT Class(ClassID, SubclassDescription, SubclassName)
+VALUES((SELECT C.ClassID FROM Class C WHERE @ClassName = C.ClassName),@SubclassName, @SubclassDescription)
 GO
 
 
