@@ -24,9 +24,8 @@ namespace CIS560FinalProject
         /// <param name="password">The account's password</param>
         /// <param name="email">The account's email</param>
         /// <param name="fullName">The account holder's full name</param>
-        /// <param name="isAdmin">If the user is an admin</param>
         /// <param name="birthday">The account holder's birthday</param>
         /// <returns>The created Account</returns>
-        Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday, bool isAdmin);
+        Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
     }
 }

@@ -47,7 +47,7 @@ namespace CIS560FinalProject
         /// </summary>
         public DateTime Birthday { get; set; }
 
-        public Account(int accountID, string username, string password, string email, string fullName, DateTime birthday, bool isAdmin)
+        public Account(int accountID, string username, string password, string email, string fullName, DateTime birthday)
         {
             AccountID = accountID;
             Username = username;
@@ -55,7 +55,6 @@ namespace CIS560FinalProject
             Email = email;
             FullName = fullName;
             Birthday = birthday;
-            IsAdmin = isAdmin;
         }
     }
 }

@@ -15,7 +15,7 @@ GO
 
 CREATE TABLE Accounts 
 (
-	AccountID INT NOT NULL PRIMARY KEY,
+	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
 	AccountPassword VarBinary NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
@@ -42,6 +42,28 @@ CREATE TABLE [Character]
 );
 GO
 
+CREATE TABLE Class 
+(
+	ClassID INT NOT NULL PRIMARY KEY,
+	ClassDescription NVARCHAR(500),
+	ClassName NVARCHAR(30) NOT NULL
+
+	UNIQUE(ClassName)
+);
+GO
+
+CREATE TABLE Subclass 
+(
+	SubclassID INT NOT NULL PRIMARY KEY,
+	ClassID INT NOT NULL FOREIGN KEY
+		REFERENCES Class(ClassID),
+	SubclassName NVARCHAR(30) NOT NULL
+
+	UNIQUE(SubclassID, ClassID),
+	UNIQUE(SubclassName)
+);
+GO
+
 CREATE TABLE CharacterSubclass 
 (
 	CharacterSubclassID INT NOT NULL PRIMARY KEY,
@@ -50,7 +72,8 @@ CREATE TABLE CharacterSubclass
 	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
 	
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
+	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
+	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
 	UNIQUE(SubclassID)
 );
 GO
@@ -73,7 +96,7 @@ CREATE TABLE SubclassTalent
 	TalentID INT NOT NULL FOREIGN KEY
 		REFERENCES Talent(TalentID)
 
-	UNIQUE(SubclassTalentName)
+	--UNIQUE(SubclassTalentName)
 );
 GO
 
@@ -91,24 +114,3 @@ CREATE TABLE CharacterTalent
 );
 GO
 
-CREATE TABLE Class 
-(
-	ClassID INT NOT NULL PRIMARY KEY,
-	ClassDescription NVARCHAR(500),
-	ClassName NVARCHAR(30) NOT NULL
-
-	UNIQUE(ClassName)
-);
-GO
-
-CREATE TABLE Subclass 
-(
-	SubclassID INT NOT NULL PRIMARY KEY,
-	ClassID INT NOT NULL FOREIGN KEY
-		REFERENCES Class(ClassID),
-	SubclassName NVARCHAR(30) NOT NULL
-
-	UNIQUE(SubclassID, ClassID),
-	UNIQUE(SubclassName)
-);
-GO

@@ -11,7 +11,7 @@ namespace CIS560FinalProject
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Account CreateAccount(string username, string password, string email, string fullName, DateTime birthday, bool isAdmin)
+        public Account CreateAccount(string username, string password, string email, string fullName, DateTime birthday)
         {
             if (string.IsNullOrWhiteSpace(username))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
@@ -22,7 +22,7 @@ namespace CIS560FinalProject
             if (string.IsNullOrWhiteSpace(fullName))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(fullName));
 
-            var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday, isAdmin);
+            var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
         }
 

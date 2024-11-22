@@ -33,8 +33,7 @@ namespace CIS560FinalProject
                 reader.GetString("Password"),
                 reader.GetString("Email"),
                 reader.GetString("FullName"),
-                reader.GetDateTime("Birthday", DateTimeKind.Unspecified),
-                reader.GetBoolean("IsAdmin"));
+                reader.GetDateTime("Birthday", DateTimeKind.Unspecified));
 
         }
     }

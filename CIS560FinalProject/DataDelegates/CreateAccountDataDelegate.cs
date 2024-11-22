@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace CIS560FinalProject
 {
@@ -10,9 +11,9 @@ namespace CIS560FinalProject
         private readonly string email;
         public readonly string fullName;
         private readonly DateTime birthday;
-        private readonly bool isAdmin;
+        //private readonly bool isAdmin;
 
-        public CreateAccountDataDelegate(string userName, string password, string email, string fullName, DateTime birthday, bool isAdmin)
+        public CreateAccountDataDelegate(string userName, string password, string email, string fullName, DateTime birthday)
             : base("CreateAccount")
         {
             this.username = userName;
@@ -20,26 +21,23 @@ namespace CIS560FinalProject
             this.email = email;
             this.fullName = fullName;
             this.birthday = birthday;
-            this.isAdmin = isAdmin;
+            //this.isAdmin = isAdmin;
         }
 
         public override void PrepareCommand(Command command)
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Username", username);
-            command.Parameters.AddWithValue("Password", password);
+            command.Parameters.AddWithValue("UserName", username);
+            command.Parameters.AddWithValue("Password", Encoding.ASCII.GetBytes(password));
             command.Parameters.AddWithValue("Email", email);
             command.Parameters.AddWithValue("FullName", fullName);
             command.Parameters.AddWithValue("Birthday", birthday);
-
-            var p = command.Parameters.Add("AccountID", System.Data.SqlDbType.Int);
-            p.Direction = System.Data.ParameterDirection.Output;
         }
 
         public override Account Translate(Command command)
         {
-            return new Account(command.GetParameterValue<int>("AccountID"), username, password, email, fullName, birthday, isAdmin);
+            return new Account(0, username, password, email, fullName, birthday);
         }
     }
 }

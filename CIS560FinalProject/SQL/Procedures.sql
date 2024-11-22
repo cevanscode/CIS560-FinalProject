@@ -148,7 +148,7 @@ GO
 
 CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
-INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
+INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
 
