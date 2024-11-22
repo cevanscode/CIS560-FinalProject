@@ -11,7 +11,7 @@ namespace CIS560FinalProject
         public readonly TalentType type;
 
         public UpdateTalentDataDelegate(string name, string description, Rank rank, TalentType type)
-            : base("UpdateTalent")
+            : base("UpdateTalent") // Make sure matches Procedure
         {
             this.name = name;
             this.description = description;
@@ -23,18 +23,18 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Name", name);
-            command.Parameters.AddWithValue("Description", description);
-            command.Parameters.AddWithValue("Rank", rank);
-            command.Parameters.AddWithValue("Type", type);
+            command.Parameters.AddWithValue("TalentName", name);
+            command.Parameters.AddWithValue("TalentDescription", description);
+            command.Parameters.AddWithValue("TalentRank", rank);
+            command.Parameters.AddWithValue("TalentCategoryID", type);
 
-            var p = command.Parameters.Add("TalentID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
+            //var p = command.Parameters.Add("TalentID", SqlDbType.Int);
+            //p.Direction = ParameterDirection.Output;
         }
 
         public override Talent Translate(Command command)
         {
-            return new Talent(command.GetParameterValue<int>("TalentID"), name, description, rank, type);
+            return new Talent(name, description, rank, type);
         }
     }
 }

@@ -8,7 +8,7 @@ namespace CIS560FinalProject
         private readonly string name;
 
         public GetTalentDataDelegate(string name)
-            : base("GetTalent")
+            : base("GetTalent") // Make sure matches Procedure
         {
             this.name = name;
         }
@@ -17,7 +17,7 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Name", name);
+            command.Parameters.AddWithValue("TalentName", name);
         }
 
         public override Talent Translate(Command command, IDataRowReader reader)
@@ -25,7 +25,7 @@ namespace CIS560FinalProject
             if (!reader.Read())
                 return null;
 
-            return new Talent(reader.GetInt32("TalentID"), name, reader.GetString("Description"), (Rank)reader.GetInt32("Rank"), (TalentType)reader.GetInt32("Type"));
+            return new Talent(name, reader.GetString("TalentDescription"), (Rank)reader.GetInt32("TalentRank"), (TalentType)reader.GetInt32("TalentCategoryID"));
             // Note Rank and Type will likely need updated
         }
     }

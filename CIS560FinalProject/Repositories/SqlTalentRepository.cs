@@ -35,7 +35,7 @@ namespace CIS560FinalProject
 
         public IReadOnlyList<Talent> RetrieveTalents()
         {
-            throw new NotImplementedException();
+            return executor.ExecuteReader(new RetrieveTalentsDataDelegate());
         }
     }
 }

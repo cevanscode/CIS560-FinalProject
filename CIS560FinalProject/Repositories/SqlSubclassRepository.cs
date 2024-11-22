@@ -13,26 +13,28 @@ namespace CIS560FinalProject
             executor = new SqlCommandExecutor(connectionString);
         }
 
-        public Subclass UpdateSubclass(int classID, string name, string description)
+        public Subclass UpdateSubclass(string name, string description, string className)
         {
             if (string.IsNullOrWhiteSpace(name))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(description));
+            if (string.IsNullOrWhiteSpace(className))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(className));
 
-            var d = new UpdateSubclassDataDelegate(classID, name, description);
+            var d = new UpdateSubclassDataDelegate(name, description, className);
             return executor.ExecuteNonQuery(d);
         }
 
-        public Subclass GetSubclass(string name)
+        public Subclass GetSubclass(string name, string className)
         {
-            var d = new GetSubclassDataDelegate(name);
+            var d = new GetSubclassDataDelegate(name, className);
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<Subclass> RetrieveSubclasses()
+        public IReadOnlyList<Subclass> RetrieveSubclasses(string className)
         {
-            throw new NotImplementedException();
+            return executor.ExecuteReader(new RetrieveSubclassesDataDelegate(className));
         }
     }
 }

@@ -9,7 +9,7 @@ namespace CIS560FinalProject
         public readonly string description;
 
         public UpdateClassDataDelegate(string name, string description)
-            : base("UpdateClass")
+            : base("UpdateClass") // Make sure matches Procedure
         {
             this.name = name;
             this.description = description;
@@ -19,16 +19,16 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Name", name);
-            command.Parameters.AddWithValue("Description", description);
+            command.Parameters.AddWithValue("ClassName", name);
+            command.Parameters.AddWithValue("ClassDescription", description);
 
-            var p = command.Parameters.Add("ClassID", SqlDbType.Int);
-            p.Direction = ParameterDirection.Output;
+            //var p = command.Parameters.Add("ClassID", SqlDbType.Int);
+            //p.Direction = ParameterDirection.Output;
         }
 
         public override Class Translate(Command command)
         {
-            return new Class(command.GetParameterValue<int>("ClassID"), name, description);
+            return new Class(name, description);
         }
     }
 }
