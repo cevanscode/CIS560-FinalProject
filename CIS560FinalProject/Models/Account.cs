@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CIS560FinalProject.Models
+namespace CIS560FinalProject
 {
     /// <summary>
     /// Represents information about a user's account
