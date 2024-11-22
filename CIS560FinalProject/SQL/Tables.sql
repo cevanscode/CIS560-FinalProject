@@ -60,10 +60,14 @@ CREATE TABLE Talent
 	TalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	TalentName NVARCHAR(30) NOT NULL,
 	TalentDescription NVARCHAR(500),
+	ClassID INT NOT NULL,
+	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
 	TalentType INT NOT NULL
 
 	UNIQUE(TalentName, TalentRank, TalentType)
+	--FOREIGN(ClassID, SubclassID) REFERENCES(Subclass(ClassID, SubclassID))
+	CHECK(TalentRank IN (1,2,3) AND TalentCategoryID = 1 OR TalentRank=0 AND TalentCategoryID=0)
 );
 GO
 
