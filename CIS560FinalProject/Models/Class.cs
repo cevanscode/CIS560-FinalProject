@@ -16,11 +16,18 @@ namespace CIS560FinalProject
         /// <summary>
         /// The class's name
         /// </summary>
-        public string? ClassName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The class's description
         /// </summary>
-        public string? ClassDescription { get; set; }
+        public string Description { get; set; }
+
+        public Class(int classID, string name, string description)
+        {
+            ClassID = classID;
+            Name = name;
+            Description = description;
+        }
     }
 }

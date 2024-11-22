@@ -29,7 +29,7 @@ namespace CIS560FinalProject
         /// <summary>
         /// The character's age
         /// </summary>
-        public uint CharacterAge { get; set; }
+        public int CharacterAge { get; set; }
 
         /// <summary>
         /// The character's health
@@ -39,7 +39,7 @@ namespace CIS560FinalProject
         /// <summary>
         /// The amount of XP the character has accumulated
         /// </summary>
-        public uint XP { get; set; }
+        public int XP { get; set; }
 
         /// <summary>
         /// The amount of copper the character has
@@ -49,16 +49,30 @@ namespace CIS560FinalProject
         /// <summary>
         /// The character's class
         /// </summary>
-        public Class? CharacterClass { get; set; }
+        public Class CharacterClass { get; set; }
 
         /// <summary>
         /// The character's subclass
         /// </summary>
-        public Subclass? CharacterSubclass { get; set; } //wizard moment
+        public Subclass CharacterSubclass { get; set; } //wizard moment
 
         /// <summary>
         /// The talents the character has
         /// </summary>
-        public List<Talent>? CharacterTalents { get; set; }
+        public List<Talent> CharacterTalents { get; set; }
+
+        public Character(int characterID, int accountID, string characterName, int characterAge, int health, int xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents)
+        {
+            CharacterID = characterID;
+            AccountID = accountID;
+            CharacterName = characterName;
+            CharacterAge = characterAge;
+            Health = health;
+            XP = xp;
+            Copper = copper;
+            CharacterClass = characterClass;
+            CharacterSubclass = subclass;
+            CharacterTalents = talents;
+        }
     }
 }

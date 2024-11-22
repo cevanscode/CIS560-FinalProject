@@ -16,25 +16,34 @@ namespace CIS560FinalProject
         /// <summary>
         /// The talent's name
         /// </summary>
-        public string? TalentName { get; set; }
+        public string Name { get; set; }
 
         /// <summary>
         /// The talent's description
         /// </summary>
-        public string? TalentDescription { get; set; }
+        public string Description { get; set; }
 
         /// <summary>
         /// The talent's rank
         /// </summary>
-        public int TalentRank
+        public Rank Rank
         {
             get;
-            set; //restrict to 1, 2, 3
+            set; 
         }
 
         /// <summary>
         /// The type of talent
         /// </summary>
-        public string? TalentType { get; set; } //this is not a string, fix later
+        public TalentType Type { get; set; }
+
+        public Talent(int talentID, string name, string description, Rank rank, TalentType type)
+        {
+            TalentID = talentID;
+            Name = name;
+            Description = description;
+            Rank = rank;
+            Type = type;
+        }
     }
 }

@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 namespace CIS560FinalProject
 {
     public interface ISubclassRepository
@@ -7,14 +7,14 @@ namespace CIS560FinalProject
         /// Get all the subclasses from the database
         /// </summary>
         /// <returns>A list of all subclasses</returns>
-        IReadOnlyList<Subclass> GetAllSubclasses();
+        IReadOnlyList<Subclass> RetrieveSubclasses();
 
         /// <summary>
         /// Fetch one subclass from the database
         /// </summary>
-        /// <param name="id">The id of the subclass to grab</param>
+        /// <param name="subclassID">The id of the subclass to grab</param>
         /// <returns>A subclass</returns>
-        Subclass FetchSubclass(int id);
+        Subclass GetSubclass(string name);
 
         /// <summary>
         /// Create a new subclass in the repository 
@@ -22,6 +22,6 @@ namespace CIS560FinalProject
         /// <param name="name">The subclass's name</param>
         /// <param name="description">The sybclass's description</param>
         /// <returns>The created class</returns>
-        Subclass CreateSubclass(string name, string description, SubclassType type);
+        public Subclass UpdateSubclass(int classID, string name, string description);
     }
 }

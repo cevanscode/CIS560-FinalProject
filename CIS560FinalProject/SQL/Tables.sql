@@ -17,7 +17,7 @@ CREATE TABLE Accounts
 (
 	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
-	AccountPassword NVarChar(MAX) NOT NULL,
+	AccountPassword NVarChar NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,
@@ -29,7 +29,7 @@ GO
 
 CREATE TABLE [Character]
 (
-	CharacterID INT NOT NULL PRIMARY KEY,
+	CharacterID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterName NVARCHAR(32) NOT NULL,
 	CharacterAge INT NOT NULL,
 	AccountID INT NOT NULL FOREIGN KEY
@@ -66,7 +66,7 @@ GO
 
 CREATE TABLE CharacterSubclass 
 (
-	CharacterSubclassID INT NOT NULL PRIMARY KEY,
+	CharacterSubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterID INT NOT NULL FOREIGN KEY
 		REFERENCES [Character](CharacterID),
 	ClassID INT NOT NULL,
@@ -80,7 +80,7 @@ GO
 
 CREATE TABLE Talent 
 (
-	TalentID INT NOT NULL PRIMARY KEY,
+	TalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	TalentName NVARCHAR(30) NOT NULL,
 	TalentDescription NVARCHAR(500),
 	TalentRank INT NOT NULL, 
@@ -90,23 +90,13 @@ CREATE TABLE Talent
 );
 GO
 
-CREATE TABLE SubclassTalent
-(
-	SubclassTalentID INT NOT NULL PRIMARY KEY,
-	TalentID INT NOT NULL FOREIGN KEY
-		REFERENCES Talent(TalentID)
-
-	--UNIQUE(SubclassTalentName)
-);
-GO
-
 CREATE TABLE CharacterTalent 
 (
-	SkillID INT NOT NULL PRIMARY KEY,
+	CharacterTalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterSubclassID INT NOT NULL
 		REFERENCES CharacterSubclass(CharacterSubclassID),
-	SubclassTalentID INT NOT NULL FOREIGN KEY
-		REFERENCES SubclassTalent(SubclassTalentID),
+	TalentID INT NOT NULL FOREIGN KEY
+		REFERENCES Talent(TalentID),
 	Amount INT NOT NULL
 
 	UNIQUE(CharacterSubclassID, SubclassTalentID)
@@ -114,3 +104,24 @@ CREATE TABLE CharacterTalent
 );
 GO
 
+CREATE TABLE Class 
+(
+	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ClassDescription NVARCHAR(500),
+	ClassName NVARCHAR(30) NOT NULL
+
+	UNIQUE(ClassName)
+);
+GO
+
+CREATE TABLE Subclass 
+(
+	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ClassID INT NOT NULL FOREIGN KEY
+		REFERENCES Class(ClassID),
+	SubclassName NVARCHAR(30) NOT NULL
+
+	UNIQUE(SubclassID, ClassID),
+	UNIQUE(SubclassName)
+);
+GO

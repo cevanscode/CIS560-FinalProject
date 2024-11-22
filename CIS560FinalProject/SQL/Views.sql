@@ -20,8 +20,8 @@ CREATE VIEW MostChosenTalentsBySubclass
 AS
 SELECT S.Name, COUNT(CT.TalentID) AS NumberOfTalent
 FROM Subclass S 
-    INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
-    INNER JOIN CharacterTalent CT ON ST.SubclassTalentID = CT.SubclassTalentID
+    INNER JOIN Talent T ON S.SubclassID = T.SubclassID
+    INNER JOIN CharacterTalent CT ON T.TalentID = CT.TalentID
 GROUP BY S.ClassID, ST.TalentID
 ORDER BY COUNT(CT.TalentID) DESC;
 GO
