@@ -1,13 +1,8 @@
 ﻿using CIS560FinalProject.DataDelegates;
+using CIS560FinalProject.Models;
 using DataAccess;
-using System;
-using System.CodeDom.Compiler;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Repositories
 {
     class SqlAccountRepository : IAccountRepository
     {
@@ -35,12 +30,13 @@ namespace CIS560FinalProject
 
         public Account FetchAccount(int accountID)
         {
-            throw new NotImplementedException();
+            var d = new FetchAccountDataDelegate(accountID);
+            return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<Account> GetAllAccounts()
+        public IReadOnlyList<Account> RetrieveAccounts()
         {
-            throw new NotImplementedException();
+            return executor.ExecuteReader(new RetrieveAccountsDataDelegate());
         }
     }
 }

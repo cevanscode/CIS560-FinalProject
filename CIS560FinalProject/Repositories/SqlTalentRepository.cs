@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Repositories
 {
     public class SqlTalentRepository : ITalentRepository
     {
-        public Talent CreateTalent(string? name, string? description, int rank, string? type)
+        public Talent CreateTalent(string name, string description, int rank, TalentType type)
         {
             throw new NotImplementedException();
         }

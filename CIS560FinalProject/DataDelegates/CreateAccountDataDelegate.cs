@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess;
+﻿using DataAccess;
+using CIS560FinalProject.Models;
+using System.Data.SqlClient;
 
 namespace CIS560FinalProject.DataDelegates
 {

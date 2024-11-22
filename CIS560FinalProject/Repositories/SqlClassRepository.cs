@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Repositories
 {
     internal class SqlClassRepository : IClassRepository
     {
-        public Class CreateClass(string? name, string? description)
+        public Class CreateClass(string name, string description)
         {
             throw new NotImplementedException();
         }

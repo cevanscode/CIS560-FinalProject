@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Models
 {
     /// <summary>
     /// Represents the choices a user has made to create their character

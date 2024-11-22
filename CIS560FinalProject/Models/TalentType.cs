@@ -1,4 +1,4 @@
-﻿namespace CIS560FinalProject
+﻿namespace CIS560FinalProject.Models
 {
     public enum TalentType
     {

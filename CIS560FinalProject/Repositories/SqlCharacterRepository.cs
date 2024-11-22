@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Repositories
 {
     public class SQLCharacterRepository : ICharacterRepository
     {
