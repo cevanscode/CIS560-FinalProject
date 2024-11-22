@@ -33,7 +33,7 @@ CREATE TABLE [Character]
 	CharacterName NVARCHAR(32) NOT NULL,
 	CharacterAge INT NOT NULL,
 	AccountID INT NOT NULL FOREIGN KEY
-		REFERENCES Accounts(AccountID),
+		REFERENCES Accounts(AccountID) ON DELETE CASCADE,
 	Health INT NOT NULL,
 	XP INT NOT NULL,
 	Copper INT NOT NULL
@@ -56,7 +56,7 @@ CREATE TABLE Subclass
 (
 	SubclassID INT NOT NULL PRIMARY KEY,
 	ClassID INT NOT NULL FOREIGN KEY
-		REFERENCES Class(ClassID),
+		REFERENCES Class(ClassID) ON DELETE CASCADE,
 	SubclassName NVARCHAR(30) NOT NULL,
 	SubclassDescription NVARCHAR(1000) NOT NULL
 
@@ -69,11 +69,11 @@ CREATE TABLE CharacterSubclass
 (
 	CharacterSubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterID INT NOT NULL FOREIGN KEY
-		REFERENCES [Character](CharacterID),
+		REFERENCES [Character](CharacterID) ON DELETE CASCADE,
 	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
 	
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
+	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID) ON DELETE CASCADE
 	UNIQUE(SubclassID)
 );
 GO
@@ -98,34 +98,12 @@ CREATE TABLE CharacterTalent
 (
 	CharacterTalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterSubclassID INT NOT NULL
-		REFERENCES CharacterSubclass(CharacterSubclassID),
+		REFERENCES CharacterSubclass(CharacterSubclassID) ON DELETE CASCADE,
 	TalentID INT NOT NULL FOREIGN KEY
 		REFERENCES Talent(TalentID),
 	Amount INT NOT NULL
 
 	UNIQUE(CharacterSubclassID, SubclassTalentID)
 	
-);
-GO
-
-CREATE TABLE Class 
-(
-	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	ClassDescription NVARCHAR(1000),
-	ClassName NVARCHAR(30) NOT NULL
-
-	UNIQUE(ClassName)
-);
-GO
-
-CREATE TABLE Subclass 
-(
-	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	ClassID INT NOT NULL FOREIGN KEY
-		REFERENCES Class(ClassID),
-	SubclassName NVARCHAR(30) NOT NULL
-
-	UNIQUE(SubclassID, ClassID),
-	UNIQUE(SubclassName)
 );
 GO
