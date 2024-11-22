@@ -86,5 +86,11 @@ namespace DataAccess
 
             return reader.IsDBNull(ord) ? ifDbNull : (T)reader.GetValue(ord);
         }
+
+        public byte[] GetBytes(string name)
+        {
+            return (byte[])reader.GetValue(GetOrdinal(name));
+        }
+
     }
 }

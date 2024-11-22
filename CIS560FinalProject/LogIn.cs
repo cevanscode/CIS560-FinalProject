@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Org.BouncyCastle.Crypto.Digests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
@@ -35,6 +36,17 @@ namespace CIS560FinalProject
             this.Hide();
         }
 
+        private bool VerifyPassword(string enteredPassword, byte[] storedHash)
+        {
+            Encoding encoding = Encoding.ASCII;
+
+            byte[] hash = encoding.GetBytes(enteredPassword);
+
+            MessageBox.Show("Entered password hash: " + BitConverter.ToString(hash) + "vs" + "Stored password hash: " + BitConverter.ToString(storedHash));
+
+            return hash.SequenceEqual(storedHash);
+        }
+
         /// <summary>
         /// Logs into an account based on the information present in Username and Password fields
         /// </summary>
@@ -45,16 +57,16 @@ namespace CIS560FinalProject
             IReadOnlyList<Account> accounts = repo.RetrieveAccounts();
             Account? loginAccount = null;
 
+
+
             foreach (Account account in accounts)
             {
-                if (account.Username == UsernameTextBox.Text && account.Password == PasswordTextBox.Text)
+                if (account.Username == UsernameTextBox.Text && VerifyPassword(PasswordTextBox.Text, account.BytePW))
                 {
                     loginAccount = repo.FetchAccount(account.AccountID);
                     break;
                 }
             }
-
-            //Find the account from the database
 
             if (loginAccount != null)
             {
@@ -65,9 +77,10 @@ namespace CIS560FinalProject
             }
             else
             {
-                MessageBox.Show("Account does not exist");
+                MessageBox.Show("Account does not exist or password is incorrect");
             }
         }
+
 
         /// <summary>
         /// Allows a user to create an account (sending it to the database) before they can sign in with it

@@ -27,6 +27,8 @@ namespace CIS560FinalProject
         /// </summary>
         public string? Password { get; set; }
 
+        public Byte[] BytePW { get; set; }
+
         /// <summary>
         /// The account's Email
         /// </summary>
@@ -52,6 +54,16 @@ namespace CIS560FinalProject
             AccountID = accountID;
             Username = username;
             Password = password;
+            Email = email;
+            FullName = fullName;
+            Birthday = birthday;
+        }
+
+        public Account(int accountID, string username, Byte[] password, string email, string fullName, DateTime birthday)
+        {
+            AccountID = accountID;
+            Username = username;
+            BytePW = password;
             Email = email;
             FullName = fullName;
             Birthday = birthday;

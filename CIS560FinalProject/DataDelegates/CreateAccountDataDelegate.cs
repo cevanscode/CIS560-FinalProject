@@ -1,6 +1,9 @@
 ﻿using DataAccess;
 using System.Data.SqlClient;
 using System.Text;
+using Org.BouncyCastle.Crypto.Digests;
+using System.Data;
+using System.Security.Cryptography;
 
 namespace CIS560FinalProject
 {
@@ -28,12 +31,26 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
+            string pw = password;
+            Encoding encoding = Encoding.ASCII;
+
+            byte[] pwBytes = encoding.GetBytes(pw);
+
+            byte[] keep;
+
+            using (SHA256 mySHA256 = SHA256.Create())
+            {
+                keep = mySHA256.ComputeHash(pwBytes);
+            }
+
+                // Add other parameters
             command.Parameters.AddWithValue("UserName", username);
-            command.Parameters.AddWithValue("Password", Encoding.ASCII.GetBytes(password));
             command.Parameters.AddWithValue("Email", email);
+            command.Parameters.AddWithValue("Password", keep);
             command.Parameters.AddWithValue("FullName", fullName);
             command.Parameters.AddWithValue("Birthday", birthday);
         }
+
 
         public override Account Translate(Command command)
         {

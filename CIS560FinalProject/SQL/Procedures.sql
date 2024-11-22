@@ -143,7 +143,12 @@ BEGIN
 END
 GO
 
-
+CREATE PROCEDURE RetrieveAccounts
+AS
+BEGIN
+	SELECT * FROM ACCOUNTS A ORDER BY A.AccountID ASC
+END
+GO
 
 
 CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
