@@ -9,11 +9,6 @@ namespace CIS560FinalProject
     public class Class
     {
         /// <summary>
-        /// The class's identifer
-        /// </summary>
-        public int ClassID { get; set; }
-
-        /// <summary>
         /// The class's name
         /// </summary>
         public string Name { get; set; }
@@ -23,9 +18,8 @@ namespace CIS560FinalProject
         /// </summary>
         public string Description { get; set; }
 
-        public Class(int classID, string name, string description)
+        public Class(string name, string description)
         {
-            ClassID = classID;
             Name = name;
             Description = description;
         }

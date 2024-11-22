@@ -8,7 +8,7 @@ namespace CIS560FinalProject
         private readonly string name;
 
         public GetClassDataDelegate(string name)
-            : base("GetClass")
+            : base("GetClass") // Make sure matches Procedure
         {
             this.name = name;
         }
@@ -17,7 +17,7 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-            command.Parameters.AddWithValue("Name", name);
+            command.Parameters.AddWithValue("ClassName", name);
         }
 
         public override Class Translate(Command command, IDataRowReader reader)
@@ -25,7 +25,7 @@ namespace CIS560FinalProject
             if (!reader.Read())
                 return null;
 
-            return new Class(reader.GetInt32("ClassID"), name, reader.GetString("Description"));
+            return new Class(name, reader.GetString("ClassDescription"));
         }
     }
 }

@@ -30,7 +30,7 @@ namespace CIS560FinalProject
 
         public IReadOnlyList<Class> RetrieveClasses()
         {
-            throw new NotImplementedException();
+            return executor.ExecuteReader(new RetrieveClassesDataDelegate());
         }
     }
 }

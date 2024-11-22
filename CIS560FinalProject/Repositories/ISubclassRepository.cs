@@ -6,15 +6,17 @@ namespace CIS560FinalProject
         /// <summary>
         /// Get all the subclasses from the database
         /// </summary>
+        /// <param name="className">The className that each class belongs to</param>
         /// <returns>A list of all subclasses</returns>
-        IReadOnlyList<Subclass> RetrieveSubclasses();
+        IReadOnlyList<Subclass> RetrieveSubclasses(string className);
 
         /// <summary>
         /// Fetch one subclass from the database
         /// </summary>
-        /// <param name="subclassID">The id of the subclass to grab</param>
+        /// <param name="name">The name of the subclass to grab</param>
+        /// <param name="className">The associated className for this class</param>
         /// <returns>A subclass</returns>
-        Subclass GetSubclass(string name);
+        Subclass GetSubclass(string name, string className);
 
         /// <summary>
         /// Create a new subclass in the repository 
@@ -22,6 +24,6 @@ namespace CIS560FinalProject
         /// <param name="name">The subclass's name</param>
         /// <param name="description">The sybclass's description</param>
         /// <returns>The created class</returns>
-        public Subclass UpdateSubclass(int classID, string name, string description);
+        public Subclass UpdateSubclass(string name, string description, string className);
     }
 }
