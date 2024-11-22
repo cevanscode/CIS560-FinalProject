@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CIS560FinalProject;
 
 namespace CIS560FinalProject
 {
     public class SqlSubclassRepository : ISubclassRepository
     {
-        public Subclass CreateSubclass(string? name, string? description)
+        public Subclass CreateSubclass(string name, string description, SubclassType type)
         {
             throw new NotImplementedException();
         }

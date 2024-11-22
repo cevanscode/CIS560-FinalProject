@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace CIS560FinalProject
 {
     public interface IClassRepository
@@ -27,6 +22,6 @@ namespace CIS560FinalProject
         /// <param name="name">The class's name</param>
         /// <param name="description">The class's description</param>
         /// <returns>The created class</returns>
-        Class CreateClass(string? name, string? description);
+        Class CreateClass(string name, string description);
     }
 }

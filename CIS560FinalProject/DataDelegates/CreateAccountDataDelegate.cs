@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DataAccess;
+﻿using DataAccess;
+using System.Data.SqlClient;
 
-namespace CIS560FinalProject.DataDelegates
+namespace CIS560FinalProject
 {
     internal class CreateAccountDataDelegate : NonQueryDataDelegate<Account>
     {

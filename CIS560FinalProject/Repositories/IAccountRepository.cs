@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CIS560FinalProject
 {
@@ -12,7 +8,7 @@ namespace CIS560FinalProject
         /// Retrieves all accounts from the database
         /// </summary>
         /// <returns>List containing all accounts</returns>
-        IReadOnlyList<Account> GetAllAccounts();
+        IReadOnlyList<Account> RetrieveAccounts();
 
         /// <summary>
         /// Retrives an account from the database
