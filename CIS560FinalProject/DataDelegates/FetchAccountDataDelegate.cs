@@ -1,7 +1,6 @@
 ﻿using DataAccess;
 using System.Data;
 using System.Data.SqlClient;
-using DataAccess;
 
 namespace CIS560FinalProject
 {
