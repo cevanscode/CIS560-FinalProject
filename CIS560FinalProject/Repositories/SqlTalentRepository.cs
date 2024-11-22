@@ -1,10 +1,9 @@
-﻿using CIS560FinalProject.Models;
-
-namespace CIS560FinalProject.Repositories
+﻿
+namespace CIS560FinalProject
 {
     public class SqlTalentRepository : ITalentRepository
     {
-        public Talent CreateTalent(string name, string description, int rank, TalentType type)
+        public Talent CreateTalent(string name, string description, Rank rank, TalentType type)
         {
             throw new NotImplementedException();
         }

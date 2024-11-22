@@ -38,7 +38,7 @@ namespace CIS560FinalProject
         /// <param name="e">Information about the event</param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Account loginAccount = new Account();
+            Account loginAccount = new Account(0, "", "", "","", DateTime.Now, false);
 
             //Find the account from the database
 

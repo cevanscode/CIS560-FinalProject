@@ -1,8 +1,6 @@
-﻿using CIS560FinalProject.DataDelegates;
-using CIS560FinalProject.Models;
-using DataAccess;
+﻿﻿using DataAccess;
 
-namespace CIS560FinalProject.Repositories
+namespace CIS560FinalProject
 {
     class SqlAccountRepository : IAccountRepository
     {

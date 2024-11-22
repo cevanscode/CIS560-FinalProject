@@ -1,7 +1,6 @@
 ﻿using System;
-using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject.Repositories
+namespace CIS560FinalProject
 {
     public interface IAccountRepository
     {

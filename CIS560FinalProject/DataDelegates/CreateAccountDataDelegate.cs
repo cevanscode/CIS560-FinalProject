@@ -1,8 +1,7 @@
 ﻿using DataAccess;
-using CIS560FinalProject.Models;
 using System.Data.SqlClient;
 
-namespace CIS560FinalProject.DataDelegates
+namespace CIS560FinalProject
 {
     internal class CreateAccountDataDelegate : NonQueryDataDelegate<Account>
     {

@@ -1,18 +1,23 @@
 ﻿using DataAccess;
-using CIS560FinalProject.Models
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
-namespace CIS560FinalProject.DataDelegates
+namespace CIS560FinalProject
 {
-    internal class RetrieveAccountsDataDelegate : DataReaderDelegate<IReadOnlyList<Account>>
+    internal class RetrieveAccountsDataDelegate : IDataReaderDelegate<IReadOnlyList<Account>>
     {
         public RetrieveAccountsDataDelegate()
-            : base("RetrieveAccounts")
         {
         }
 
-        public override IReadOnlyList<Account> Translate(Command command, IDataRowReader reader)
+        public string ProcedureName { get; }
+
+        public void PrepareCommand(Command command)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IReadOnlyList<Account> Translate(Command command, IDataRowReader reader)
         {
             var accounts = new List<Account>();
 
