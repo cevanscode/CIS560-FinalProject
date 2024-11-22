@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Repositories
 {
     public interface ITalentRepository
     {
@@ -29,6 +25,6 @@ namespace CIS560FinalProject
         /// <param name="rank">The talent's rank</param>
         /// <param name="type">The talent's type</param>
         /// <returns>The created talent</returns>
-        Talent CreateTalent(string? name, string? description, int rank, string? type);
+        Talent CreateTalent(string name, string description, Rank rank, TalentType type);
     }
 }

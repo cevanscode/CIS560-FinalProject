@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CIS560FinalProject.Models;
 
-namespace CIS560FinalProject
+namespace CIS560FinalProject.Repositories
 {
     public interface ISubclassRepository
     {
@@ -27,6 +23,6 @@ namespace CIS560FinalProject
         /// <param name="name">The subclass's name</param>
         /// <param name="description">The sybclass's description</param>
         /// <returns>The created class</returns>
-        Subclass CreateSubclass(string? name, string? description);
+        Subclass CreateSubclass(string name, string description, SubclassType type);
     }
 }
