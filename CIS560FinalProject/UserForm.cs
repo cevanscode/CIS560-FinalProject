@@ -45,6 +45,11 @@ namespace CIS560FinalProject
             UserTabs.SelectedIndex = 0;
 
             _viewAccount = a;
+            FillUNLabel.Text = a.Username;
+            FillPWLabel.Text = a.Password;
+            FillFNLabel.Text = a.FullName;
+            FillBDLabel.Text = a.Birthday.ToString(); //erm this may look weird unformatted
+            FillEmailLabel.Text = a.Email;
         }
 
         /// <summary>
@@ -69,7 +74,7 @@ namespace CIS560FinalProject
 
         private void ModifyAccountButton_Click(object sender, EventArgs e)
         {
-            EditAccountForm editForm = new EditAccountForm();
+            EditAccountForm editForm = new EditAccountForm(_viewAccount!);
 
             editForm.ShowDialog();
         }

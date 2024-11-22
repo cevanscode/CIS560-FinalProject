@@ -11,7 +11,6 @@ namespace CIS560FinalProject
 
         public string ProcedureName { get; }
 
-
         public FetchAccountDataDelegate(int accountID)
         {
             this.accountID = accountID;

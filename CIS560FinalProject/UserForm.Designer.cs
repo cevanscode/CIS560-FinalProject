@@ -62,11 +62,13 @@
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
             RulesTab = new TabPage();
-            label1 = new Label();
-            label2 = new Label();
-            EncyclopediaClassButton = new Button();
-            EncyclopediaSubclassButton = new Button();
             EncyclopediaTalentsButton = new Button();
+            EncyclopediaSubclassButton = new Button();
+            EncyclopediaClassButton = new Button();
+            label2 = new Label();
+            label1 = new Label();
+            RankColumn = new ColumnHeader();
+            TalentNameColumn = new ColumnHeader();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
@@ -264,48 +266,49 @@
             FillSubclassLabel.AutoSize = true;
             FillSubclassLabel.Location = new Point(121, 275);
             FillSubclassLabel.Name = "FillSubclassLabel";
-            FillSubclassLabel.Size = new Size(106, 25);
+            FillSubclassLabel.Size = new Size(44, 25);
             FillSubclassLabel.TabIndex = 16;
-            FillSubclassLabel.Text = "Fill Subclass";
+            FillSubclassLabel.Text = "N/A";
             // 
             // FillClassLabel
             // 
             FillClassLabel.AutoSize = true;
             FillClassLabel.Location = new Point(121, 237);
             FillClassLabel.Name = "FillClassLabel";
-            FillClassLabel.Size = new Size(78, 25);
+            FillClassLabel.Size = new Size(44, 25);
             FillClassLabel.TabIndex = 15;
-            FillClassLabel.Text = "Fill Class";
+            FillClassLabel.Text = "N/A";
             // 
             // FillCopperLabel
             // 
             FillCopperLabel.AutoSize = true;
             FillCopperLabel.Location = new Point(121, 198);
             FillCopperLabel.Name = "FillCopperLabel";
-            FillCopperLabel.Size = new Size(97, 25);
+            FillCopperLabel.Size = new Size(44, 25);
             FillCopperLabel.TabIndex = 14;
-            FillCopperLabel.Text = "Fill Copper";
+            FillCopperLabel.Text = "N/A";
             // 
             // FillXPLabel
             // 
             FillXPLabel.AutoSize = true;
             FillXPLabel.Location = new Point(121, 163);
             FillXPLabel.Name = "FillXPLabel";
-            FillXPLabel.Size = new Size(59, 25);
+            FillXPLabel.Size = new Size(44, 25);
             FillXPLabel.TabIndex = 13;
-            FillXPLabel.Text = "Fill XP";
+            FillXPLabel.Text = "N/A";
             // 
             // FillHealthLabel
             // 
             FillHealthLabel.AutoSize = true;
             FillHealthLabel.Location = new Point(121, 126);
             FillHealthLabel.Name = "FillHealthLabel";
-            FillHealthLabel.Size = new Size(89, 25);
+            FillHealthLabel.Size = new Size(44, 25);
             FillHealthLabel.TabIndex = 12;
-            FillHealthLabel.Text = "Fill Health";
+            FillHealthLabel.Text = "N/A";
             // 
             // listView1
             // 
+            listView1.Columns.AddRange(new ColumnHeader[] { RankColumn, TalentNameColumn });
             listView1.Location = new Point(248, 96);
             listView1.Name = "listView1";
             listView1.Size = new Size(533, 209);
@@ -377,9 +380,9 @@
             FillAgeLabel.AutoSize = true;
             FillAgeLabel.Location = new Point(121, 88);
             FillAgeLabel.Name = "FillAgeLabel";
-            FillAgeLabel.Size = new Size(70, 25);
+            FillAgeLabel.Size = new Size(44, 25);
             FillAgeLabel.TabIndex = 4;
-            FillAgeLabel.Text = "Fill Age";
+            FillAgeLabel.Text = "N/A";
             // 
             // AgeLabel
             // 
@@ -435,13 +438,32 @@
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // EncyclopediaTalentsButton
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(349, 30);
-            label1.Name = "label1";
-            label1.Size = new Size(0, 25);
-            label1.TabIndex = 0;
+            EncyclopediaTalentsButton.Location = new Point(232, 304);
+            EncyclopediaTalentsButton.Name = "EncyclopediaTalentsButton";
+            EncyclopediaTalentsButton.Size = new Size(300, 100);
+            EncyclopediaTalentsButton.TabIndex = 6;
+            EncyclopediaTalentsButton.Text = "Talents";
+            EncyclopediaTalentsButton.UseVisualStyleBackColor = true;
+            // 
+            // EncyclopediaSubclassButton
+            // 
+            EncyclopediaSubclassButton.Location = new Point(232, 185);
+            EncyclopediaSubclassButton.Name = "EncyclopediaSubclassButton";
+            EncyclopediaSubclassButton.Size = new Size(300, 100);
+            EncyclopediaSubclassButton.TabIndex = 5;
+            EncyclopediaSubclassButton.Text = "Subclasses";
+            EncyclopediaSubclassButton.UseVisualStyleBackColor = true;
+            // 
+            // EncyclopediaClassButton
+            // 
+            EncyclopediaClassButton.Location = new Point(232, 68);
+            EncyclopediaClassButton.Name = "EncyclopediaClassButton";
+            EncyclopediaClassButton.Size = new Size(300, 100);
+            EncyclopediaClassButton.TabIndex = 4;
+            EncyclopediaClassButton.Text = "Classes";
+            EncyclopediaClassButton.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -453,32 +475,13 @@
             label2.TabIndex = 3;
             label2.Text = "Table of Contents";
             // 
-            // EncyclopediaClassButton
+            // label1
             // 
-            EncyclopediaClassButton.Location = new Point(232, 68);
-            EncyclopediaClassButton.Name = "EncyclopediaClassButton";
-            EncyclopediaClassButton.Size = new Size(300, 100);
-            EncyclopediaClassButton.TabIndex = 4;
-            EncyclopediaClassButton.Text = "Classes";
-            EncyclopediaClassButton.UseVisualStyleBackColor = true;
-            // 
-            // EncyclopediaSubclassButton
-            // 
-            EncyclopediaSubclassButton.Location = new Point(232, 185);
-            EncyclopediaSubclassButton.Name = "EncyclopediaSubclassButton";
-            EncyclopediaSubclassButton.Size = new Size(300, 100);
-            EncyclopediaSubclassButton.TabIndex = 5;
-            EncyclopediaSubclassButton.Text = "Subclasses";
-            EncyclopediaSubclassButton.UseVisualStyleBackColor = true;
-            // 
-            // EncyclopediaTalentsButton
-            // 
-            EncyclopediaTalentsButton.Location = new Point(232, 304);
-            EncyclopediaTalentsButton.Name = "EncyclopediaTalentsButton";
-            EncyclopediaTalentsButton.Size = new Size(300, 100);
-            EncyclopediaTalentsButton.TabIndex = 6;
-            EncyclopediaTalentsButton.Text = "Talents";
-            EncyclopediaTalentsButton.UseVisualStyleBackColor = true;
+            label1.AutoSize = true;
+            label1.Location = new Point(349, 30);
+            label1.Name = "label1";
+            label1.Size = new Size(0, 25);
+            label1.TabIndex = 0;
             // 
             // UserForm
             // 
@@ -539,5 +542,7 @@
         private Button EncyclopediaTalentsButton;
         private Button EncyclopediaSubclassButton;
         private Button EncyclopediaClassButton;
+        private ColumnHeader RankColumn;
+        private ColumnHeader TalentNameColumn;
     }
 }

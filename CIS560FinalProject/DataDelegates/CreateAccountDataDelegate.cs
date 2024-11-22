@@ -37,7 +37,7 @@ namespace CIS560FinalProject
 
         public override Account Translate(Command command)
         {
-            return new Account(0, username, password, email, fullName, birthday);
+            return new Account(0, username, password, email, fullName, birthday); //there may be consequences to having 0 here :3
         }
     }
 }

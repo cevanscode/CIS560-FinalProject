@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -12,9 +13,13 @@ namespace CIS560FinalProject
 {
     public partial class LogIn : Form
     {
+        private IAccountRepository repo;
+        private string connectionString = ConfigurationManager.ConnectionStrings["LarpDatabase"].ConnectionString;
+
         public LogIn()
         {
             InitializeComponent();
+            repo = new SqlAccountRepository(connectionString);
         }
 
         /// <summary>
@@ -37,14 +42,31 @@ namespace CIS560FinalProject
         /// <param name="e">Information about the event</param>
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            Account loginAccount = new Account(0, "", "", "","", DateTime.Now);
+            IReadOnlyList<Account> accounts = repo.RetrieveAccounts();
+            Account? loginAccount = null;
+
+            foreach (Account account in accounts)
+            {
+                if (account.Username == UsernameTextBox.Text && account.Password == PasswordTextBox.Text)
+                {
+                    loginAccount = repo.FetchAccount(account.AccountID);
+                    break;
+                }
+            }
 
             //Find the account from the database
 
-            UserForm userForm = new UserForm(loginAccount);
-            userForm.FormClosed += (s, args) => this.Show();
-            userForm.Show();
-            this.Hide();
+            if (loginAccount != null)
+            {
+                UserForm userForm = new UserForm(loginAccount);
+                userForm.FormClosed += (s, args) => this.Show();
+                userForm.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Account does not exist");
+            }
         }
 
         /// <summary>

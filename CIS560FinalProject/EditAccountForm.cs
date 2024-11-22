@@ -13,9 +13,19 @@ namespace CIS560FinalProject
 {
     public partial class EditAccountForm : Form
     {
-        public EditAccountForm()
+        private Account _editAccount;
+
+        public EditAccountForm(Account a)
         {
             InitializeComponent();
+
+            _editAccount = a;
+
+            UsernameTextBox.Text = a.Username;
+            PasswordTextBox.Text = a.Password;
+            EmailTextBox.Text = a.Email;
+            FullNameTextBox.Text = a.FullName;
+            BirthdayPicker.Value = a.Birthday;
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
