@@ -50,6 +50,8 @@
             FillXPLabel = new Label();
             FillHealthLabel = new Label();
             listView1 = new ListView();
+            RankColumn = new ColumnHeader();
+            TalentNameColumn = new ColumnHeader();
             CharacterTalentsLabel = new Label();
             SubclassLabel = new Label();
             ClassLabel = new Label();
@@ -62,13 +64,14 @@
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
             RulesTab = new TabPage();
+            ItemListView = new ListView();
             EncyclopediaTalentsButton = new Button();
             EncyclopediaSubclassButton = new Button();
             EncyclopediaClassButton = new Button();
             label2 = new Label();
             label1 = new Label();
-            RankColumn = new ColumnHeader();
-            TalentNameColumn = new ColumnHeader();
+            BackButton = new Button();
+            SelectButton = new Button();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
@@ -425,6 +428,9 @@
             // 
             // RulesTab
             // 
+            RulesTab.Controls.Add(SelectButton);
+            RulesTab.Controls.Add(BackButton);
+            RulesTab.Controls.Add(ItemListView);
             RulesTab.Controls.Add(EncyclopediaTalentsButton);
             RulesTab.Controls.Add(EncyclopediaSubclassButton);
             RulesTab.Controls.Add(EncyclopediaClassButton);
@@ -438,6 +444,14 @@
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
             // 
+            // ItemListView
+            // 
+            ItemListView.Location = new Point(140, 54);
+            ItemListView.Name = "ItemListView";
+            ItemListView.Size = new Size(500, 347);
+            ItemListView.TabIndex = 7;
+            ItemListView.UseCompatibleStateImageBehavior = false;
+            // 
             // EncyclopediaTalentsButton
             // 
             EncyclopediaTalentsButton.Location = new Point(232, 304);
@@ -446,6 +460,7 @@
             EncyclopediaTalentsButton.TabIndex = 6;
             EncyclopediaTalentsButton.Text = "Talents";
             EncyclopediaTalentsButton.UseVisualStyleBackColor = true;
+            EncyclopediaTalentsButton.Click += EncyclopediaTalentsButton_Click;
             // 
             // EncyclopediaSubclassButton
             // 
@@ -455,6 +470,7 @@
             EncyclopediaSubclassButton.TabIndex = 5;
             EncyclopediaSubclassButton.Text = "Subclasses";
             EncyclopediaSubclassButton.UseVisualStyleBackColor = true;
+            EncyclopediaSubclassButton.Click += EncyclopediaSubclassButton_Click;
             // 
             // EncyclopediaClassButton
             // 
@@ -464,6 +480,7 @@
             EncyclopediaClassButton.TabIndex = 4;
             EncyclopediaClassButton.Text = "Classes";
             EncyclopediaClassButton.UseVisualStyleBackColor = true;
+            EncyclopediaClassButton.Click += EncyclopediaClassButton_Click;
             // 
             // label2
             // 
@@ -482,6 +499,26 @@
             label1.Name = "label1";
             label1.Size = new Size(0, 25);
             label1.TabIndex = 0;
+            // 
+            // BackButton
+            // 
+            BackButton.Location = new Point(22, 367);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(112, 34);
+            BackButton.TabIndex = 8;
+            BackButton.Text = "Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
+            // 
+            // SelectButton
+            // 
+            SelectButton.Location = new Point(646, 367);
+            SelectButton.Name = "SelectButton";
+            SelectButton.Size = new Size(112, 34);
+            SelectButton.TabIndex = 9;
+            SelectButton.Text = "Select";
+            SelectButton.UseVisualStyleBackColor = true;
+            SelectButton.Click += SelectButton_Click;
             // 
             // UserForm
             // 
@@ -544,5 +581,8 @@
         private Button EncyclopediaClassButton;
         private ColumnHeader RankColumn;
         private ColumnHeader TalentNameColumn;
+        private ListView ItemListView;
+        private Button BackButton;
+        private Button SelectButton;
     }
 }

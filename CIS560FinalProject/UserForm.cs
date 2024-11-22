@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -15,6 +16,12 @@ namespace CIS560FinalProject
         private bool _loggedIn = false;
         private Character? _viewCharacter;
         private Account? _viewAccount;
+        private IClassRepository _classRepo;
+        private ISubclassRepository _subclassRepo;
+        private ITalentRepository _talentRepo;
+        private string _source;
+
+        private string connectionString = ConfigurationManager.ConnectionStrings["LarpDatabase"].ConnectionString;
 
         /// <summary>
         /// Constructor that takes no account (used when user is not logging in)
@@ -23,11 +30,18 @@ namespace CIS560FinalProject
         {
             InitializeComponent();
 
+
             //Disables Account and Character tabs.
             UserTabs.TabPages[0].Enabled = false;
             UserTabs.TabPages[1].Enabled = false;
             UserTabs.Selecting += UserTabDeselect!;
             UserTabs.SelectedIndex = 2;
+            ItemListView.Visible = false;
+            SelectButton.Visible = false;
+
+            _classRepo = new SqlClassRepository(connectionString);
+            _subclassRepo = new SqlSubclassRepository(connectionString);
+            _talentRepo = new SqlTalentRepository(connectionString);
         }
 
         /// <summary>
@@ -43,6 +57,8 @@ namespace CIS560FinalProject
             UserTabs.TabPages[1].Enabled = true;
             UserTabs.Selecting -= UserTabDeselect!;
             UserTabs.SelectedIndex = 0;
+            ItemListView.Visible = false;
+            SelectButton.Visible = false;
 
             _viewAccount = a;
             FillUNLabel.Text = a.Username;
@@ -50,6 +66,11 @@ namespace CIS560FinalProject
             FillFNLabel.Text = a.FullName;
             FillBDLabel.Text = a.Birthday.ToString(); //erm this may look weird unformatted
             FillEmailLabel.Text = a.Email;
+
+            _classRepo = new SqlClassRepository(connectionString);
+            _subclassRepo = new SqlSubclassRepository(connectionString);
+            _talentRepo = new SqlTalentRepository(connectionString);
+
 
             //fill in the character if they have any here
 
@@ -88,6 +109,79 @@ namespace CIS560FinalProject
 
             //return to login menu
             this.Close();
+        }
+
+        private void EncyclopediaClassButton_Click(object sender, EventArgs e)
+        {
+            _source = "class";
+            ItemListView.Visible = true;
+            ItemListView.Items.Clear();
+
+            IReadOnlyList<Class> classList = _classRepo.RetrieveClasses();
+
+            foreach (Class c in classList)
+            {
+                ItemListView.Items.Add(c.Name);
+            }
+        }
+
+        private void EncyclopediaSubclassButton_Click(object sender, EventArgs e)
+        {
+            _source = "subclass";
+            ItemListView.Visible = true;
+            ItemListView.Items.Clear();
+
+            IReadOnlyList<Subclass> subclassList = _subclassRepo.RetrieveSubclasses();
+
+            foreach (Subclass s in subclassList)
+            {
+                ItemListView.Items.Add(s.Name);
+            }
+        }
+
+        private void EncyclopediaTalentsButton_Click(object sender, EventArgs e)
+        {
+            _source = "talent";
+            ItemListView.Visible = true;
+            ItemListView.Items.Clear();
+
+            IReadOnlyList<Talent> talentList = _talentRepo.RetrieveTalents();
+
+            foreach (Talent t in talentList)
+            {
+                ItemListView.Items.Add(t.Name);
+            }
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            ItemListView.Visible = false;
+            SelectButton.Enabled = false;
+            EncyclopediaClassButton.Enabled = true;
+            EncyclopediaSubclassButton.Enabled = true;
+            EncyclopediaTalentsButton.Enabled = true;
+            _source = "";
+        }
+
+        /// <summary>
+        /// Button which makes a selection from the listview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SelectButton_Click(object sender, EventArgs e)
+        {
+            switch (_source)
+            {
+                case "class":
+                    
+                    break;
+                case "subclass":
+
+                    break;
+                case "talent":
+
+                    break;
+            }
         }
     }
 }
