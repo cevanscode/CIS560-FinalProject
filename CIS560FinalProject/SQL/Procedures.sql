@@ -41,7 +41,7 @@ GO
 
 
 
-CREATE PROCEDURE GetTalentsForCharacter @CharacterName NVARCHAR(32)
+CREATE PROCEDURE GetTalentsForCharacter @UserName NVarChar(30), @Password NVarChar(100)
 AS
 SELECT CT.CharacterTalentID,
 	CT.CharacterSubclassID,
@@ -50,8 +50,11 @@ SELECT CT.CharacterTalentID,
 	T.TalentDescription,
 	T.TalentRank,
 	T.TalentType
-FROM CharacterSubclass CS
-	INNER JOIN [Character] C ON C.CharacterName = @CharacterName
+FROM Accounts A
+	INNER JOIN [Character] C ON A.UserName = @UserName
+		AND A.AccountPassword = @Password
+		AND C.AccountID = A.AccountID
+	INNER JOIN CharacterSubclass CS ON CS.CharacterID = C.CharacterID
 		AND C.CharacterID = CS.CharacterID
 	INNER JOIN CharacterTalent CT ON CS.CharacterSubclassID = CT.CharacterSubclassID
 	INNER JOIN Talent T ON CT.TalentID = T.TalentID
