@@ -14,7 +14,7 @@ GO
 
 
 
-CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password VarBinary
+CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password NVarChar
 AS
 SELECT A.UserName, A.Email, A.FullName, A.Birthday
 FROM Accounts A
@@ -25,7 +25,7 @@ GO
 
 
 
-CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password VarBinary
+CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password NVarChar
 AS
 SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
 	CS.ClassID, CS.SubclassID, C.CharacterID
@@ -131,7 +131,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password VarBinary
+CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
@@ -142,7 +142,7 @@ GO
 
 
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password VarBinary, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
@@ -152,7 +152,7 @@ GO
 
 
 CREATE PROCEDURE MergeCharacterDetails @UserName NVARCHAR(50),
-	@Password VarBinary,
+	@Password NVarChar,
 	@CharacterName NVARCHAR(32),
 	@CharacterAge INT,
 	@Health INT,
