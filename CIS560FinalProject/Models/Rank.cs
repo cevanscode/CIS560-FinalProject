@@ -1,4 +1,4 @@
-﻿namespace CIS560FinalProject.Models
+﻿namespace CIS560FinalProject
 {
     public enum Rank
     {
