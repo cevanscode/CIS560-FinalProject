@@ -42,6 +42,29 @@ CREATE TABLE [Character]
 );
 GO
 
+CREATE TABLE Class 
+(
+	ClassID INT NOT NULL PRIMARY KEY,
+	ClassDescription NVARCHAR(500),
+	ClassName NVARCHAR(30) NOT NULL
+
+	UNIQUE(ClassName)
+);
+GO
+
+CREATE TABLE Subclass 
+(
+	SubclassID INT NOT NULL PRIMARY KEY,
+	ClassID INT NOT NULL FOREIGN KEY
+		REFERENCES Class(ClassID),
+	SubclassName NVARCHAR(30) NOT NULL,
+	SubclassDescription NVARCHAR(1000) NOT NULL
+
+	UNIQUE(SubclassID, ClassID),
+	UNIQUE(SubclassName)
+);
+GO
+
 CREATE TABLE CharacterSubclass 
 (
 	CharacterSubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
