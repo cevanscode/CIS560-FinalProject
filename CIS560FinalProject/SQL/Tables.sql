@@ -67,16 +67,6 @@ CREATE TABLE Talent
 );
 GO
 
-CREATE TABLE SubclassTalent
-(
-	SubclassTalentID INT NOT NULL PRIMARY KEY,
-	TalentID INT NOT NULL FOREIGN KEY
-		REFERENCES Talent(TalentID)
-
-	UNIQUE(SubclassTalentName)
-);
-GO
-
 CREATE TABLE CharacterTalent 
 (
 	SkillID INT NOT NULL PRIMARY KEY,

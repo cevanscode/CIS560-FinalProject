@@ -16,7 +16,7 @@ GO
 
 CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password VarBinary
 AS
-SELECT A.UserName, A.Email, FullName, Birthday
+SELECT A.UserName, A.Email, A.FullName, A.Birthday
 FROM Accounts A
 	INNER JOIN [Character] C ON A.AccountID = C.AccountID
 WHERE A.UserName = @Username AND A.AccountPassword = @Password;
@@ -51,9 +51,8 @@ FROM CharacterSubclass CS
 	INNER JOIN [Character] C ON C.CharacterName = @CharacterName
 		AND C.CharacterID = CS.CharacterID
 	INNER JOIN CharacterTalent CT ON CS.CharacterSubclassID = CT.CharacterSubclassID
-	INNER JOIN SubclassTalent ST ON CT.SubclassTalentID = ST.SubclassTalentID
-	INNER JOIN Talent T ON ST.TalentID = T.TalentID
-ORDER BY T.[Rank] DESC, T.[TalentType] ASC, T.[Name] DESC;
+	INNER JOIN Talent T ON CT.TalentID = T.TalentID
+ORDER BY T.TalentRank DESC, T.TalentType ASC, T.TalentName DESC;
 GO
 
 
@@ -90,8 +89,7 @@ SELECT C.ClassName,
 	T.TalentType
 FROM Class C
 	INNER JOIN Subclass S ON C.ClassID = S.ClassID
-	INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
-	INNER JOIN Talent T ON ST.TalentID = T.TalentID
+	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
 ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
@@ -109,8 +107,7 @@ SELECT C.ClassName,
 FROM Class C
 	INNER JOIN Subclass S ON C.ClassID = S.ClassID
 		AND C.ClassName = @ClassName
-	INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
-	INNER JOIN Talent T ON ST.TalentID = T.TalentID
+	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
 ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
@@ -126,9 +123,8 @@ SELECT C.ClassName,
 	T.TalentRank,
 	T.TalentType
 FROM Subclass S
-	INNER JOIN SubclassTalent ST ON S.SubclassID = ST.SubclassID
+	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
 		AND S.SubclassName = @SubclassName
-	INNER JOIN Talent T ON ST.TalentID = T.TalentID
 ORDER BY S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
