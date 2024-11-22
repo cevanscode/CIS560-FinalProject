@@ -2,8 +2,8 @@
 {
     public interface IDataDelegate
     {
-        string ProcedureName { get; }
+        public string ProcedureName { get; }
 
-        void PrepareCommand(Command command);
+        public void PrepareCommand(Command command);
     }
 }
