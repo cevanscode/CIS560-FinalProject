@@ -1,11 +1,23 @@
-﻿﻿
+﻿using DataAccess;
+﻿
 namespace CIS560FinalProject
 {
     public class SQLCharacterRepository : ICharacterRepository
     {
-        public Character CreateCharacter(int accountID, string name, int age, int health, uint xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents)
+        private readonly SqlCommandExecutor executor;
+
+        public SQLCharacterRepository(string connectionString)
         {
-            throw new NotImplementedException();
+            executor = new SqlCommandExecutor(connectionString);
+        }
+
+        public Character CreateCharacter(int accountID, string name, int age, int health, int xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents)
+        {
+            if (string.IsNullOrWhiteSpace(name))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(name));
+
+            var d = new CreateCharacterDataDelegate(accountID, name, age, health, xp, copper, characterClass, subclass, talents);
+            return executor.ExecuteNonQuery(d);
         }
 
         public Character FetchCharacter(int characterID)
