@@ -17,7 +17,7 @@ CREATE TABLE Accounts
 (
 	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
-	AccountPassword NVarChar NOT NULL,
+	AccountPassword NVarChar(100) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,
@@ -88,7 +88,7 @@ GO
 CREATE TABLE Class 
 (
 	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	ClassDescription NVARCHAR(500),
+	ClassDescription NVARCHAR(1000),
 	ClassName NVARCHAR(30) NOT NULL
 
 	UNIQUE(ClassName)

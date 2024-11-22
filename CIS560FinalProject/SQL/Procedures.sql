@@ -16,7 +16,7 @@ GO
 
 
 
-CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password NVarChar
+CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password NVarChar(100)
 AS
 SELECT A.UserName, A.Email, A.FullName, A.Birthday
 FROM Accounts A
@@ -27,13 +27,14 @@ GO
 
 
 
-CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password NVarChar
+CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password NVarChar(100)
 AS
 SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
-	CS.ClassID, CS.SubclassID, C.CharacterID
+	C.ClassName, CS.SubclassName
 FROM Accounts A
 	INNER JOIN [Character] C ON A.AccountID = C.AccountID
 	INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
+	INNER JOIN Class C ON C.ClassID = CS.ClassID
 WHERE A.UserName = @Username AND A.AccountPassword = @Password;
 GO
 
@@ -133,7 +134,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar
+CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar(100)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
