@@ -15,12 +15,12 @@ namespace CIS560FinalProject
         public readonly int health;
         public readonly int xp;
         public readonly int copper;
-        public readonly Class characterClass;
-        public readonly Subclass subclass;
+        public readonly string className;
+        public readonly string subclassName;
         public readonly List<Talent> talents;
 
-        public CreateCharacterDataDelegate(int accountID, string name, int age, int health, int xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents)
-            : base("CreateAccount")
+        public CreateCharacterDataDelegate(int accountID, string name, int age, int health, int xp, int copper, string characterClass, string subclass, List<Talent> talents)
+            : base("CreateCharacter")
         {
             this.accountID = accountID;
             this.name = name;
@@ -28,8 +28,8 @@ namespace CIS560FinalProject
             this.health = health;
             this.xp = xp;
             this.copper = copper;
-            this.characterClass = characterClass;
-            this.subclass = subclass;
+            this.className = characterClass;
+            this.subclassName = subclass;
             this.talents = talents;
         }
 
@@ -52,7 +52,7 @@ namespace CIS560FinalProject
 
         public override Character Translate(Command command)
         {
-            return new Character(command.GetParameterValue<int>("CharacterID"), accountID, name, age, health, xp, copper, characterClass, subclass, talents);
+            return new Character(name, age, health, xp, copper, className, subclassName, talents);
         }
     }
 }

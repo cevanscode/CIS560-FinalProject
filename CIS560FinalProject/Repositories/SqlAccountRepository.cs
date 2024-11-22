@@ -43,6 +43,23 @@ namespace CIS560FinalProject
             return executor.ExecuteReader(d);
         }
 
+        public Character GetCharacter(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
+
+            var talents = GetCharacterTalents(username, password);
+
+            var d = new GetCharacterWithAccountDataDelegate(username, password, (List<Talent>)talents);
+            return executor.ExecuteReader(d);
+        }
+
+        public IReadOnlyList<Talent> GetCharacterTalents(string username, string password)
+        {
+            return executor.ExecuteReader(new GetCharacterTalentsDataDelegate(username, password));
+        }
 
         public IReadOnlyList<Account> RetrieveAccounts()
         {

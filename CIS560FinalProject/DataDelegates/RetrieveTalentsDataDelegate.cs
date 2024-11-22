@@ -10,7 +10,7 @@ namespace CIS560FinalProject
     internal class RetrieveTalentsDataDelegate : DataReaderDelegate<IReadOnlyList<Talent>>
     {
         public RetrieveTalentsDataDelegate()
-            : base("RetrieveAccounts") // Make sure matches Procedure
+            : base("GetTalents") // Make sure matches Procedure
         {
         }
 

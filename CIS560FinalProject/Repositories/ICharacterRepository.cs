@@ -1,4 +1,4 @@
-﻿﻿
+﻿
 namespace CIS560FinalProject
 {
     public interface ICharacterRepository
@@ -10,11 +10,10 @@ namespace CIS560FinalProject
         IReadOnlyList<Character> RetrieveCharacters();
 
         /// <summary>
-        /// Grabs a character from the database
+        /// 
         /// </summary>
-        /// <param name="characterID">The id of the character to retrieve</param>
-        /// <returns>A character</returns>
-        Character FetchCharacter(int characterID);
+        /// <returns></returns>
+        IReadOnlyList<Talent> GetCharacterTalents();
 
         /// <summary>
         /// Creates a new character in the repository
@@ -25,10 +24,10 @@ namespace CIS560FinalProject
         /// <param name="health">The amount of health the character has</param>
         /// <param name="xp">The amount of xp the character has accumulated</param>
         /// <param name="copper">The amount of copper the character has collected</param>
-        /// <param name="characterClass">The character's class</param>
-        /// <param name="subclass">The character's subclass</param>
+        /// <param name="className">The character's class</param>
+        /// <param name="subclassName">The character's subclass</param>
         /// <param name="talents">The talents the character has</param>
         /// <returns>A character that is created</returns>
-        Character CreateCharacter(int accountID, string name, int age, int health, int xp, int copper, Class characterClass, Subclass subclass, List<Talent> talents);
+        Character CreateCharacter(int accountID, string name, int age, int health, int xp, int copper, string className, string subclassName, List<Talent> talents);
     }
 }
