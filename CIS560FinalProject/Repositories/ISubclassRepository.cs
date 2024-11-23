@@ -8,7 +8,7 @@ namespace CIS560FinalProject
         /// </summary>
         /// <param name="className">The className that each class belongs to</param>
         /// <returns>A list of all subclasses</returns>
-        public IReadOnlyList<Subclass> RetrieveSubclasses();
+        public IReadOnlyList<Subclass> RetrieveSubclasses(string className);
 
         /// <summary>
         /// Fetch one subclass from the database

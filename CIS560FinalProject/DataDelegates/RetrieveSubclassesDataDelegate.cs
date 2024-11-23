@@ -11,6 +11,7 @@ namespace CIS560FinalProject
         public RetrieveSubclassesDataDelegate(string className)
             : base("RetrieveSubclasses") // Make sure matches Procedure
         {
+            this.className = className;
         }
 
         public override void PrepareCommand(Command command)
@@ -19,6 +20,7 @@ namespace CIS560FinalProject
 
             command.Parameters.AddWithValue("ClassName", className);
         }
+
 
         public override IReadOnlyList<Subclass> Translate(Command command, IDataRowReader reader)
         {
