@@ -16,11 +16,7 @@ CREATE TABLE Accounts
 (
 	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
-<<<<<<< HEAD
-	AccountPassword NVarChar(50) NOT NULL,
-=======
 	AccountPassword NVarChar(100) NOT NULL,
->>>>>>> main
 	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,
@@ -58,16 +54,9 @@ CREATE TABLE Subclass
 (
 	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	ClassID INT NOT NULL FOREIGN KEY
-<<<<<<< HEAD
-		REFERENCES Class(ClassID),
-	SubclassName NVARCHAR(30) NOT NULL,
-	SubclassDescription NVARCHAR(500)
-=======
 		REFERENCES Class(ClassID) ON DELETE CASCADE,
 	SubclassName NVARCHAR(30) NOT NULL,
 	SubclassDescription NVARCHAR(1000) NOT NULL
->>>>>>> main
-
 	UNIQUE(SubclassID, ClassID),
 	UNIQUE(SubclassName)
 );
@@ -80,7 +69,6 @@ CREATE TABLE CharacterSubclass
 		REFERENCES [Character](CharacterID) ON DELETE CASCADE,
 	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
-	
 	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID) ON DELETE CASCADE
 	UNIQUE(SubclassID)
 );

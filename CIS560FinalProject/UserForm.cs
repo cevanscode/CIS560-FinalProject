@@ -219,10 +219,9 @@ namespace CIS560FinalProject
         private void BackButton_Click(object sender, EventArgs e)
         {
             ItemListView.Visible = false;
-            SelectButton.Enabled = false;
-            EncyclopediaClassButton.Enabled = true;
-            EncyclopediaSubclassButton.Enabled = true;
-            EncyclopediaTalentsButton.Enabled = true;
+            EncyclopediaClassButton.Visible = true;
+            EncyclopediaSubclassButton.Visible = true;
+            EncyclopediaTalentsButton.Visible = true;
             _source = "";
         }
 
