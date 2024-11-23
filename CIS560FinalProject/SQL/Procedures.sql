@@ -11,13 +11,8 @@ DROP PROCEDURE IF EXISTS CreateAccount;
 DROP PROCEDURE IF EXISTS AdminCreateClass;
 DROP PROCEDURE IF EXISTS AdminCreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
-<<<<<<< HEAD
-DROP PROCEDURE IF EXISTS GetSubclass;
-DROP PROCEDURE IF EXISTS RetrieveAllSubclasses;
-DROP PROCEDURE IF EXISTS RetrieveSubclasses;
-=======
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
->>>>>>> main
+DROP PROCEDURE IF EXISTS RetrieveSubclasses;
 GO
 
 
@@ -36,12 +31,13 @@ GO
 
 CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password NVarChar(100)
 AS
-SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
-	C.ClassName, CS.SubclassName
+SELECT Ch.CharacterName, Ch.CharacterAge, Ch.Health, Ch.XP, Ch.Copper,
+	C.ClassName, S.SubclassName
 FROM Accounts A
-	INNER JOIN [Character] C ON A.AccountID = C.AccountID
-	INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
+	INNER JOIN [Character] Ch ON A.AccountID = Ch.AccountID
+	INNER JOIN CharacterSubclass CS ON Ch.CharacterID = CS.CharacterID
 	INNER JOIN Class C ON C.ClassID = CS.ClassID
+	INNER JOIN Subclass S ON S.SubclassID = CS.SubclassID
 WHERE A.UserName = @Username AND A.AccountPassword = @Password;
 GO
 
@@ -116,7 +112,7 @@ GO
 
 
 
-CREATE PROCEDURE GetTalentsForClass @ClassName NVarChar
+CREATE PROCEDURE GetTalentsForClass @ClassName NVarChar(50)
 AS
 SELECT C.ClassName,
 	S.SubclassName,
@@ -134,7 +130,7 @@ GO
 
 
 
-CREATE PROCEDURE GetTalentsForSubclass @SubclassName NVarChar
+CREATE PROCEDURE GetTalentsForSubclass @SubclassName NVarChar(50)
 AS
 SELECT C.ClassName,
 	S.SubclassName,
@@ -145,6 +141,7 @@ SELECT C.ClassName,
 FROM Subclass S
 	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
 		AND S.SubclassName = @SubclassName
+	INNER JOIN Class C ON C.ClassID = T.ClassID
 ORDER BY S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
@@ -164,7 +161,7 @@ GO
 
 CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
-INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
+INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
 
@@ -183,9 +180,9 @@ GO
 
 
 
-CREATE PROCEDURE AdminCreateSubclass @UserName NVarChar(30), @Password NVarChar, @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateSubclass @UserName NVarChar(30), @Password NVarChar(50), @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
 AS
-	INSERT Class(ClassID, SubclassDescription, SubclassName)
+	INSERT Subclass(ClassID, SubclassDescription, SubclassName)
 	VALUES((SELECT C.ClassID FROM Class C WHERE @ClassName = C.ClassName),@SubclassName, @SubclassDescription)
 GO
 
@@ -203,7 +200,7 @@ AS
 WITH FindCharacter(CharacterID) AS
 (
 	SELECT C.CharacterID
-	FROM Account A
+	FROM Accounts A
 		INNER JOIN [Character] C ON A.AccountID = C.AccountID
 	WHERE A.UserName = @UserName AND A.AccountPassword = @Password
 )
@@ -234,11 +231,11 @@ AS
 WITH FindTalent(TalentID, CharacterSubclassID)
 AS
 (
-	SELECT T.TalentID, CS.CharcterSubclassID
+	SELECT T.TalentID, CS.CharacterSubclassID
 	FROM Accounts A
 		INNER JOIN [Character] C ON A.UserName = @UserName
 			AND A.AccountPassword = @Password
-			AND A.AccountID = C.AccontID
+			AND A.AccountID = C.AccountID
 		INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
 		INNER JOIN Subclass S ON CS.SubclassID = S.SubclassID
 		INNER JOIN Talent T ON T.TalentName = @TalentName

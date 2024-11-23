@@ -69,7 +69,8 @@ CREATE TABLE CharacterSubclass
 		REFERENCES [Character](CharacterID) ON DELETE CASCADE,
 	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID) ON DELETE CASCADE
+	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
+	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
 	UNIQUE(SubclassID)
 );
 GO
@@ -82,11 +83,12 @@ CREATE TABLE Talent
 	ClassID INT NOT NULL,
 	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
+	TalentCategoryID INT NOT NULL, --check this later if it needs to be FK
 	TalentType INT NOT NULL
 
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
 	UNIQUE(TalentName, TalentRank, TalentType)
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
+	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
+	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
 	CHECK(TalentRank IN (1,2,3) AND TalentCategoryID = 1 OR TalentRank=0 AND TalentCategoryID=0)
 );
 GO
