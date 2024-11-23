@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace CIS560FinalProject
 {
-    internal class RetrieveTalentsDataDelegate : DataReaderDelegate<IReadOnlyList<Talent>>
+    internal class RetrieveTalentsForClassDataDelegate : DataReaderDelegate<IReadOnlyList<Talent>>
     {
-        public RetrieveTalentsDataDelegate()
-            : base("GetTalents") // Make sure matches Procedure
+        private readonly string className;
+        public RetrieveTalentsForClassDataDelegate(string className)
+            : base("GetTalentsForClass") // Make sure matches Procedure
         {
+            this.className = className;
         }
 
         public override IReadOnlyList<Talent>Translate(Command command, IDataRowReader reader)
