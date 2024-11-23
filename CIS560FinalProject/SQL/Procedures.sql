@@ -8,8 +8,8 @@ DROP PROCEDURE IF EXISTS GetTalentsForClass;
 DROP PROCEDURE IF EXISTS GetTalentsForSubclass;
 DROP PROCEDURE IF EXISTS AdminGetAccounts;
 DROP PROCEDURE IF EXISTS CreateAccount;
-DROP PROCEDURE IF EXISTS CreateClass;
-DROP PROCEDURE IF EXISTS CreateSubclass;
+DROP PROCEDURE IF EXISTS AdminCreateClass;
+DROP PROCEDURE IF EXISTS AdminCreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
 GO
@@ -155,19 +155,19 @@ GO
 
 
 
-CREATE PROCEDURE CreateClass @ClassName NVarChar(30), @ClassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar, @ClassName NVarChar(30), @ClassDescription NVarChar(500)
 AS
-INSERT Class(ClassName, ClassDescription)
-VALUES(@ClassName, @ClassDescription)
+	INSERT Class(ClassName, ClassDescription)
+	VALUES(@ClassName, @ClassDescription)
 GO
 
 
 
 
-CREATE PROCEDURE CreateSubclass @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateSubclass @UserName NVarChar(30), @Password NVarChar, @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
 AS
-INSERT Class(ClassID, SubclassDescription, SubclassName)
-VALUES((SELECT C.ClassID FROM Class C WHERE @ClassName = C.ClassName),@SubclassName, @SubclassDescription)
+	INSERT Class(ClassID, SubclassDescription, SubclassName)
+	VALUES((SELECT C.ClassID FROM Class C WHERE @ClassName = C.ClassName),@SubclassName, @SubclassDescription)
 GO
 
 
