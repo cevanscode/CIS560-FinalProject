@@ -17,6 +17,9 @@ DROP PROCEDURE IF EXISTS MergeCharacterTalent;
 DROP PROCEDURE IF EXISTS AdminDeleteClass;
 DROP PROCEDURE IF EXISTS AdminDeleteSubclass;
 DROP PROCEDURE IF EXISTS UserDeleteAccount;
+DROP PROCEDURE IF EXISTS UserDeleteCharacter;
+DROP PROCEDURE IF EXISTS UserDeleteCharacter;
+DROP PROCEDURE IF EXISTS UserDeleteCharacter;
 GO
 
 
@@ -266,5 +269,39 @@ GO
 
 CREATE PROCEDURE UserDeleteAccount @UserName NVARCHAR(50), @Password NVARCHAR(100)
 AS
-DELETE FROM Accounts WHERE UserName = @UserName AND AccountPassword = @Password
+DELETE FROM Account WHERE UserName = @UserName AND AccountPassword = @Password;
+GO
+
+
+
+CREATE PROCEDURE UserDeleteCharacter @UserName NVARCHAR(50), @Password NVARCHAR(100)
+AS
+WITH FindAccountID(AccountID)
+AS
+(
+	SELECT A.AccountID FROM Accounts A WHERE A.UserName = @UserName AND A.AccountPassword = @Password
+)
+DELETE FROM [Character] WHERE AccountID = FindAccountID.AccountID;
+GO
+
+
+
+
+CREATE PROCEDURE UserDeleteTalent @UserName NVARCHAR(50), @Password NVARCHAR(100), @TalentName NVARCHAR(30), @TalentRank INT
+AS
+WITH FindTalent(TalentID, CharacterSubclassID)
+AS
+(
+	SELECT T.TalentID, CS.CharcterSubclassID
+	FROM Accounts A
+		INNER JOIN [Character] C ON A.UserName = @UserName
+			AND A.AccountPassword = @Password
+			AND A.AccountID = C.AccontID
+		INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
+		INNER JOIN Subclass S ON CS.SubclassID = S.SubclassID
+		INNER JOIN Talent T ON T.TalentName = @TalentName
+			AND T.TalentRank = @TalentRank
+			AND S.SubclassID = T.SubclassID
+)
+DELETE FROM CharacterTalent WHERE TalentID = FindTalent.TalentID AND CharacterSubclassID = FindTalent.CharacterSubclass;
 GO

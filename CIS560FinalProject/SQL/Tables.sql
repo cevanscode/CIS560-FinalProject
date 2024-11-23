@@ -84,7 +84,8 @@ CREATE TABLE Talent
 	ClassID INT NOT NULL,
 	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
-	TalentType INT NOT NULL
+	TalentType INT NOT NULL,
+	TalentCategoryID INT NOT NULL
 
 	UNIQUE(TalentName, TalentRank, TalentType)
 	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
