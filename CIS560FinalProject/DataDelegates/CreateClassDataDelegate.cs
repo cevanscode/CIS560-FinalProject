@@ -3,13 +3,13 @@ using System.Data;
 
 namespace CIS560FinalProject
 {
-    internal class UpdateClassDataDelegate : NonQueryDataDelegate<Class>
+    internal class CreateClassDataDelegate : NonQueryDataDelegate<Class>
     {
         public readonly string name;
         public readonly string description;
 
-        public UpdateClassDataDelegate(string name, string description)
-            : base("UpdateClass") // Make sure matches Procedure
+        public CreateClassDataDelegate(string name, string description)
+            : base("AdminCreateClass") // Make sure matches Procedure
         {
             this.name = name;
             this.description = description;

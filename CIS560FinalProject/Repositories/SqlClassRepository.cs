@@ -18,7 +18,7 @@ namespace CIS560FinalProject
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(description));
 
-            var d = new UpdateClassDataDelegate(name, description);
+            var d = new CreateClassDataDelegate(name, description);
             return executor.ExecuteNonQuery(d);
         }
 

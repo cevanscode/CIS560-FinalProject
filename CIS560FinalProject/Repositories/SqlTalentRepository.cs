@@ -23,7 +23,7 @@ namespace CIS560FinalProject
             if (string.IsNullOrWhiteSpace(description))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(description));
 
-            var d = new UpdateTalentDataDelegate(name, description, rank, type);
+            var d = new CreateTalentDataDelegate(name, description, rank, type);
             return executor.ExecuteNonQuery(d);
         }
 
@@ -36,6 +36,16 @@ namespace CIS560FinalProject
         public IReadOnlyList<Talent> RetrieveTalents()
         {
             return executor.ExecuteReader(new RetrieveTalentsDataDelegate());
+        }
+
+        public IReadOnlyList<Talent> RetrieveTalentsForClass(string className)
+        {
+            return executor.ExecuteReader(new RetrieveTalentsForClassDataDelegate(className));
+        }
+
+        public IReadOnlyList<Talent> RetrieveTalentsForSubclass(string subclassName)
+        {
+            return executor.ExecuteReader(new RetrieveTalentsForSubclassDataDelegate(subclassName));
         }
     }
 }
