@@ -8,7 +8,7 @@ namespace CIS560FinalProject
         private readonly string name;
 
         public GetClassDataDelegate(string name)
-            : base("GetClass") // Make sure matches Procedure
+            : base("GetClasses") // Make sure matches Procedure
         {
             this.name = name;
         }

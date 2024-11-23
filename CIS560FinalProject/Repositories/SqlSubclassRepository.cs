@@ -26,9 +26,9 @@ namespace CIS560FinalProject
             return executor.ExecuteNonQuery(d);
         }
 
-        public Subclass GetSubclass(string name, string className)
+        public Subclass GetSubclass(string name)
         {
-            var d = new GetSubclassDataDelegate(name, className);
+            var d = new GetSubclassDataDelegate(name);
             return executor.ExecuteReader(d);
         }
 

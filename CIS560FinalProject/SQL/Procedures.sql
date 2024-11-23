@@ -1,7 +1,7 @@
 DROP PROCEDURE IF EXISTS TryLogin;
 DROP PROCEDURE IF EXISTS GetCharacter;
 DROP PROCEDURE IF EXISTS GetTalentsForCharacter;
-DROP PROCEDURE IF EXISTS GetClasses;
+DROP PROCEDURE IF EXISTS RetrieveClasses;
 DROP PROCEDURE IF EXISTS GetSubclasses;
 DROP PROCEDURE IF EXISTS GetTalents;
 DROP PROCEDURE IF EXISTS GetTalentsForClass;
@@ -9,6 +9,9 @@ DROP PROCEDURE IF EXISTS GetTalentsForSubclass;
 DROP PROCEDURE IF EXISTS AdminGetAccounts;
 DROP PROCEDURE IF EXISTS CreateAccount;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
+DROP PROCEDURE IF EXISTS GetSubclass;
+DROP PROCEDURE IF EXISTS RetrieveAllSubclasses;
+DROP PROCEDURE IF EXISTS RetrieveSubclasses;
 GO
 
 
@@ -58,7 +61,7 @@ GO
 
 
 
-CREATE PROCEDURE GetClasses
+CREATE PROCEDURE RetrieveClasses
 AS
 SELECT C.ClassName, C.ClassDescription
 FROM Class C
@@ -68,7 +71,7 @@ GO
 
 
 
-CREATE PROCEDURE GetSubclasses
+CREATE PROCEDURE RetrieveAllSubclasses
 AS
 SELECT C.ClassName, S.SubclassName, S.SubclassDescription
 FROM Class C
@@ -76,7 +79,14 @@ FROM Class C
 ORDER BY C.ClassName DESC, S.SubclassName DESC;
 GO
 
-
+CREATE PROCEDURE RetrieveSubclasses @ClassName NVarChar(50)
+AS
+SELECT C.ClassName, S.SubclassName, S.SubclassDescription
+FROM Class C
+	INNER JOIN Subclass S ON C.ClassID = S.ClassID
+WHERE C.ClassName = @ClassName
+ORDER BY C.ClassName DESC, S.SubclassName DESC;
+GO
 
 
 CREATE PROCEDURE GetTalents

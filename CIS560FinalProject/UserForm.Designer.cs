@@ -64,14 +64,14 @@
             DeleteCharacterButton = new Button();
             ModifyCharacterButton = new Button();
             RulesTab = new TabPage();
-            ItemListView = new ListView();
+            SelectButton = new Button();
+            BackButton = new Button();
             EncyclopediaTalentsButton = new Button();
             EncyclopediaSubclassButton = new Button();
             EncyclopediaClassButton = new Button();
             label2 = new Label();
             label1 = new Label();
-            BackButton = new Button();
-            SelectButton = new Button();
+            ItemListView = new ListView();
             UserTabs.SuspendLayout();
             AccountTab.SuspendLayout();
             CharacterTab.SuspendLayout();
@@ -428,9 +428,9 @@
             // 
             // RulesTab
             // 
+            RulesTab.Controls.Add(ItemListView);
             RulesTab.Controls.Add(SelectButton);
             RulesTab.Controls.Add(BackButton);
-            RulesTab.Controls.Add(ItemListView);
             RulesTab.Controls.Add(EncyclopediaTalentsButton);
             RulesTab.Controls.Add(EncyclopediaSubclassButton);
             RulesTab.Controls.Add(EncyclopediaClassButton);
@@ -444,13 +444,25 @@
             RulesTab.Text = " Rules Encyclopedia";
             RulesTab.UseVisualStyleBackColor = true;
             // 
-            // ItemListView
+            // SelectButton
             // 
-            ItemListView.Location = new Point(140, 54);
-            ItemListView.Name = "ItemListView";
-            ItemListView.Size = new Size(500, 347);
-            ItemListView.TabIndex = 7;
-            ItemListView.UseCompatibleStateImageBehavior = false;
+            SelectButton.Location = new Point(646, 367);
+            SelectButton.Name = "SelectButton";
+            SelectButton.Size = new Size(112, 34);
+            SelectButton.TabIndex = 9;
+            SelectButton.Text = "Select";
+            SelectButton.UseVisualStyleBackColor = true;
+            SelectButton.Click += SelectButton_Click;
+            // 
+            // BackButton
+            // 
+            BackButton.Location = new Point(22, 367);
+            BackButton.Name = "BackButton";
+            BackButton.Size = new Size(112, 34);
+            BackButton.TabIndex = 8;
+            BackButton.Text = "Back";
+            BackButton.UseVisualStyleBackColor = true;
+            BackButton.Click += BackButton_Click;
             // 
             // EncyclopediaTalentsButton
             // 
@@ -500,25 +512,13 @@
             label1.Size = new Size(0, 25);
             label1.TabIndex = 0;
             // 
-            // BackButton
+            // ItemListView
             // 
-            BackButton.Location = new Point(22, 367);
-            BackButton.Name = "BackButton";
-            BackButton.Size = new Size(112, 34);
-            BackButton.TabIndex = 8;
-            BackButton.Text = "Back";
-            BackButton.UseVisualStyleBackColor = true;
-            BackButton.Click += BackButton_Click;
-            // 
-            // SelectButton
-            // 
-            SelectButton.Location = new Point(646, 367);
-            SelectButton.Name = "SelectButton";
-            SelectButton.Size = new Size(112, 34);
-            SelectButton.TabIndex = 9;
-            SelectButton.Text = "Select";
-            SelectButton.UseVisualStyleBackColor = true;
-            SelectButton.Click += SelectButton_Click;
+            ItemListView.Location = new Point(22, 54);
+            ItemListView.Name = "ItemListView";
+            ItemListView.Size = new Size(736, 307);
+            ItemListView.TabIndex = 10;
+            ItemListView.UseCompatibleStateImageBehavior = false;
             // 
             // UserForm
             // 
@@ -581,8 +581,8 @@
         private Button EncyclopediaClassButton;
         private ColumnHeader RankColumn;
         private ColumnHeader TalentNameColumn;
-        private ListView ItemListView;
         private Button BackButton;
         private Button SelectButton;
+        private ListView ItemListView;
     }
 }

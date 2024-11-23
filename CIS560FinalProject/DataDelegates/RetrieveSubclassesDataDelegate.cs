@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using System.Data;
+using System.Xml.Linq;
 
 namespace CIS560FinalProject
 {
@@ -8,9 +9,16 @@ namespace CIS560FinalProject
         private readonly string className;
 
         public RetrieveSubclassesDataDelegate(string className)
-            : base("RetrieveSubclass") // Make sure matches Procedure
+            : base("RetrieveSubclasses") // Make sure matches Procedure
         {
             this.className = className;
+        }
+
+        public override void PrepareCommand(Command command)
+        {
+            base.PrepareCommand(command);
+
+            command.Parameters.AddWithValue("ClassName", className);
         }
 
         public override IReadOnlyList<Subclass> Translate(Command command, IDataRowReader reader)
@@ -21,7 +29,7 @@ namespace CIS560FinalProject
             {
                 subclasses.Add(new Subclass(
                     reader.GetString("SubclassName"),
-                    reader.GetString("Description"),
+                    reader.GetString("SubclassDescription"),
                     className));
             }
 

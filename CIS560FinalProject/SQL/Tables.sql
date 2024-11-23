@@ -2,7 +2,6 @@ IF SCHEMA_Id(N'Larp') IS NULL
 EXEC(N'CREATE SCHEMA [Larp];');
 GO
 
-
 DROP TABLE IF EXISTS CharacterTalent;
 DROP TABLE IF EXISTS CharacterSubclass;
 DROP TABLE IF EXISTS [Character];
@@ -17,7 +16,7 @@ CREATE TABLE Accounts
 (
 	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
-	AccountPassword NVarChar NOT NULL,
+	AccountPassword NVarChar(50) NOT NULL,
 	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,
@@ -44,20 +43,20 @@ GO
 
 CREATE TABLE Class 
 (
-	ClassID INT NOT NULL PRIMARY KEY,
+	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ClassName NVARCHAR(30) NOT NULL,
 	ClassDescription NVARCHAR(500),
-	ClassName NVARCHAR(30) NOT NULL
-
 	UNIQUE(ClassName)
 );
 GO
 
 CREATE TABLE Subclass 
 (
-	SubclassID INT NOT NULL PRIMARY KEY,
+	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	ClassID INT NOT NULL FOREIGN KEY
 		REFERENCES Class(ClassID),
-	SubclassName NVARCHAR(30) NOT NULL
+	SubclassName NVARCHAR(30) NOT NULL,
+	SubclassDescription NVARCHAR(500)
 
 	UNIQUE(SubclassID, ClassID),
 	UNIQUE(SubclassName)
@@ -86,6 +85,7 @@ CREATE TABLE Talent
 	TalentRank INT NOT NULL, 
 	TalentType INT NOT NULL
 
+	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
 	UNIQUE(TalentName, TalentRank, TalentType)
 );
 GO
@@ -99,29 +99,7 @@ CREATE TABLE CharacterTalent
 		REFERENCES Talent(TalentID),
 	Amount INT NOT NULL
 
-	UNIQUE(CharacterSubclassID, SubclassTalentID)
+	UNIQUE(CharacterSubclassID)
 	
-);
-GO
-
-CREATE TABLE Class 
-(
-	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	ClassDescription NVARCHAR(500),
-	ClassName NVARCHAR(30) NOT NULL
-
-	UNIQUE(ClassName)
-);
-GO
-
-CREATE TABLE Subclass 
-(
-	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
-	ClassID INT NOT NULL FOREIGN KEY
-		REFERENCES Class(ClassID),
-	SubclassName NVARCHAR(30) NOT NULL
-
-	UNIQUE(SubclassID, ClassID),
-	UNIQUE(SubclassName)
 );
 GO

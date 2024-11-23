@@ -16,7 +16,7 @@ namespace CIS560FinalProject
         /// <param name="name">The name of the subclass to grab</param>
         /// <param name="className">The associated className for this class</param>
         /// <returns>A subclass</returns>
-        Subclass GetSubclass(string name, string className);
+        Subclass GetSubclass(string name);
 
         /// <summary>
         /// Create a new subclass in the repository 

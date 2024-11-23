@@ -30,6 +30,7 @@ namespace CIS560FinalProject
         {
             InitializeComponent();
 
+            ItemListView.View = View.Details;
 
             //Disables Account and Character tabs.
             UserTabs.TabPages[0].Enabled = false;
@@ -38,6 +39,7 @@ namespace CIS560FinalProject
             UserTabs.SelectedIndex = 2;
             ItemListView.Visible = false;
             SelectButton.Visible = false;
+
 
             _classRepo = new SqlClassRepository(connectionString);
             _subclassRepo = new SqlSubclassRepository(connectionString);
@@ -59,6 +61,8 @@ namespace CIS560FinalProject
             UserTabs.SelectedIndex = 0;
             ItemListView.Visible = false;
             SelectButton.Visible = false;
+
+            ItemListView.View = View.Details;
 
             _viewAccount = a;
             FillUNLabel.Text = a.Username;
@@ -111,46 +115,105 @@ namespace CIS560FinalProject
             this.Close();
         }
 
+        private void RefreshClassList(IEnumerable<Class> list)
+        {
+            ItemListView.Columns.Clear();
+            ItemListView.Items.Clear();
+            ItemListView.Columns.Add("Class", 200);
+            ItemListView.Columns.Add("Description", 2000);
+
+            foreach (Class c in list)
+            {
+                var lvi1 = new ListViewItem(c.Name);
+                lvi1.SubItems.Add(c.Description);
+                ItemListView.Items.Add(lvi1);
+            }
+        }
+
+        private void RefreshSubclassList(IEnumerable<Subclass> list)
+        {
+            ItemListView.Columns.Clear();
+            ItemListView.Items.Clear();
+            ItemListView.Columns.Add("Subclass", 200);
+            ItemListView.Columns.Add("ClassName", 200);
+            ItemListView.Columns.Add("Description", 2000);
+
+            foreach (Subclass s in list)
+            {
+                var lvi1 = new ListViewItem(s.Name);
+                lvi1.SubItems.Add(s.ClassName);
+                lvi1.SubItems.Add(s.Description);
+                ItemListView.Items.Add(lvi1);
+            }
+        }
+
+        private void RefreshTalentsList(IEnumerable<Talent> list)
+        {
+            ItemListView.Columns.Clear();
+            ItemListView.Items.Clear();
+            ItemListView.Columns.Add("Talent", 200);
+            ItemListView.Columns.Add("Rank", 200);
+            ItemListView.Columns.Add("Type", 200);
+            ItemListView.Columns.Add("Description", 2000);
+
+            foreach (Talent t in list)
+            {
+                var lvi1 = new ListViewItem(t.Name);
+                lvi1.SubItems.Add(t.Rank.ToString());
+                ItemListView.Items.Add(t.Type.ToString());
+                lvi1.SubItems.Add(t.Description);
+                ItemListView.Items.Add(lvi1);
+            }
+        }
+
+        public void ButtonsOff()
+        {
+            EncyclopediaClassButton.Visible = false;
+            EncyclopediaSubclassButton.Visible = false;
+            EncyclopediaTalentsButton.Visible = false;
+        }
+
         private void EncyclopediaClassButton_Click(object sender, EventArgs e)
         {
             _source = "class";
             ItemListView.Visible = true;
-            ItemListView.Items.Clear();
+            ButtonsOff();
 
             IReadOnlyList<Class> classList = _classRepo.RetrieveClasses();
 
-            foreach (Class c in classList)
-            {
-                ItemListView.Items.Add(c.Name);
-            }
+            RefreshClassList(classList);
         }
 
         private void EncyclopediaSubclassButton_Click(object sender, EventArgs e)
         {
+            List<Subclass> subclassList = new List<Subclass>();
             _source = "subclass";
             ItemListView.Visible = true;
-            ItemListView.Items.Clear();
+            ButtonsOff();
 
-            IReadOnlyList<Subclass> subclassList = _subclassRepo.RetrieveSubclasses();
+            IReadOnlyList<Class> classList = _classRepo.RetrieveClasses();
 
-            foreach (Subclass s in subclassList)
+            foreach(Class c in classList)
             {
-                ItemListView.Items.Add(s.Name);
+                IReadOnlyList<Subclass> temp = _subclassRepo.RetrieveSubclasses(c.Name);
+                foreach(Subclass sub in temp)
+                {
+                    subclassList.Add(sub);
+                }
             }
+
+            RefreshSubclassList(subclassList);
         }
 
         private void EncyclopediaTalentsButton_Click(object sender, EventArgs e)
         {
             _source = "talent";
             ItemListView.Visible = true;
-            ItemListView.Items.Clear();
+            ButtonsOff();
 
             IReadOnlyList<Talent> talentList = _talentRepo.RetrieveTalents();
 
-            foreach (Talent t in talentList)
-            {
-                ItemListView.Items.Add(t.Name);
-            }
+            RefreshTalentsList(talentList);
         }
 
         private void BackButton_Click(object sender, EventArgs e)
