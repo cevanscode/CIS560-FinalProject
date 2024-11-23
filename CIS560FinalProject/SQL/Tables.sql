@@ -16,7 +16,11 @@ CREATE TABLE Accounts
 (
 	AccountID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	UserName NVARCHAR(50) NOT NULL,
+<<<<<<< HEAD
 	AccountPassword NVarChar(50) NOT NULL,
+=======
+	AccountPassword NVarChar(100) NOT NULL,
+>>>>>>> main
 	Email NVARCHAR(50) NOT NULL,
 	FullName NVARCHAR(32) NOT NULL,
 	Birthday DateTime2,
@@ -32,7 +36,7 @@ CREATE TABLE [Character]
 	CharacterName NVARCHAR(32) NOT NULL,
 	CharacterAge INT NOT NULL,
 	AccountID INT NOT NULL FOREIGN KEY
-		REFERENCES Accounts(AccountID),
+		REFERENCES Accounts(AccountID) ON DELETE CASCADE,
 	Health INT NOT NULL,
 	XP INT NOT NULL,
 	Copper INT NOT NULL
@@ -54,9 +58,15 @@ CREATE TABLE Subclass
 (
 	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	ClassID INT NOT NULL FOREIGN KEY
+<<<<<<< HEAD
 		REFERENCES Class(ClassID),
 	SubclassName NVARCHAR(30) NOT NULL,
 	SubclassDescription NVARCHAR(500)
+=======
+		REFERENCES Class(ClassID) ON DELETE CASCADE,
+	SubclassName NVARCHAR(30) NOT NULL,
+	SubclassDescription NVARCHAR(1000) NOT NULL
+>>>>>>> main
 
 	UNIQUE(SubclassID, ClassID),
 	UNIQUE(SubclassName)
@@ -67,12 +77,11 @@ CREATE TABLE CharacterSubclass
 (
 	CharacterSubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterID INT NOT NULL FOREIGN KEY
-		REFERENCES [Character](CharacterID),
+		REFERENCES [Character](CharacterID) ON DELETE CASCADE,
 	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
 	
-	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
-	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
+	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID) ON DELETE CASCADE
 	UNIQUE(SubclassID)
 );
 GO
@@ -82,11 +91,15 @@ CREATE TABLE Talent
 	TalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	TalentName NVARCHAR(30) NOT NULL,
 	TalentDescription NVARCHAR(500),
+	ClassID INT NOT NULL,
+	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
 	TalentType INT NOT NULL
 
 	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
 	UNIQUE(TalentName, TalentRank, TalentType)
+	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
+	CHECK(TalentRank IN (1,2,3) AND TalentCategoryID = 1 OR TalentRank=0 AND TalentCategoryID=0)
 );
 GO
 
@@ -94,7 +107,7 @@ CREATE TABLE CharacterTalent
 (
 	CharacterTalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	CharacterSubclassID INT NOT NULL
-		REFERENCES CharacterSubclass(CharacterSubclassID),
+		REFERENCES CharacterSubclass(CharacterSubclassID) ON DELETE CASCADE,
 	TalentID INT NOT NULL FOREIGN KEY
 		REFERENCES Talent(TalentID),
 	Amount INT NOT NULL

@@ -10,7 +10,7 @@ namespace CIS560FinalProject
     internal class RetrieveClassesDataDelegate : DataReaderDelegate<IReadOnlyList<Class>>
     {
         public RetrieveClassesDataDelegate()
-            : base("RetrieveClasses") // Make sure matches Procedure
+            : base("GetClasses") // Make sure matches Procedure
         {
         }
 

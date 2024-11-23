@@ -32,9 +32,9 @@ namespace CIS560FinalProject
             return executor.ExecuteReader(d);
         }
 
-        public IReadOnlyList<Subclass> RetrieveSubclasses(string className)
+        public IReadOnlyList<Subclass> RetrieveSubclasses()
         {
-            return executor.ExecuteReader(new RetrieveSubclassesDataDelegate(className));
+            return executor.ExecuteReader(new RetrieveSubclassesDataDelegate());
         }
     }
 }

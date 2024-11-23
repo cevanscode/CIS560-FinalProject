@@ -25,7 +25,7 @@ namespace CIS560FinalProject
             if (!reader.Read())
                 return null;
 
-            return new Subclass(name, reader.GetString("Description"), "");
+            return new Subclass(name, reader.GetString("Description"), reader.GetString("ClassName"));
         }
     }
 }

@@ -11,7 +11,6 @@ namespace CIS560FinalProject
         public RetrieveSubclassesDataDelegate(string className)
             : base("RetrieveSubclasses") // Make sure matches Procedure
         {
-            this.className = className;
         }
 
         public override void PrepareCommand(Command command)

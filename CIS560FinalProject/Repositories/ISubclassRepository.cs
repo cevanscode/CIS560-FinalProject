@@ -8,7 +8,7 @@ namespace CIS560FinalProject
         /// </summary>
         /// <param name="className">The className that each class belongs to</param>
         /// <returns>A list of all subclasses</returns>
-        IReadOnlyList<Subclass> RetrieveSubclasses(string className);
+        public IReadOnlyList<Subclass> RetrieveSubclasses();
 
         /// <summary>
         /// Fetch one subclass from the database
@@ -16,7 +16,7 @@ namespace CIS560FinalProject
         /// <param name="name">The name of the subclass to grab</param>
         /// <param name="className">The associated className for this class</param>
         /// <returns>A subclass</returns>
-        Subclass GetSubclass(string name);
+        public Subclass GetSubclass(string name);
 
         /// <summary>
         /// Create a new subclass in the repository 
