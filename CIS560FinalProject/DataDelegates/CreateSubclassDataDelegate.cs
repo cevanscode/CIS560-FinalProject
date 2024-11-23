@@ -3,14 +3,14 @@ using System.Data;
 
 namespace CIS560FinalProject
 {
-    internal class UpdateSubclassDataDelegate : NonQueryDataDelegate<Subclass>
+    internal class CreateSubclassDataDelegate : NonQueryDataDelegate<Subclass>
     {
         public readonly string name;
         public readonly string description;
         public readonly string className;
 
-        public UpdateSubclassDataDelegate(string name, string description, string className)
-            : base("UpdateSubclass")
+        public CreateSubclassDataDelegate(string name, string description, string className)
+            : base("AdminCreateSubclass")
         {
             this.name = name;
             this.description = description;

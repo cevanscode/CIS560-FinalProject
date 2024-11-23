@@ -3,15 +3,15 @@ using System.Data;
 
 namespace CIS560FinalProject
 {
-    internal class UpdateTalentDataDelegate : NonQueryDataDelegate<Talent>
+    internal class CreateTalentDataDelegate : NonQueryDataDelegate<Talent>
     {
         public readonly string name;
         public readonly string description;
         public readonly Rank rank;
         public readonly TalentType type;
 
-        public UpdateTalentDataDelegate(string name, string description, Rank rank, TalentType type)
-            : base("UpdateTalent") // Make sure matches Procedure
+        public CreateTalentDataDelegate(string name, string description, Rank rank, TalentType type)
+            : base("AdminCreateTalent") // Make sure matches Procedure
         {
             this.name = name;
             this.description = description;

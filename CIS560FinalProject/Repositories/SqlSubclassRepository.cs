@@ -22,7 +22,7 @@ namespace CIS560FinalProject
             if (string.IsNullOrWhiteSpace(className))
                 throw new ArgumentException("The parameter cannot be null or empty.", nameof(className));
 
-            var d = new UpdateSubclassDataDelegate(name, description, className);
+            var d = new CreateSubclassDataDelegate(name, description, className);
             return executor.ExecuteNonQuery(d);
         }
 
@@ -35,6 +35,11 @@ namespace CIS560FinalProject
         public IReadOnlyList<Subclass> RetrieveSubclasses(string className)
         {
             return executor.ExecuteReader(new RetrieveSubclassesDataDelegate(className));
+        }
+
+        public IReadOnlyList<Subclass> RetrieveAllSubclasses()
+        {
+            return executor.ExecuteReader(new RetrieveAllSubclassesDataDelegate());
         }
     }
 }

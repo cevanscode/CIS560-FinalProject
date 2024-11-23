@@ -9,8 +9,9 @@ namespace CIS560FinalProject
 {
     internal class RetrieveTalentsDataDelegate : DataReaderDelegate<IReadOnlyList<Talent>>
     {
+        private readonly string className;
         public RetrieveTalentsDataDelegate()
-            : base("GetTalents") // Make sure matches Procedure
+            : base("RetrieveTalents") // Make sure matches Procedure
         {
         }
 
