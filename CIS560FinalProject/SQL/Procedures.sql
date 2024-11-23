@@ -160,8 +160,11 @@ GO
 
 CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar, @ClassName NVarChar(30), @ClassDescription NVarChar(500)
 AS
+IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
+BEGIN
 	INSERT Class(ClassName, ClassDescription)
 	VALUES(@ClassName, @ClassDescription)
+END
 GO
 
 
