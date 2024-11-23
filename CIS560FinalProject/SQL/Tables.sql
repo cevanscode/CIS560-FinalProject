@@ -11,6 +11,7 @@ DROP TABLE IF EXISTS SubclassTalent;
 DROP TABLE IF EXISTS Talent;
 DROP TABLE IF EXISTS Subclass;
 DROP TABLE IF EXISTS Class;
+DROP TABLE IF EXISTS TalentCategory;
 GO
 
 CREATE TABLE Accounts 
@@ -72,9 +73,9 @@ CREATE TABLE CharacterSubclass
 		REFERENCES [Character](CharacterID) ON DELETE CASCADE,
 	ClassID INT NOT NULL,
 	SubclassID INT NOT NULL
-	
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID) ON DELETE CASCADE
-	UNIQUE(SubclassID)
+	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
+	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
+	UNIQUE(CharacterID, ClassID, SubclassID)
 );
 GO
 
@@ -82,7 +83,7 @@ CREATE TABLE Talent
 (
 	TalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	TalentName NVARCHAR(30) NOT NULL,
-	TalentDescription NVARCHAR(500),
+	TalentDescription NVARCHAR(500) NOT NULL,
 	ClassID INT NOT NULL,
 	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
@@ -103,7 +104,13 @@ CREATE TABLE CharacterTalent
 		REFERENCES Talent(TalentID),
 	Amount INT NOT NULL
 
-	UNIQUE(CharacterSubclassID, SubclassTalentID)
+	UNIQUE(CharacterSubclassID, TalentID)
 	
+);
+GO
+
+CREATE TABLE TalentCategory
+(
+	TalentCategoryID INT NOT NULL PRIMARY KEY
 );
 GO

@@ -17,7 +17,7 @@ GO
 
 
 
-CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE TryLogin @UserName NVarChar(50), @Password NVarChar(100)
 AS
 SELECT A.UserName, A.Email, A.FullName, A.Birthday
 FROM Accounts A
@@ -28,7 +28,7 @@ GO
 
 
 
-CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE GetCharacter @UserName NVarChar(50), @Password NVarChar(100)
 AS
 SELECT C.CharacterName, C.CharacterAge, C.Health, C.XP, C.Copper,
 	C.ClassName, CS.SubclassName
@@ -42,7 +42,7 @@ GO
 
 
 
-CREATE PROCEDURE GetTalentsForCharacter @CharacterName NVARCHAR(32)
+CREATE PROCEDURE GetTalentsForCharacter @UserName NVarChar(50), @Password NVarChar(100)
 AS
 SELECT CT.CharacterTalentID,
 	CT.CharacterSubclassID,
@@ -135,7 +135,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(50), @Password NVarChar(100)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
@@ -146,7 +146,7 @@ GO
 
 
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+CREATE PROCEDURE CreateAccount @UserName NVarChar(50), @Password NVarChar(100), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Account(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
@@ -155,7 +155,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar, @ClassName NVarChar(30), @ClassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateClass @UserName NVarChar(50), @Password NVarChar(100), @ClassName NVarChar(30), @ClassDescription NVarChar(500)
 AS
 	INSERT Class(ClassName, ClassDescription)
 	VALUES(@ClassName, @ClassDescription)
