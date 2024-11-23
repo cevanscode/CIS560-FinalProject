@@ -11,13 +11,6 @@ namespace CIS560FinalProject
         public IReadOnlyList<Account> RetrieveAccounts();
 
         /// <summary>
-        /// Retrives an account from the database
-        /// </summary>
-        /// <param name="accountID">The id of the account to retrieve</param>
-        /// <returns>The character</returns>
-        // Account FetchAccount(int accountID);
-
-        /// <summary>
         /// Creates an account in the repository
         /// </summary>
         /// <param name="userName">The account's username</param>
@@ -28,7 +21,13 @@ namespace CIS560FinalProject
         /// <returns>The created Account</returns>
         public Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
 
+        public Account ModifyAccount(string userName, string password, string email, string fullName, DateTime birthday);
+
+
         public Account FetchAccount(string username, string password);
+
+        public Account FetchAccountFromID(int ID);
+
 
         public Character GetCharacter(string userName, string password);
 

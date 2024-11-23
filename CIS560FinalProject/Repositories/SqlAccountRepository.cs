@@ -1,4 +1,5 @@
 ﻿﻿using DataAccess;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CIS560FinalProject
 {
@@ -37,8 +38,44 @@ namespace CIS560FinalProject
                 return null!;
             }
 
-            var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
+            var d = new ModifyAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
+        }
+
+        public Account ModifyAccount(string userName, string password, string email, string fullName, DateTime birthday)
+        {
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                MessageBox.Show("Username cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Password cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Email cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            if (string.IsNullOrWhiteSpace(fullName))
+            {
+                MessageBox.Show("Full name cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            var d = new ModifyAccountDataDelegate(userName, password, email, fullName, birthday);
+            return executor.ExecuteNonQuery(d);
+        }
+
+        public Account FetchAccountFromID(int ID)
+        {
+            var d = new FetchAccountFromIDDataDelegate(ID);
+            return executor.ExecuteReader(d);
         }
 
         public Account FetchAccount(string username, string password)

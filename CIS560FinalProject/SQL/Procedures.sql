@@ -14,10 +14,15 @@ DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
 DROP PROCEDURE IF EXISTS RetrieveSubclasses;
 DROP PROCEDURE IF EXISTS RetrieveAllSubclasses;
+DROP PROCEDURE IF EXISTS ModifyAccount;
 GO
 
-
-
+CREATE PROCEDURE FetchAccountFromID @ID INT
+AS
+SELECT A.UserName, A.AccountPassword, A.FullName, A.Birthday, A.Email
+FROM Accounts A
+WHERE A.AccountID = @ID
+GO
 
 CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password NVarChar(100)
 AS
@@ -160,16 +165,25 @@ GO
 
 
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar(50), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
 GO
 
+CREATE PROCEDURE ModifyAccount @UserName NVarChar(30), @Password NVarChar(50), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+AS
+UPDATE Accounts
+SET
+	UserName = @UserName,
+	AccountPassword = @Password,
+	Email = @Email,
+	FullName = @FullName,
+	Birthday = @Birthday
+GO
 
 
-
-CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar, @ClassName NVarChar(30), @ClassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar(50), @ClassName NVarChar(30), @ClassDescription NVarChar(500)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN

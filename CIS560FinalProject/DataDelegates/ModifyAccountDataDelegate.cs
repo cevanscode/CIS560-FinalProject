@@ -6,7 +6,7 @@ using System.Security.Cryptography;
 
 namespace CIS560FinalProject
 {
-    internal class CreateAccountDataDelegate : NonQueryDataDelegate<Account>
+    internal class ModifyAccountDataDelegate : NonQueryDataDelegate<Account>
     {
         private readonly string username;
         private readonly string password;
@@ -15,8 +15,8 @@ namespace CIS560FinalProject
         private readonly DateTime birthday;
         //private readonly bool isAdmin;
 
-        public CreateAccountDataDelegate(string userName, string password, string email, string fullName, DateTime birthday)
-            : base("CreateAccount")
+        public ModifyAccountDataDelegate(string userName, string password, string email, string fullName, DateTime birthday)
+            : base("ModifyAccount")
         {
             this.username = userName;
             this.password = password;

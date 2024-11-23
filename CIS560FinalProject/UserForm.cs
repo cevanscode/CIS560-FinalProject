@@ -19,6 +19,7 @@ namespace CIS560FinalProject
         private IClassRepository _classRepo;
         private ISubclassRepository _subclassRepo;
         private ITalentRepository _talentRepo;
+        private IAccountRepository _accountRepo;
         private string _source;
 
         private string connectionString = ConfigurationManager.ConnectionStrings["LarpDatabase"].ConnectionString;
@@ -40,7 +41,7 @@ namespace CIS560FinalProject
             ItemListView.Visible = false;
             SelectButton.Visible = false;
 
-
+            _accountRepo = new SqlAccountRepository(connectionString);
             _classRepo = new SqlClassRepository(connectionString);
             _subclassRepo = new SqlSubclassRepository(connectionString);
             _talentRepo = new SqlTalentRepository(connectionString);
@@ -71,6 +72,7 @@ namespace CIS560FinalProject
             FillBDLabel.Text = a.Birthday.ToString(); //erm this may look weird unformatted
             FillEmailLabel.Text = a.Email;
 
+            _accountRepo = new SqlAccountRepository(connectionString);
             _classRepo = new SqlClassRepository(connectionString);
             _subclassRepo = new SqlSubclassRepository(connectionString);
             _talentRepo = new SqlTalentRepository(connectionString);
@@ -104,7 +106,18 @@ namespace CIS560FinalProject
         {
             EditAccountForm editForm = new EditAccountForm(_viewAccount!);
 
+            editForm.FormClosed += OnAccountFormClosed;
             editForm.ShowDialog();
+        }
+        private void OnAccountFormClosed(object? sender, FormClosedEventArgs e)
+        {
+            Account a = _accountRepo.FetchAccountFromID(_viewAccount.AccountID);
+
+            FillUNLabel.Text = a.Username;
+            FillPWLabel.Text = a.Password;
+            FillFNLabel.Text = a.FullName;
+            FillBDLabel.Text = a.Birthday.ToString(); //erm this may look weird unformatted
+            FillEmailLabel.Text = a.Email;
         }
 
         private void DeleteAccountButton_Click(object sender, EventArgs e)
