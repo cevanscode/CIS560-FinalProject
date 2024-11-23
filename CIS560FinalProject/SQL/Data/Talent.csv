@@ -1,120 +1,157 @@
 TalentName, TalentDescription, TalentRank, TalentType,Class,Subclass
-Organic Crafting,The player can extract 3 basic materials from a creature and can make and repair basic organic weapons and armor. The player may learn to craft 2 one-slot modifications and 1 two-slot modification.,1,Skill,Classless,Null
-Organic Crafting,The player can extract up to 5 items from a creature and can make and repair non-mythic organic weapons and armor. The player may learn to craft 2 additional one-slot modifications and 1 two-slot modification.,2,Skill,Classless,Null
-Organic Crafting,"The player can extract all materials from any creature and can make and repair all organic weapons and armor if they have the materials. The player may learn to craft 4 additional one-slot modifications and 2 two-slot modifications. The player can create their own modification, subject to GM approval.",3,Skill,Classless,Null
-Smithing,"Allows the mining, smelting, smithing, and repair of bronze, iron, and steel weapons and armor. The player may choose two one-slot modifications and one two-slot modification.",1,Skill,Classless,Null
-Smithing,"Allows the mining, smelting, and smithing, of all non-mythic weapons and armor. The player may choose two additional one-slot modifications and one two-slot modification.",2,Skill,Classless,Null
-Smithing,"Allows the mining, smelting, and smithing, of all weapons and armor. The player may choose four additional one-slot modifications and two two-slot modifications. The player can make their own modification, subject to GM approval. ",3,Skill,Classless,Null
-Constitution,The player gains 1 additional max carrying capacity (1 weight addition costs 2 XP).,0,Skill,Classless,Null
-Sense,Gain Sense for a chosen sense,0,Skill,Classless,Null
-Weapon Dexterity,Gain a chosen Weapon Dexterity,0,Skill,Classless,Null
-Magical Crafting,Gain 2 magical Crafting Points per out-of-game day. Magical Crafting Enchantment Max Cost: 4.,1,Ability,Classless,Null
-Magical Crafting,Gain 3 magical Crafting Points per out-of-game day. Magical Crafting Enchantment Max Cost: 12.,2,Ability,Classless,Null
-Magical Crafting,Gain 6 magical Crafting Points per out-of-game day. Magical Crafting Enchantment Max Cost: Null.,3,Ability,Classless,Null
-Elixirs, The player can make Rank I elixirs if they have the materials. The player receives 2 random herbs or flowers OPOOGD.,1,Skill,Cleric,Null
-Elixirs, The player can make Rank II elixirs if they have the materials. The player receives 4 random or 2 specific herbs or flowers OPOOGD.,2,Skill,Cleric,Null
-Elixirs,The player can make Rank III elixirs if they have the materials. The player receives 8 random or 4 specific herbs or flowers OPOOGD.,3,Skill,Cleric,Null
-Renewing Ground,Heals or Mends for 2.,1,Ability,Cleric,Null
-Renewing Ground,Heals or Mends for 4.,2,Ability,Cleric,Null
-Renewing Ground,Heals or Mends for 6 to the entire party. No cast time is needed.,3,Ability,Cleric,Null
-Mend,The player gains 4 Mending points.,1,Ability,Cleric,Null
-Mend,The player gains 8 Mending points.,2,Ability,Cleric,Null
-Mend,The player gains 20 Mending points.,3,Ability,Cleric,Null
-Shell,Protects for 5.,1,Ability,Cleric,Null
-Shell,Protects for 10.,2,Ability,Cleric,Null
-Shell,Protects for 20.,3,Ability,Cleric,Null
-Born Anew,Brings back an adventurer to 1 HP.,1,Ability,Cleric,Soothsayer
-Born Anew,Brings back anyone to 3 HP,2,Ability,Cleric,Soothsayer
-Born Anew,Brings back anything to 10 HP. Can overheal max HP to 10 for the rest of the encounter.,3,Ability,Cleric,Soothsayer
-Invulnerability,The player counts down from 5,1,Ability,Cleric,Soothsayer
-Invulnerability,The player counts down from 10,2,Ability,Cleric,Soothsayer
-Invulnerability,The player counts down from 20,3,Ability,Cleric,Soothsayer
-Metamorph,"Allows the player to transfer their mass into an inanimate organic object the size of the player or larger, as long as they’d like. While in this state they cannot take damage but are still susceptible to non-damaging effects.",1,Ability,Cleric,Soothsayer
-Metamorph,"Allows the player to transfer their mass into an approximately 2’ diameter, inanimate organic object for as long as they’d like, making them invulnerable to damage and effects.",2,Ability,Cleric,Soothsayer
-Metamorph,"Allows a player to transfer their mass into any object for as long as they’d like, making them invulnerable to damage and effects. The player can use talents while metamorphosed",3,Ability,Cleric,Soothsayer
-Restore,The player can restore 1 Rank 1 or 1 rankless talent of the target.,1,Ability,Cleric,Soothsayer
-Restore,"The player can restore 1 Rank 2, 2 Rank 1s, or 2 rankless talents of the target.",2,Ability,Cleric,Soothsayer
-Restore,"The player can restore 1 Rank 3, 2 Rank 2s, 3 Rank 1s, or 3 rankless talents of the target.",3,Ability,Cleric,Soothsayer
-Safeguard, The player calls “safeguard” on a target. The target can then activate safeguard to return to the player while invulnerable. If the target dies the talent activates automatically.,0,Ability,Cleric,Soothsayer
-Protective Ward,Allows the player to make 2 wards. All wards have a cornerstone effect of the player's choosing.,1,Skill,Cleric,Paladin
-Protective Ward,Allows the player to make a total of 3 wards. All wards gain a secondary effect that can be any from the list they can swap out before going on a quest.,2,Skill,Cleric,Paladin
-Protective Ward,Allows the player to make a total of 4 wards. All wards gain a masterwork effect made by the player.,3,Skill,Cleric,Paladin
-Unbreakable,Gives a DR1 and lowers the target’s swing by 1.,1,Skill,Cleric,Paladin
-Unbreakable,Gives a DR2 and lowers the target’s swing by 1.,2,Skill,Cleric,Paladin
-Unbreakable,Gives a DR10 and lowers the target’s swing by 4.,3,Skill,Cleric,Paladin
-Challenge,The player forces a target to only attack the player until the target or player dies or until the target is attacked by another ally.,1,Ability,Cleric,Paladin
-Challenge,The player forces all targets within a 5’ radius to only attack the player until the target or player dies or until the target(s) is attacked by another ally.,2,Ability,Cleric,Paladin
-Challenge,The player forces all targets to only attack the player until the target or player dies or until the target(s) is attacked by another ally.,3,Ability,Cleric,Paladin
-Fletching,The player may choose 1 specialty ammunition to take with them. The player may choose 1 1-slot modification to learn. The player can make basic ranged weapons given the appropriate materials. The player can apply poisons to ammunition after a roleplay action.,1,Skill,Ranger,Null
-Fletching,The player may choose 3 specialty ammunition to take with them. The player may choose 1 1-slot and 1 2-slot modification to learn. The player can make advanced ranged weapons given the appropriate materials. The player can attach gems to ammunition after a roleplay action.,2,Skill,Ranger,Null
-Fletching,The player may choose 6 specialty ammunition to take with them. The player may choose 2 1-slot and 1 2-slot modification to learn. The player can make mythic ranged weapons given the appropriate materials.,3,Skill,Ranger,Null
-Point Blank,The target stumbles and is shaken for 5 seconds.,1,Ability,Ranger,Null
-Point Blank,The target stumbles and is shaken for 10 seconds.,2,Ability,Ranger,Null
-Point Blank,The target stumbles and is shaken for 20 seconds.,3,Ability,Ranger,Null
-Reveal,"Can reveal an unseen, hidden, or disguised target, removing the effect that was obscuring them.",0,Ability,Ranger,Null
-Stagger, The target is pinned for 5 seconds.,1,Ability,Ranger,Null
-Stagger,The target is pinned for 10 seconds.,2,Ability,Ranger,Null
-Stagger,The target is pinned for 20 seconds.,3,Ability,Ranger,Null
-Artillerist,Adds 1 base damage to the player’s ranged attacks.,1,Skill,Ranger,Marksman
-Artillerist,Adds 2 base damage to the player’s ranged attacks.,2,Skill,Ranger,Marksman
-Artillerist,Adds 4 base damage to the player’s ranged attacks.,3,Skill,Ranger,Marksman
-Sniper,"After focusing for 15 uninterrupted seconds, the player can point cast an attack and cannot miss their target. Cannot be stacked with other talents.",1,Ability,Ranger,Marksman
-Sniper,"After focusing for 10 uninterrupted seconds, the player can point cast an attack and cannot miss their target. Cannot be stacked with other talents.",2,Ability,Ranger,Marksman
-Sniper,"After focusing for 5 uninterrupted seconds, the player can point cast an attack or ability and cannot miss as long as they are aware of the target.",3,Ability,Ranger,Marksman
-Deadeye,The player’s next attack is piercing.,1,Ability,Ranger,Marksman
-Deadeye,The player’s next two attacks are piercing.,2,Ability,Ranger,Marksman
-Deadeye,"The player’s next three attacks or until the player moves, are piercing.",3,Ability,Ranger,Marksman
-Adaptable,4 damage in a 5’ AoE or 8 damage to a single target,1,Skill,Ranger,Stalker
-Adaptable,8 damage in a 5’ AoE or 12 damage to a single target,2,Skill,Ranger,Stalker
-Adaptable,12 damage in a 5’ AoE or 16 damage to single target,3,Skill,Ranger,Stalker
-Agile,Adds 1 base damage to the player’s ranged attacks.,1,Skill,Ranger,Stalker
-Agile, Adds 2 base damage to the player’s ranged attacks.,2,Skill,Ranger,Stalker
-Agile,Adds 4 base damage to the player’s ranged attacks.,3,Skill,Ranger,Stalker
-Vigilant,The player will know if any Rank I Rogue talent is used near them. The player is aware if there is anything unseen nearby.,1,Skill,Ranger,Stalker
-Vigilant,The player will know if any Rank 2 Rogue talent is used near them. The player can identify nearby danger. Gain +2 base damage on first hit against a detected target.,2,Skill,Ranger,Stalker
-Vigilant," The player will know if any Rogue talents are used near them or if any talents are used for stealth or espionage within 10’ of them. The player can continue attacking a target that is vanishing/dashing, but the player must hold still while the target is moving",3,Skill,Ranger,Stalker
-Hide,"Allows the player to hide, preventing them from being seen. Moving breaks the Hide.",1,Ability,Ranger,Stalker
-Hide,"Allows the player to hide themselves and one other target as long as they are within touch-cast distance of the player, preventing them from being seen. The target will become visible if they are separated from the player. Moving while hidden hides the player's tracks.",2,Ability,Ranger,Stalker
-Hide,"Allows the player to hide up to 5 targets in a 5' radius, preventing them from being seen. The player may move with one hidden target at a time, anyone that moves without the player, will break their hide. The player may use lower ranks of Hide for a Rank I Hide effect on a target. Moving while hidden hides the player's tracks.",3,Ability,Ranger,Stalker
-Multi-Shot,"The player calls “multi-shot,” holding gameplay for the two closest targets in a 10’ cone. The player makes a single ranged attack against one target and deals the same damage to both targets if landed.",1,Ability,Ranger,Stalker
-Multi-Shot,"The player calls “multi-shot,” holding gameplay for the three closest targets in a 10’ cone. The player makes a single ranged attack against one target and deals the same damage to all three targets if landed.",2,Ability,Ranger,Stalker
-Multi-Shot,"The player calls “multi-shot,” holding gameplay for all targets in a 10’ cone. The player makes a single ranged attack against one target, dealing the same damage to all targets if landed.",3,Ability,Ranger,Stalker
-Poisons, Allows the player to make rank I poisons. Also gives 4 random herbs or fungi per event.,1,Skill,Rogue,Null
-Poisons,Allows the player to make rank II poisons. Also gives 8 random or 4 specific herbs or fungi per event.,2,Skill,Rogue,Null
-Poisons,Allows the player to make rank III poisons. Also gives 16 random or 8 specific herbs or fungi per event.,3,Skill,Rogue,Null
-Blind,Blinds the target for 5 seconds.,1,Ability,Rogue,Null
-Blind,Blinds the target for 10 seconds.,2,Ability,Rogue,Null
-Blind,Blinds the target for 20 seconds.,3,Ability,Rogue,Null
-Disguise,"After 10 seconds, the player can make themselves look like a random person with no affiliation to any group.",1,Ability,Rogue,Null
-Disguise,"After 10 seconds, the player can make themselves look like a random person with an affiliation to a group via symbol, uniform, etc.",2,Ability,Rogue,Null
-Disguise,The player can use previous ranks on team members. The player can disguise themself instantly and can perfectly resemble in all ways a specific person. Hostile action does not break this disguise.,3,Ability,Rogue,Null
-Assassinate,The player can instantly reduce a target's HP to 0 provided the target is not aware of the player's presence. This is audible to anyone within 10'.,1,Skill,Rogue,Assassin
-Assassinate,"Any time the player uses assassinate, it is completely silent. The player can hide unconscious targets instantly.",2,Skill,Rogue,Assassin
-Assassinate,The player can assassinate multiple targets simultaneously. The player can use ranged weapons to perform assassinations as well. The player can regain the use of assassinate for an encounter if all parties that were aware of them have been killed.,3,Skill,Rogue,Assassin
-Precision,Adds 1 base damage until the player is hit for the first time during an encounter. The effect resets after the encounter.,1,Skill,Rogue,Assassin
-Precision,Adds 1 base damage until the player is hit for the first time during an encounter. The effect resets after the encounter. On the third successful hit the third hit deals +1 base damage.,2,Skill,Rogue,Assassin
-Precision,Adds 2 base damage until the player is hit for the first time during an encounter. The effect resets after the encounter. On the third successful hit the third hit deals +2 base damage.,3,Skill,Rogue,Assassin
-Expose, Make the player’s or an ally's next instance of damage piercing.,1,Ability,Rogue,Assassin
-Expose,Make the player’s or an ally's successful attack piercing.,2,Ability,Rogue,Assassin
-Expose,The player selects a target. Either the player’s or an ally’s damage against the target is piercing for the encounter.,3,Ability,Rogue,Assassin
-Ghost Blade,Doubles the marks damage.,1,Ability,Rogue,Assassin
-Ghost Blade,Triple the marks damage.,2,Ability,Rogue,Assassin
-Ghost Blade,"Triples the marks damage plus 10 or quadruple the marks damage and automatically redirects hits to the torso, excluding weapons and shields.",3,Ability,Rogue,Assassin
-Invisibility, Allows the player to be invisible for 15 seconds.,1,Ability,Rogue,Assassin
-Invisibility,Allows the player to be invisible for 30 seconds.,2,Ability,Rogue,Assassin
-Invisibility,Allows the player to be invisible and completely silent for an encounter. Can use previous ranks of invisibility on ally targets. Ally targets cannot use Shadow.,3,Ability,Rogue,Assassin
-Skirmisher,Adds 1 to damage and 1 to DR for 1 hit. Resets on hitting a different enemy.,1,Skill,Rogue,Thief
-Skirmisher,Adds 1 to damage and 1 to DR for 2 hits. Resets on hitting a different enemy.,2,Skill,Rogue,Thief
-Skirmisher,Adds 2 to damage and 2 to DR for 2 hits. Resets on hitting a different enemy.,3,Skill,Rogue,Thief
-Sleight of Hand,Can pick 3 objects to pickpocket. Must guess all 3 objects correctly to succeed. Can only pickpocket coins. Allows the player to conceal up to 1 weight or up to 100 copper. Can pick locks in 30 seconds.,1,Skill,Rogue,Thief
-Sleight of Hand,"Can pick 3 objects to pickpocket. Must guess at least 2 correctly to succeed. Can pickpocket coins and any item that would fit in a purse or bag. Allows the player to conceal up to 2 weight, or up to 500 copper. Can pick locks in 15 seconds.",2,Skill,Rogue,Thief
-Sleight of Hand,"Can pick 3 objects to pickpocket. Must guess at least 1 correctly to succeed. Can pickpocket any item that is not equipped. Allows the player to conceal 3 weight, as well as any amount of copper. They can also conceal any parietal weight item on another target. Can pick locks in 5 seconds.",3,Skill,Rogue,Thief
-Acrobatics,The player can move for 5 seconds.,1,Ability,Rogue,Thief
-Acrobatics,"The player can move 2 times in a row, 5 seconds each time.",2,Ability,Rogue,Thief
-Acrobatics,"The player can move 3 times in a row, 5 seconds each time.",3,Ability,Rogue,Thief
-Daze,The target is shaken for 5 seconds,1,Ability,Rogue,Thief
-Daze,The target is shaken for 10 seconds,2,Ability,Rogue,Thief
-Daze,The target is shaken for 20 seconds,3,Ability,Rogue,Thief
-Façade,Allows the player to remove suspicion from themselves or to throw their voice to distract a target for 30 seconds.,1,Ability,Rogue,Thief
-Façade,"Allows the player to completely remove suspicion from themselves, allowing them to re-attempt the failed action, or to throw their voice to distract two targets for 30 seconds.",2,Ability,Rogue,Thief
-Façade,"Allows the player to remove suspicion from themselves and move a target's current suspicion elsewhere, or to throw their voice to distract six targets for 30 seconds.",3,Ability,Rogue,Thief
+Organic Crafting,"""The player can extract 3 basic materials from a creature and can make and repair basic organic weapons and armor. The player may learn to craft 2 one-slot modifications and 1 two-slot modification.""",1,Skill,Classless,Null
+Organic Crafting,"""The player can extract up to 5 items from a creature and can make and repair non-mythic organic weapons and armor. The player may learn to craft 2 additional one-slot modifications and 1 two-slot modification.""",2,Skill,Classless,Null
+Organic Crafting,"""The player can extract all materials from any creature and can make and repair all organic weapons and armor if they have the materials. The player may learn to craft 4 additional one-slot modifications and 2 two-slot modifications. The player can create their own modification, subject to GM approval.""",3,Skill,Classless,Null
+Smithing,"""Allows the mining, smelting, smithing, and repair of bronze, iron, and steel weapons and armor. The player may choose two one-slot modifications and one two-slot modification.""",1,Skill,Classless,Null
+Smithing,"""Allows the mining, smelting, and smithing, of all non-mythic weapons and armor. The player may choose two additional one-slot modifications and one two-slot modification.""",2,Skill,Classless,Null
+Smithing,"""Allows the mining, smelting, and smithing, of all weapons and armor. The player may choose four additional one-slot modifications and two two-slot modifications. The player can make their own modification, subject to GM approval.""",3,Skill,Classless,Null
+Constitution""",The player gains 1 additional max carrying capacity (1 weight addition costs 2 XP).""",0,Skill,Classless,Null
+Sense,"""Gain Sense for a chosen sense""",0,Skill,Classless,Null
+Weapon Dexterity,"""Gain a chosen Weapon Dexterity""",0,Skill,Classless,Null
+Magical Crafting,"""Gain 2 magical Crafting Points per out-of-game day. Magical Crafting Enchantment Max Cost: 4""".,1,Ability,Classless,Null
+Magical Crafting,"""Gain 3 magical Crafting Points per out-of-game day. Magical Crafting Enchantment Max Cost: 12.""",2,Ability,Classless,Null
+Magical Crafting,"""Gain 6 magical Crafting Points per out-of-game day. Magical Crafting Enchantment Max Cost: Null.""",3,Ability,Classless,Null
+Elixirs,"""The player can make Rank I elixirs if they have the materials. The player receives 2 random herbs or flowers OPOOGD.""",1,Skill,Cleric,Null
+Elixirs,"""The player can make Rank II elixirs if they have the materials. The player receives 4 random or 2 specific herbs or flowers OPOOGD.""",2,Skill,Cleric,Null
+Elixirs,"""The player can make Rank III elixirs if they have the materials. The player receives 8 random or 4 specific herbs or flowers OPOOGD.""",3,Skill,Cleric,Null
+Renewing Ground,"""Heals or Mends for 2.""",1,Ability,Cleric,Null
+Renewing Ground,"""Heals or Mends for 4.""",2,Ability,Cleric,Null
+Renewing Ground,"""Heals or Mends for 6 to the entire party. No cast time is needed.""",3,Ability,Cleric,Null
+Mend,"""The player gains 4 Mending points.""",1,Ability,Cleric,Null
+Mend,"""The player gains 8 Mending points.""",2,Ability,Cleric,Null
+Mend,"""The player gains 20 Mending points.""",3,Ability,Cleric,Null
+Shell,"""Protects for 5.""",1,Ability,Cleric,Null
+Shell,"""Protects for 10.""",2,Ability,Cleric,Null
+Shell,"""Protects for 20.""",3,Ability,Cleric,Null
+Born Anew,"""Brings back an adventurer to 1 HP""".,1,Ability,Cleric,Soothsayer
+Born Anew,"""Brings back anyone to 3 HP""",2,Ability,Cleric,Soothsayer
+Born Anew,"""Brings back anything to 10 HP. Can overheal max HP to 10 for the rest of the encounter.""",3,Ability,Cleric,Soothsayer
+Invulnerability,"""The player counts down from 5""",1,Ability,Cleric,Soothsayer
+Invulnerability,"""The player counts down from 10""",2,Ability,Cleric,Soothsayer
+Invulnerability,"""The player counts down from 20""",3,Ability,Cleric,Soothsayer
+Metamorph,"""Allows the player to transfer their mass into an inanimate organic object the size of the player or larger, as long as they’d like. While in this state they cannot take damage but are still susceptible to non-damaging effects.""",1,Ability,Cleric,Soothsayer
+Metamorph,"""Allows the player to transfer their mass into an approximately 2’ diameter, inanimate organic object for as long as they’d like, making them invulnerable to damage and effects.""",2,Ability,Cleric,Soothsayer
+Metamorph,"""Allows a player to transfer their mass into any object for as long as they’d like, making them invulnerable to damage and effects. The player can use talents while metamorphosed""",3,Ability,Cleric,Soothsayer
+Restore,"""The player can restore 1 Rank 1 or 1 rankless talent of the target.""",1,Ability,Cleric,Soothsayer
+Restore,"""The player can restore 1 Rank 2, 2 Rank 1s, or 2 rankless talents of the target.""",2,Ability,Cleric,Soothsayer
+Restore,"""The player can restore 1 Rank 3, 2 Rank 2s, 3 Rank 1s, or 3 rankless talents of the target.""",3,Ability,Cleric,Soothsayer
+Safeguard,"""The player calls “safeguard” on a target. The target can then activate safeguard to return to the player while invulnerable. If the target dies the talent activates automatically.""",0,Ability,Cleric,Soothsayer
+Protective Ward,"""Allows the player to make 2 wards. All wards have a cornerstone effect of the player's choosing.""",1,Skill,Cleric,Paladin
+Protective Ward,"""Allows the player to make a total of 3 wards. All wards gain a secondary effect that can be any from the list they can swap out before going on a quest.""",2,Skill,Cleric,Paladin
+Protective Ward,"""Allows the player to make a total of 4 wards. All wards gain a masterwork effect made by the player.""",3,Skill,Cleric,Paladin
+Unbreakable,"""Gives a DR1 and lowers the target’s swing by 1.""",1,Skill,Cleric,Paladin
+Unbreakable,"""Gives a DR2 and lowers the target’s swing by 1.""",2,Skill,Cleric,Paladin
+Unbreakable,"""Gives a DR10 and lowers the target’s swing by 4.""",3,Skill,Cleric,Paladin
+Challenge,"""The player forces a target to only attack the player until the target or player dies or until the target is attacked by another ally.""",1,Ability,Cleric,Paladin
+Challenge,"""The player forces all targets within a 5’ radius to only attack the player until the target or player dies or until the target(s) is attacked by another ally.""",2,Ability,Cleric,Paladin
+Challenge,"""The player forces all targets to only attack the player until the target or player dies or until the target(s) is attacked by another ally.""",3,Ability,Cleric,Paladin
+Charisma,"""Makes a target inclined to believe or approve.""",1,Ability,Noble,Null
+Charisma,"""Makes a target strongly inclined to believe or approve.""",2,Ability,Noble,Null
+Charisma,"""Makes a target strongly compelled to believe or approve.""",3,Ability,Noble,Null
+Decorum,"""The player can take back spoken words or grab the attention of a target.""",1,Ability,Noble,Null
+Decorum,"""The player can force two targets to stop fighting or grab the attention of a small group of people.""",2,Ability,Noble,Null
+Decorum,"""The player can take back any non-heinous action or make any-sized group of people stop and listen to you.""",3,Ability,Noble,Null
+Income,"""The player's Ludus income is increased by 125 copper.""",0,Ability,Noble,Null
+Tactician,"""The player can tell a party member to use one of their rank 1 abilities free of cost. The called ability must be the next talent used for the free cost to take effect.""",1,Ability,Noble,Null
+Tactician,"""The player can tell a party member to use one of their rank 2 abilities free of cost. The called ability must be the next talent used for the free cost to take effect.""",2,Ability,Noble,Null
+Tactician,"""The player can tell a party member to use one of their rank 3 abilities free of cost. The called ability must be the next talent used for the free cost to take effect.""",3,Ability,Noble,Null
+Training,"""Allows the player to learn 1 rankless Warrior ability.""",0,Skill,Noble,Null
+Advanced Training,"""Lets the player purchase one of the following Warrior Title at the cost of a skill: Armor Category Titles, Support Category Titles, Shield Fighter""",0,Skill,Noble,Knight
+Squire,"""Can carry up to 2 weight or 1 suit of armor and can change to that armor in 5 seconds.""",1,Skill,Noble,Knight
+Squire,"""Can carry up to 4 weight or 2 suits of armor and can change to that armor in 5 seconds.""",2,Skill,Noble,Knight
+Squire,"""Can carry up to 6 weight or 3 suits of armor and can change to that armor instantly.""",3,Skill,Noble,Knight
+Hardened,"""Adds DR 1 to a target.""",1,Ability,Noble,Knight
+Hardened,"""Adds DR 2 to a target.""",2,Ability,Noble,Knight
+Hardened,"""Adds DR 2 to the Knight’s Team.""",3,Ability,Noble,Knight
+Morale,"""Adds 5 HP to a target's max health.""",1,Ability,Noble,Knight
+Morale,"""Add 10 HP to a target's max health.""",2,Ability,Noble,Knight
+Morale,"""Adds 10 HP to the Knight’s Team’s max health.""",3,Ability,Noble,Knight
+War Cry,"""Adds 2 damage to the Knight’s Team’s next weapon attack.""",1,Ability,Noble,Knight
+War Cry,"""Adds 3 damage to the Knight’s Team’s next weapon attack.""",2,Ability,Noble,Knight
+War Cry,"""Adds 4 damage to the Knight’s Team’s next weapon attack.""",3,Ability,Noble,Knight
+Erudite,"""The player can pick 4 additional backgrounds.""",1,Skill,Noble,Lord
+Erudite,"""The player can pick 6 additional backgrounds.""",2,Skill,Noble,Lord
+Erudite,"""The player can call upon their scribe once per event to compile a wealth of information quickly (after one quest). Also allows the player 1 additional research topic between events.""",3,Skill,Noble,Lord
+Languages,"""Understand all common spoken languages.""",1,Skill,Noble,Lord
+Languages,"""Speak all common spoken languages, as well as read and write in them.""",2,Skill,Noble,Lord
+Languages,"""Can understand and convey hidden intent and cultural nuance, can resist mental manipulation, and can read expressions.""",3,Skill,Noble,Lord
+Guidance,"""The player can give a target a use of a rankless or rank 1 ability that has already been used during the encounter. The target’s next talent used must be the talent received by Guidance.""",1,Ability,Noble,Lord
+Guidance,"""The player can give 2 targets a use of a rankless or rank 1, or give 1 target a use of a rank 2 ability that has already been used during the encounter.""",2,Ability,Noble,Lord
+Guidance,"""The player can give up to 3 targets a use of a rankless or rank 1, 2 targets a use of a rank 2, or give 1 target a use of a rank 3 ability that has already been used during the encounter.""",3,Ability,Noble,Lord
+Rally,"""Can give +1 base damage towards a specified unit. When the specified unit dies, the effect is removed.""",1,Ability,Noble,Lord
+Rally,"""The player can give up to 3 targets +1 base damage towards a specified unit. When the specified unit dies, the effect is removed.""",2,Ability,Noble,Lord
+Rally,"""The player can give up to 3 targets +1 base damage for the encounter.""",3,Ability,Noble,Lord
+Steward,"""The player can pick 1 use of any stewards to add to their retinue: Combat Steward - The player can administer a non-equipment item to friendly targets during combat via point cast twice per steward. Armor Steward - The player can register a weapon or armor to the steward. The player can swap a target’s party member’s equipment with the registered equipment after a 5-second focus. Mercantile Steward - Can purchase a copy of an item the player already has once per out-of-game day.""",0,Ability,Noble,Lord
+Fletching,"""The player may choose 1 specialty ammunition to take with them. The player may choose 1 1-slot modification to learn. The player can make basic ranged weapons given the appropriate materials. The player can apply poisons to ammunition after a roleplay action.""",1,Skill,Ranger,Null
+Fletching,"""The player may choose 3 specialty ammunition to take with them. The player may choose 1 1-slot and 1 2-slot modification to learn. The player can make advanced ranged weapons given the appropriate materials. The player can attach gems to ammunition after a roleplay action.""",2,Skill,Ranger,Null
+Fletching,"""The player may choose 6 specialty ammunition to take with them. The player may choose 2 1-slot and 1 2-slot modification to learn. The player can make mythic ranged weapons given the appropriate materials.""",3,Skill,Ranger,Null
+Point Blank,"""The target stumbles and is shaken for 5 seconds.""",1,Ability,Ranger,Null
+Point Blank,"""The target stumbles and is shaken for 10 seconds.""",2,Ability,Ranger,Null
+Point Blank,"""The target stumbles and is shaken for 20 seconds.""",3,Ability,Ranger,Null
+Reveal,"""Can reveal an unseen, hidden, or disguised target, removing the effect that was obscuring them.""",0,Ability,Ranger,Null
+Stagger,"""The target is pinned for 5 seconds.""",1,Ability,Ranger,Null
+Stagger,"""The target is pinned for 10 seconds.""",2,Ability,Ranger,Null
+Stagger,"""The target is pinned for 20 seconds.""",3,Ability,Ranger,Null
+Artillerist,"""Adds 1 base damage to the player’s ranged attacks.""",1,Skill,Ranger,Marksman
+Artillerist,"""Adds 2 base damage to the player’s ranged attacks.""",2,Skill,Ranger,Marksman
+Artillerist,"""Adds 4 base damage to the player’s ranged attacks.""",3,Skill,Ranger,Marksman
+Sniper,"""After focusing for 15 uninterrupted seconds, the player can point cast an attack and cannot miss their target. Cannot be stacked with other talents.""",1,Ability,Ranger,Marksman
+Sniper,"""After focusing for 10 uninterrupted seconds, the player can point cast an attack and cannot miss their target. Cannot be stacked with other talents.""",2,Ability,Ranger,Marksman
+Sniper,"""After focusing for 5 uninterrupted seconds, the player can point cast an attack or ability and cannot miss as long as they are aware of the target.""",3,Ability,Ranger,Marksman
+Deadeye,"""The player’s next attack is piercing.""",1,Ability,Ranger,Marksman
+Deadeye,"""The player’s next two attacks are piercing.""",2,Ability,Ranger,Marksman
+Deadeye,"""The player’s next three attacks or until the player moves, are piercing.""",3,Ability,Ranger,Marksman
+Adaptable,"""4 damage in a 5’ AoE or 8 damage to a single target""",1,Skill,Ranger,Stalker
+Adaptable,"""8 damage in a 5’ AoE or 12 damage to a single target""",2,Skill,Ranger,Stalker
+Adaptable,"""12 damage in a 5’ AoE or 16 damage to single target""",3,Skill,Ranger,Stalker
+Agile,"""Adds 1 base damage to the player’s ranged attacks.""",1,Skill,Ranger,Stalker
+Agile,"""Adds 2 base damage to the player’s ranged attacks.""",2,Skill,Ranger,Stalker
+Agile,"""Adds 4 base damage to the player’s ranged attacks.""",3,Skill,Ranger,Stalker
+Vigilant,"""The player will know if any Rank I Rogue talent is used near them. The player is aware if there is anything unseen nearby.""",1,Skill,Ranger,Stalker
+Vigilant,"""The player will know if any Rank 2 Rogue talent is used near them. The player can identify nearby danger. Gain +2 base damage on first hit against a detected target.""",2,Skill,Ranger,Stalker
+Vigilant,"""The player will know if any Rogue talents are used near them or if any talents are used for stealth or espionage within 10’ of them. The player can continue attacking a target that is vanishing/dashing, but the player must hold still while the target is moving""",3,Skill,Ranger,Stalker
+Hide,"""Allows the player to hide, preventing them from being seen. Moving breaks the Hide.""",1,Ability,Ranger,Stalker
+Hide,"""Allows the player to hide themselves and one other target as long as they are within touch-cast distance of the player, preventing them from being seen. The target will become visible if they are separated from the player. Moving while hidden hides the player's tracks.""",2,Ability,Ranger,Stalker
+Hide,"""Allows the player to hide up to 5 targets in a 5' radius, preventing them from being seen. The player may move with one hidden target at a time, anyone that moves without the player, will break their hide. The player may use lower ranks of Hide for a Rank I Hide effect on a target. Moving while hidden hides the player's tracks.""",3,Ability,Ranger,Stalker
+Multi-Shot,"""The player calls “multi-shot,” holding gameplay for the two closest targets in a 10’ cone. The player makes a single ranged attack against one target and deals the same damage to both targets if landed.""",1,Ability,Ranger,Stalker
+Multi-Shot,"""The player calls “multi-shot,” holding gameplay for the three closest targets in a 10’ cone. The player makes a single ranged attack against one target and deals the same damage to all three targets if landed.""",2,Ability,Ranger,Stalker
+Multi-Shot,"""The player calls “multi-shot,” holding gameplay for all targets in a 10’ cone. The player makes a single ranged attack against one target, dealing the same damage to all targets if landed.""",3,Ability,Ranger,Stalker
+Poisons,"""Allows the player to make rank I poisons. Also gives 4 random herbs or fungi per event.""",1,Skill,Rogue,Null
+Poisons,"""Allows the player to make rank II poisons. Also gives 8 random or 4 specific herbs or fungi per event.""",2,Skill,Rogue,Null
+Poisons,"""Allows the player to make rank III poisons. Also gives 16 random or 8 specific herbs or fungi per event.""",3,Skill,Rogue,Null
+Blind,"""Blinds the target for 5 seconds.""",1,Ability,Rogue,Null
+Blind,"""Blinds the target for 10 seconds.""",2,Ability,Rogue,Null
+Blind,"""Blinds the target for 20 seconds.""",3,Ability,Rogue,Null
+Disguise,"""After 10 seconds, the player can make themselves look like a random person with no affiliation to any group.""",1,Ability,Rogue,Null
+Disguise,"""After 10 seconds, the player can make themselves look like a random person with an affiliation to a group via symbol, uniform, etc.""",2,Ability,Rogue,Null
+Disguise,"""The player can use previous ranks on team members. The player can disguise themself instantly and can perfectly resemble in all ways a specific person. Hostile action does not break this disguise.""",3,Ability,Rogue,Null
+Assassinate,"""The player can instantly reduce a target's HP to 0 provided the target is not aware of the player's presence. This is audible to anyone within 10""".,1,Skill,Rogue,Assassin
+Assassinate,"""Any time the player uses assassinate, it is completely silent. The player can hide unconscious targets instantly.""",2,Skill,Rogue,Assassin
+Assassinate,"""The player can assassinate multiple targets simultaneously. The player can use ranged weapons to perform assassinations as well. The player can regain the use of assassinate for an encounter if all parties that were aware of them have been killed.""",3,Skill,Rogue,Assassin
+Precision,"""Adds 1 base damage until the player is hit for the first time during an encounter. The effect resets after the encounter.""",1,Skill,Rogue,Assassin
+Precision,"""Adds 1 base damage until the player is hit for the first time during an encounter. The effect resets after the encounter. On the third successful hit the third hit deals +1 base damage.""",2,Skill,Rogue,Assassin
+Precision,"""Adds 2 base damage until the player is hit for the first time during an encounter. The effect resets after the encounter. On the third successful hit the third hit deals +2 base damage.""",3,Skill,Rogue,Assassin
+Expose,"""Make the player’s or an ally's next instance of damage piercing.""",1,Ability,Rogue,Assassin
+Expose,"""Make the player’s or an ally's successful attack piercing.""",2,Ability,Rogue,Assassin
+Expose,"""The player selects a target. Either the player’s or an ally’s damage against the target is piercing for the encounter.""",3,Ability,Rogue,Assassin
+Ghost Blade,"""Doubles the marks damage.""",1,Ability,Rogue,Assassin
+Ghost Blade,"""Triple the marks damage.""",2,Ability,Rogue,Assassin
+Ghost Blade,"""Triples the marks damage plus 10 or quadruple the marks damage and automatically redirects hits to the torso, excluding weapons and shields.""",3,Ability,Rogue,Assassin
+Invisibility,"""Allows the player to be invisible for 15 seconds.""",1,Ability,Rogue,Assassin
+Invisibility,"""Allows the player to be invisible for 30 seconds.""",2,Ability,Rogue,Assassin
+Invisibility,"""Allows the player to be invisible and completely silent for an encounter. Can use previous ranks of invisibility on ally targets. Ally targets cannot use Shadow.""",3,Ability,Rogue,Assassin
+Skirmisher,"""Adds 1 to damage and 1 to DR for 1 hit. Resets on hitting a different enemy.""",1,Skill,Rogue,Thief
+Skirmisher,"""Adds 1 to damage and 1 to DR for 2 hits. Resets on hitting a different enemy.""",2,Skill,Rogue,Thief
+Skirmisher,"""Adds 2 to damage and 2 to DR for 2 hits. Resets on hitting a different enemy.""",3,Skill,Rogue,Thief
+Sleight of Hand,"""Can pick 3 objects to pickpocket. Must guess all 3 objects correctly to succeed. Can only pickpocket coins. Allows the player to conceal up to 1 weight or up to 100 copper. Can pick locks in 30 seconds.""",1,Skill,Rogue,Thief
+Sleight of Hand,"""Can pick 3 objects to pickpocket. Must guess at least 2 correctly to succeed. Can pickpocket coins and any item that would fit in a purse or bag. Allows the player to conceal up to 2 weight, or up to 500 copper. Can pick locks in 15 seconds.""",2,Skill,Rogue,Thief
+Sleight of Hand,"""Can pick 3 objects to pickpocket. Must guess at least 1 correctly to succeed. Can pickpocket any item that is not equipped. Allows the player to conceal 3 weight, as well as any amount of copper. They can also conceal any parietal weight item on another target. Can pick locks in 5 seconds.""",3,Skill,Rogue,Thief
+Acrobatics,"""The player can move for 5 seconds.""",1,Ability,Rogue,Thief
+Acrobatics,"""The player can move 2 times in a row, 5 seconds each time.""",2,Ability,Rogue,Thief
+Acrobatics,"""The player can move 3 times in a row, 5 seconds each time.""",3,Ability,Rogue,Thief
+Daze,"""The target is shaken for 5 seconds""",1,Ability,Rogue,Thief
+Daze,"""The target is shaken for 10 seconds""",2,Ability,Rogue,Thief
+Daze,"""The target is shaken for 20 seconds""",3,Ability,Rogue,Thief
+Façade,"""Allows the player to remove suspicion from themselves or to throw their voice to distract a target for 30 seconds.""",1,Ability,Rogue,Thief
+Façade,"""Allows the player to completely remove suspicion from themselves, allowing them to re-attempt the failed action, or to throw their voice to distract two targets for 30 seconds.""",2,Ability,Rogue,Thief
+Façade,"""Allows the player to remove suspicion from themselves and move a target's current suspicion elsewhere, or to throw their voice to distract six targets for 30 seconds.""",3,Ability,Rogue,Thief
