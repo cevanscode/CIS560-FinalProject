@@ -13,6 +13,7 @@ DROP PROCEDURE IF EXISTS AdminCreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
 DROP PROCEDURE IF EXISTS RetrieveSubclasses;
+DROP PROCEDURE IF EXISTS RetrieveAllSubclasses;
 GO
 
 
