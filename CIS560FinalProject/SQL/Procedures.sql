@@ -11,6 +11,7 @@ DROP PROCEDURE IF EXISTS CreateAccount;
 DROP PROCEDURE IF EXISTS CreateClass;
 DROP PROCEDURE IF EXISTS CreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
+DROP PROCEDURE IF EXISTS MergeCharacterTalent;
 GO
 
 
@@ -200,4 +201,39 @@ WHEN MATCHED THEN
 WHEN NOT MATCHED AND FC.CharacterID IS NULL THEN
 	INSERT(CharacterName, CharacterAge, Health, XP, Copper)
 	VALUES(@CharacterName, @CharacterAge, @Health, @XP, @Copper);
+GO
+
+
+
+
+CREATE PROCEDURE MergeCharacterTalent @UserName NVARCHAR(50),
+	@Password NVarChar,
+	@TalentName NVarChar(30),
+	@TalentRank INT,
+	@TalentAmount INT
+AS
+WITH FindTalent(TalentID, CharacterSubclassID)
+AS
+(
+	SELECT T.TalentID, CS.CharcterSubclassID
+	FROM Accounts A
+		INNER JOIN [Character] C ON A.UserName = @UserName
+			AND A.AccountPassword = @Password
+			AND A.AccountID = C.AccontID
+		INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
+		INNER JOIN Subclass S ON CS.SubclassID = S.SubclassID
+		INNER JOIN Talent T ON T.TalentName = @TalentName
+			AND T.TalentRank = @TalentRank
+			AND S.SubclassID = T.SubclassID
+)
+MERGE CharacterTalent CT
+USING FindTalent FT ON CT.CharacterSubclassID = FT.CharacterSubclassID
+	AND CT.TalentID = FT.TalentID
+WHEN MATCHED THEN
+	UPDATE
+	SET
+		Amount = @TalentAmount
+WHEN NOT MATCHED THEN
+	INSERT(CharacterSubclassID, TalentID, Amount)
+	VALUES(FT.CharacterSubclassID, FT.TalentID, @TalentAmount);
 GO
