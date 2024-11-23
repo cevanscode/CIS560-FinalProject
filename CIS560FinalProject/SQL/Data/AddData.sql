@@ -20,7 +20,7 @@ CREATE TABLE TempData(
 	Copper INT
 	)
 
-INSERT TempData(UserName,AccountPassword,Email,FullName,Birthday, CharacterName,CharacterAge,Health,XP,Copper)
+INSERT TempData(UserName,AccountPassword,Email,FullName,Birthday,CharacterName,CharacterAge,Health,XP,Copper)
 VALUES
 	 (N'esowthcote0', N'lC6*oMFhAIOY', N'esowthcote0@freewebs.com',N'Dru Jacquest',N'1983-12-22',N'Estrellita Sowthcote',N'45',N'6',N'116',N'23'),
  (N'plampl1', N'tF3/*Kr6Ak0RF', N'plampl1@dropbox.com',N'Mordecai Ellor',N'2010-01-01',N'Port Lampl',N'82',N'7',N'170',N'55'),
@@ -224,4 +224,16 @@ VALUES
  (N'emckeefry5j', N'lY9{o6?\Y', N'emckeefry5j@angelfire.com',N'Carie Burling',N'2006-09-22',N'Eleonora McKeefry',N'75',N'3',N'138',N'82');
  GO
 
+ INSERT Accounts(UserName,AccountPassword,Email,FullName,Birthday)
+ VALUES (N'Admin', N'generalAdminPassword',N'admin@ksu.edu',N'Sisyphus Administrator', N'1999-01-10');
+ GO
 
+
+
+ INSERT Accounts(UserName,AccountPassword,Email,FullName,Birthday)
+ SELECT T.UserName,T.AccountPassword,T.Email,T.FullName,T.Birthday
+ FROM TempData T;
+ GO
+
+ SELECT * FROM Accounts; 
+ GO
