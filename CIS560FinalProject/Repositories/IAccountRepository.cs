@@ -28,6 +28,10 @@ namespace CIS560FinalProject
         /// <returns>The created Account</returns>
         public Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
 
+        public void DeleteAccount(string userName, string password);
+
+        public void DeleteCharacter(string userName, string password);
+
         public Account FetchAccount(string username, string password);
 
         public Character GetCharacter(string userName, string password);

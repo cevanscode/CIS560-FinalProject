@@ -1,4 +1,6 @@
-﻿﻿using DataAccess;
+﻿using CIS560FinalProject.DataDelegates;
+using DataAccess;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CIS560FinalProject
 {
@@ -39,6 +41,27 @@ namespace CIS560FinalProject
 
             var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
+        }
+
+        public void DeleteAccount(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
+
+            var d = new DeleteAccountDataDelegate(username, password);
+            executor.ExecuteNonQuery(d);
+        }
+
+        public void DeleteCharacter(string username, string password)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
+            if (string.IsNullOrWhiteSpace(password))
+                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
+            var d = new DeleteCharacterDataDelegate(username, password);
+            executor.ExecuteNonQuery(d);
         }
 
         public Account FetchAccount(string username, string password)
