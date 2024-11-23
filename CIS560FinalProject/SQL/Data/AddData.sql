@@ -1,5 +1,6 @@
-
-
+INSERT TalentCategory(TalentCategoryID)
+VALUES (1), (2);
+GO
 
 ---More implementation - temp table here
 
