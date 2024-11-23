@@ -37,5 +37,15 @@ namespace CIS560FinalProject
         {
             return executor.ExecuteReader(new RetrieveTalentsDataDelegate());
         }
+
+        public IReadOnlyList<Talent> RetrieveTalentsForClass(string className)
+        {
+            return executor.ExecuteReader(new RetrieveTalentsForClassDataDelegate(className));
+        }
+
+        public IReadOnlyList<Talent> RetrieveTalentsForSubclass(string subclassName)
+        {
+            return executor.ExecuteReader(new RetrieveTalentsForSubclassDataDelegate(subclassName));
+        }
     }
 }
