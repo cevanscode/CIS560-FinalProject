@@ -1,5 +1,8 @@
----More implementation - temp table here
+INSERT TalentCategory(TalentCategoryID)
+VALUES (1), (2);
+GO
 
+---More implementation - temp table here
 
 INSERT Account(UserName,AccountPassword,Email,FullName,Birthday)
 VALUES

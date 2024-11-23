@@ -19,6 +19,7 @@ namespace CIS560FinalProject
         private IClassRepository _classRepo;
         private ISubclassRepository _subclassRepo;
         private ITalentRepository _talentRepo;
+        private IAccountRepository _accountRepo;
         private string _source;
 
         private string connectionString = ConfigurationManager.ConnectionStrings["LarpDatabase"].ConnectionString;
@@ -40,7 +41,7 @@ namespace CIS560FinalProject
             ItemListView.Visible = false;
             SelectButton.Visible = false;
 
-
+            _accountRepo = new SqlAccountRepository(connectionString);
             _classRepo = new SqlClassRepository(connectionString);
             _subclassRepo = new SqlSubclassRepository(connectionString);
             _talentRepo = new SqlTalentRepository(connectionString);
@@ -110,7 +111,18 @@ namespace CIS560FinalProject
         private void DeleteAccountButton_Click(object sender, EventArgs e)
         {
             //database removal stuff here
+            DialogResult result = MessageBox.Show(
+            "Are you sure you want to Delete Your Account?",    // Message
+            "Confirmation",                        // Title
+            MessageBoxButtons.YesNo,               // Buttons
+            MessageBoxIcon.Question);              // Icon
 
+            if (result == DialogResult.Yes)
+            {
+                // User clicked Yes
+                _accountRepo.DeleteAccount(_viewAccount.Username, _viewAccount.Password);
+                MessageBox.Show("Account Deleted");
+            }
             //return to login menu
             this.Close();
         }
