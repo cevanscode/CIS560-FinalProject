@@ -89,7 +89,7 @@ CREATE TABLE Talent
 	TalentType INT NOT NULL
 
 	UNIQUE(TalentName, TalentRank, TalentType)
-	--FOREIGN(ClassID, SubclassID) REFERENCES(Subclass(ClassID, SubclassID))
+	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
 	CHECK(TalentRank IN (1,2,3) AND TalentCategoryID = 1 OR TalentRank=0 AND TalentCategoryID=0)
 );
 GO
