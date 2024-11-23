@@ -16,12 +16,13 @@ DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
 DROP PROCEDURE IF EXISTS AdminDeleteClass;
 DROP PROCEDURE IF EXISTS AdminDeleteSubclass;
+DROP PROCEDURE IF EXISTS UserDeleteAccount;
 GO
 
 
 
 
-CREATE PROCEDURE TryLogin @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE TryLogin @UserName NVarChar(50), @Password NVarChar(100)
 AS
 SELECT A.UserName, A.Email, A.FullName, A.Birthday
 FROM Accounts A
@@ -32,7 +33,7 @@ GO
 
 
 
-CREATE PROCEDURE GetCharacter @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE GetCharacter @UserName NVarChar(50), @Password NVarChar(100)
 AS
 SELECT Ch.CharacterName, Ch.CharacterAge, Ch.Health, Ch.XP, Ch.Copper,
 	C.ClassName, S.SubclassName
@@ -47,7 +48,7 @@ GO
 
 
 
-CREATE PROCEDURE GetTalentsForCharacter @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE GetTalentsForCharacter @UserName NVarChar(50), @Password NVarChar(100)
 AS
 SELECT CT.CharacterTalentID,
 	CT.CharacterSubclassID,
@@ -155,7 +156,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(30), @Password NVarChar(100)
+CREATE PROCEDURE AdminGetAccounts @UserName NVarChar(50), @Password NVarChar(100)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
@@ -166,7 +167,7 @@ GO
 
 
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar(100), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+CREATE PROCEDURE CreateAccount @UserName NVarChar(50), @Password NVarChar(100), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
@@ -175,7 +176,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar(100), @ClassName NVarChar(30), @ClassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateClass @UserName NVarChar(50), @Password NVarChar(100), @ClassName NVarChar(30), @ClassDescription NVarChar(500)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
@@ -259,4 +260,11 @@ WHEN MATCHED THEN
 WHEN NOT MATCHED THEN
 	INSERT(CharacterSubclassID, TalentID, Amount)
 	VALUES(FT.CharacterSubclassID, FT.TalentID, @TalentAmount);
+GO
+
+
+
+CREATE PROCEDURE UserDeleteAccount @UserName NVARCHAR(50), @Password NVARCHAR(100)
+AS
+DELETE FROM Account WHERE UserName = @UserName AND AccountPassword = @Password
 GO
