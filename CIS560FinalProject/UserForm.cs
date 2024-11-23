@@ -119,7 +119,7 @@ namespace CIS560FinalProject
 
             if (result == DialogResult.Yes)
             {
-                // User clicked Yes
+                // User clicked Yest
                 _accountRepo.DeleteAccount(_viewAccount.Username, _viewAccount.Password);
                 MessageBox.Show("Account Deleted");
             }
