@@ -1,5 +1,11 @@
 SubclassName,SubclassDescription,ClassName
 BaseClassless,Accessible for anyone,Classless
-BaseCleric,"Clerics have control of Interplanary powers, which they use to heal and protect themselves and others. They can further support their team by crafting elixirs to aid them in various situations. As interplanary powers are a form of magic, Clerics can also enchant gems and scrolls. A cleric’s role on the battlefield is to heal, revive, or protect their allies. Clerics have the ability to become tanky Paladins or supportive Soothsayers."
-SoothSayer,*The player cannot target themselves with Soothsayer targeted talents,Cleric
-Paladin,
+BaseCleric,"""Clerics have control of Interplanary powers, which they use to heal and protect themselves and others. They can further support their team by crafting elixirs to aid them in various situations. As interplanary powers are a form of magic, Clerics can also enchant gems and scrolls. A cleric’s role on the battlefield is to heal, revive, or protect their allies. Clerics have the ability to become tanky Paladins or supportive Soothsayers.""",Cleric
+SoothSayer,"""Ultimate Healer Guy""",Cleric
+Paladin,"""Ultimate Tanky Guy""", Cleric
+BaseNoble,"""Nobles are negotiators, leaders, and tacticians. Far from the lofty, arrogant, braggart stereotype, these Nobles usually have pockets and minds that are deeper than they let on. In-game, Nobles have a small town to manage that gives them a variety of resources to utilize. While useful in a battle, much of a Noble’s power comes from their connections with powerful people. During combat, they control the flow of battle, supporting their allies with their tactical awareness. This is accomplished either on the front lines as a Knight or by directing the fight as a Lord. """,Noble
+Knight,"""The Heck is a Knight Team?!""",Noble
+Lord,"""Like to talk a lot.""",Noble
+BaseRanger,"""Rangers excel at everything from guarding nobles to stopping hostile warbands in their tracks. These versatile survivors tend to specialize in the field of archery, and all Rangers use a bow or some other type of ranged weapon. Skilled in hunting, tracking, and securing objectives, these adventurers either become master trackers—Stalkers—or war Bowmen.""",Ranger
+Marksman,"""SNIPER!""",Ranger
+Stalker,"""They will track you down""",Ranger
