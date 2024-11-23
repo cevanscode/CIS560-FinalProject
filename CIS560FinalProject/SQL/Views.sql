@@ -1,15 +1,24 @@
-DROP VIEW IF EXISTS ShowSubclassPopularity;
-DROP VIEW IF EXISTS MostChosenTalentsBySubclass;
+DROP VIEW IF EXISTS SubclassPopularity;
+DROP VIEW IF EXISTS MostChosenTalents;
 DROP VIEW IF EXISTS TalentRankingsByClass;
+DROP PROCEDURE IF EXISTS GetSubclassPopularity;
+DROP PROCEDURE IF EXISTS GetMostChosenTalentsBySubclass;
 GO
 
 CREATE VIEW SubclassPopularity
 AS
-SELECT S.Name, COUNT(CS.SubclassID) AS SubclassCount
+SELECT S.SubclassName, COUNT(CS.SubclassID) AS SubclassCount
 FROM CharacterSubclass CS INNER JOIN
     Subclass S ON S.SubclassID = CS.SubclassID
-ORDER BY COUNT(CS.SubclassID) DESC;
+GROUP BY S.SubclassName
 GO
+
+CREATE PROCEDURE GetSubclassPopularity
+AS
+SELECT * FROM SubclassPopularity SP ORDER BY SubclassCount DESC;
+GO
+
+EXEC GetSubclassPopularity;
 
 -- Managing permissions for SubclassPopularity
 --DENY ALL ON VIEW::ShowSubclassPopularity TO PUBLIC;
@@ -17,15 +26,18 @@ GO
 --GRANT SELECT ON VIEW::ShowSubclassPopularity TO PUBLIC;
 GO
 
-CREATE VIEW MostChosenTalentsBySubclass
+CREATE VIEW MostChosenTalents
 AS
-SELECT S.Name, COUNT(CT.TalentID) AS NumberOfTalent
+SELECT S.SubclassName, COUNT(CT.TalentID) AS NumberOfTalent
 FROM Subclass S 
     INNER JOIN Talent T ON S.SubclassID = T.SubclassID
     INNER JOIN CharacterTalent CT ON T.TalentID = CT.TalentID
-GROUP BY S.ClassID, T.TalentID
-ORDER BY COUNT(CT.TalentID) DESC;
+GROUP BY S.SubclassName, T.TalentID
 GO
+
+CREATE PROCEDURE GetMostChosenTalentsBySubclass
+AS
+SELECT * FROM MostChosenTalentsBySubclass ORDER BY NumberOfTalent DESC;
 
 -- Managing permissions for MostChosenTalentsBySubclass
 --DENY ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
@@ -33,21 +45,19 @@ GO
 --GRANT SELECT ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
 GO
 
-/*
-CREATE VIEW TalentRankingsByClass
+CREATE PROCEDURE TalentPopularity
 AS
-WITH ClassNameCTE(ClassName, ClassID)
-AS
-    (
-        SELECT C.ClassName, C.ClassID FROM Class C
-    )
-SELECT C.ClassName
-FROM Talent T
-    INNER JOIN CharacterTalent CT ON T.TalentID = CT.CharacterTalentID
-    INNER JOIN ClassNameCTE C ON  T.ClassID = C.ClassID
-    INNER JOIN
-GROUP BY CS.CharacterID, C.ClassName
-GO
-*/
+SELECT 
+    CharacterTalentCounts.SubclassID, 
+    AVG(CharacterTalentCounts.TalentCount) AS AverageTalentCount
+FROM 
+    (SELECT 
+        CS.CharacterID, 
+        CS.SubclassID, 
+        COUNT(CT.CharacterTalentID) AS TalentCount
+     FROM CharacterTalent CT
+      INNER JOIN CharacterSubclass CS ON CT.CharacterSubclassID = CS.CharacterSubclassID
+     GROUP BY CS.CharacterID, CS.SubclassID) AS CharacterTalentCounts
+GROUP BY CharacterTalentCounts.SubclassID;
 
 
