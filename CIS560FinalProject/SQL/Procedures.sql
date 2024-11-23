@@ -276,12 +276,13 @@ GO
 
 CREATE PROCEDURE UserDeleteCharacter @UserName NVARCHAR(50), @Password NVARCHAR(100)
 AS
-WITH FindAccountID(AccountID)
-AS
-(
-	SELECT A.AccountID FROM Accounts A WHERE A.UserName = @UserName AND A.AccountPassword = @Password
-)
-DELETE FROM [Character] WHERE AccountID = FindAccountID.AccountID;
+DELETE FROM [Character] WHERE CharacterID = (
+	SELECT C.CharacterID
+	FROM Accounts A
+		INNER JOIN [Character] C ON A.UserName = @UserName
+			AND A.AccountPassword = @Password
+			AND A.AccountID = C.AccountID
+);
 GO
 
 
@@ -289,19 +290,16 @@ GO
 
 CREATE PROCEDURE UserDeleteTalent @UserName NVARCHAR(50), @Password NVARCHAR(100), @TalentName NVARCHAR(30), @TalentRank INT
 AS
-WITH FindTalent(TalentID, CharacterSubclassID)
-AS
-(
-	SELECT T.TalentID, CS.CharcterSubclassID
+DELETE FROM CharacterTalent WHERE EXISTS(
+	SELECT T.TalentID, CS.CharacterSubclassID
 	FROM Accounts A
 		INNER JOIN [Character] C ON A.UserName = @UserName
 			AND A.AccountPassword = @Password
-			AND A.AccountID = C.AccontID
+			AND A.AccountID = C.AccountID
 		INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
 		INNER JOIN Subclass S ON CS.SubclassID = S.SubclassID
 		INNER JOIN Talent T ON T.TalentName = @TalentName
 			AND T.TalentRank = @TalentRank
 			AND S.SubclassID = T.SubclassID
-)
-DELETE FROM CharacterTalent WHERE TalentID = FindTalent.TalentID AND CharacterSubclassID = FindTalent.CharacterSubclass;
+);
 GO

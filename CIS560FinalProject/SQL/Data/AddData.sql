@@ -1,7 +1,26 @@
+
+
+
 ---More implementation - temp table here
 
 
-INSERT Account(UserName,AccountPassword,Email,FullName,Birthday)
+DROP TABLE IF EXISTS TempData;
+GO
+
+CREATE TABLE TempData(
+	UserName NVARCHAR(50) PRIMARY KEY,
+	AccountPassword NVARCHAR(100),
+	Email NVARCHAR(50),
+	FullName NVARCHAR(32),
+	Birthday DATETIME2,
+	CharacterName NVARCHAR(32),
+	CharacterAge INT,
+	Health INT,
+	XP INT,
+	Copper INT
+	)
+
+INSERT TempData(UserName,AccountPassword,Email,FullName,Birthday, CharacterName,CharacterAge,Health,XP,Copper)
 VALUES
 	 (N'esowthcote0', N'lC6*oMFhAIOY', N'esowthcote0@freewebs.com',N'Dru Jacquest',N'1983-12-22',N'Estrellita Sowthcote',N'45',N'6',N'116',N'23'),
  (N'plampl1', N'tF3/*Kr6Ak0RF', N'plampl1@dropbox.com',N'Mordecai Ellor',N'2010-01-01',N'Port Lampl',N'82',N'7',N'170',N'55'),
@@ -202,4 +221,7 @@ VALUES
  (N'sisley5g', N'bS1#Mj}RMJ@$6', N'sisley5g@soundcloud.com',N'Livvyy Froude',N'2015-10-23',N'Shandy Isley',N'68',N'5',N'104',N'3'),
  (N'omears5h', N'bQ0/6q0Uv(4A<', N'omears5h@vinaora.com',N'Nevsa Duinkerk',N'2013-08-06',N'Olenka Mears',N'64',N'4',N'197',N'82'),
  (N'sbristow5i', N'uV9/?Tev\5', N'sbristow5i@barnesandnoble.com',N'Jemimah Lecointe',N'2002-11-29',N'Sergeant Bristow',N'47',N'8',N'58',N'50'),
- (N'emckeefry5j', N'lY9{o6?\Y', N'emckeefry5j@angelfire.com',N'Carie Burling',N'2006-09-22',N'Eleonora McKeefry',N'75',N'3',N'138',N'82'),
+ (N'emckeefry5j', N'lY9{o6?\Y', N'emckeefry5j@angelfire.com',N'Carie Burling',N'2006-09-22',N'Eleonora McKeefry',N'75',N'3',N'138',N'82');
+ GO
+
+
