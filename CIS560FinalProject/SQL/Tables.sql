@@ -2,7 +2,6 @@ IF SCHEMA_Id(N'Larp') IS NULL
 EXEC(N'CREATE SCHEMA [Larp];');
 GO
 
-
 DROP TABLE IF EXISTS CharacterTalent;
 DROP TABLE IF EXISTS CharacterSubclass;
 DROP TABLE IF EXISTS [Character];
@@ -45,22 +44,20 @@ GO
 
 CREATE TABLE Class 
 (
-	ClassID INT NOT NULL PRIMARY KEY,
+	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
+	ClassName NVARCHAR(30) NOT NULL,
 	ClassDescription NVARCHAR(500),
-	ClassName NVARCHAR(30) NOT NULL
-
 	UNIQUE(ClassName)
 );
 GO
 
 CREATE TABLE Subclass 
 (
-	SubclassID INT NOT NULL PRIMARY KEY,
+	SubclassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	ClassID INT NOT NULL FOREIGN KEY
 		REFERENCES Class(ClassID) ON DELETE CASCADE,
 	SubclassName NVARCHAR(30) NOT NULL,
 	SubclassDescription NVARCHAR(1000) NOT NULL
-
 	UNIQUE(SubclassID, ClassID),
 	UNIQUE(SubclassName)
 );
@@ -87,11 +84,13 @@ CREATE TABLE Talent
 	ClassID INT NOT NULL,
 	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
-	TalentType INT NOT NULL
+	TalentType INT NOT NULL,
+	TalentCategoryID INT NOT NULL
 
 	UNIQUE(TalentName, TalentRank, TalentType)
-	FOREIGN KEY(ClassID, SubclassID) REFERENCES Subclass(ClassID, SubclassID)
-	CHECK(TalentRank IN (1,2,3) AND TalentCategoryID = 1 OR TalentRank=0 AND TalentCategoryID=0)
+	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
+	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
+	CHECK(TalentRank IN (1,2,3) AND TalentType IN (1,2) OR TalentRank=0 AND TalentType=0)
 );
 GO
 
