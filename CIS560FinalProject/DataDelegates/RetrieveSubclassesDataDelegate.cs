@@ -5,12 +5,9 @@ namespace CIS560FinalProject
 {
     internal class RetrieveSubclassesDataDelegate : DataReaderDelegate<IReadOnlyList<Subclass>>
     {
-        private readonly string className;
-
-        public RetrieveSubclassesDataDelegate(string className)
-            : base("RetrieveSubclass") // Make sure matches Procedure
+        public RetrieveSubclassesDataDelegate()
+            : base("GetSubclasses") // Make sure matches Procedure
         {
-            this.className = className;
         }
 
         public override IReadOnlyList<Subclass> Translate(Command command, IDataRowReader reader)
@@ -22,7 +19,7 @@ namespace CIS560FinalProject
                 subclasses.Add(new Subclass(
                     reader.GetString("SubclassName"),
                     reader.GetString("Description"),
-                    className));
+                    reader.GetString("ClassName")));
             }
 
             return subclasses;

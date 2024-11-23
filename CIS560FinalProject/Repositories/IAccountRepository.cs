@@ -8,14 +8,14 @@ namespace CIS560FinalProject
         /// Retrieves all accounts from the database
         /// </summary>
         /// <returns>List containing all accounts</returns>
-        IReadOnlyList<Account> RetrieveAccounts();
+        public IReadOnlyList<Account> RetrieveAccounts();
 
         /// <summary>
         /// Retrives an account from the database
         /// </summary>
         /// <param name="accountID">The id of the account to retrieve</param>
         /// <returns>The character</returns>
-       // Account FetchAccount(int accountID);
+        // Account FetchAccount(int accountID);
 
         /// <summary>
         /// Creates an account in the repository
@@ -26,9 +26,12 @@ namespace CIS560FinalProject
         /// <param name="fullName">The account holder's full name</param>
         /// <param name="birthday">The account holder's birthday</param>
         /// <returns>The created Account</returns>
-        Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
+        public Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
 
-        Account FetchAccount(string username, string password);
+        public Account FetchAccount(string username, string password);
 
+        public Character GetCharacter(string userName, string password);
+
+        public IReadOnlyList<Talent> GetCharacterTalents(string userName, string password);
     }
 }
