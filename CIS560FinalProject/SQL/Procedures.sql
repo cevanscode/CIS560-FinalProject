@@ -269,7 +269,7 @@ GO
 
 CREATE PROCEDURE UserDeleteAccount @UserName NVARCHAR(50), @Password NVARCHAR(100)
 AS
-DELETE FROM Account WHERE UserName = @UserName AND AccountPassword = @Password;
+DELETE FROM Accounts WHERE UserName = @UserName AND AccountPassword = @Password;
 GO
 
 
@@ -292,11 +292,11 @@ AS
 WITH FindTalent(TalentID, CharacterSubclassID)
 AS
 (
-	SELECT T.TalentID, CS.CharcterSubclassID
+	SELECT T.TalentID, CS.CharacterSubclassID
 	FROM Accounts A
 		INNER JOIN [Character] C ON A.UserName = @UserName
 			AND A.AccountPassword = @Password
-			AND A.AccountID = C.AccontID
+			AND A.AccountID = C.AccountID
 		INNER JOIN CharacterSubclass CS ON C.CharacterID = CS.CharacterID
 		INNER JOIN Subclass S ON CS.SubclassID = S.SubclassID
 		INNER JOIN Talent T ON T.TalentName = @TalentName

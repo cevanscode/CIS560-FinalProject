@@ -187,6 +187,7 @@ namespace CIS560FinalProject
 
         private void EncyclopediaClassButton_Click(object sender, EventArgs e)
         {
+            label2.Text = "Classes";
             _source = "class";
             ItemListView.Visible = true;
             ButtonsOff();
@@ -198,6 +199,7 @@ namespace CIS560FinalProject
 
         private void EncyclopediaSubclassButton_Click(object sender, EventArgs e)
         {
+            label2.Text = "Subclasses";
             List<Subclass> subclassList = new List<Subclass>();
             _source = "subclass";
             ItemListView.Visible = true;
@@ -219,6 +221,7 @@ namespace CIS560FinalProject
 
         private void EncyclopediaTalentsButton_Click(object sender, EventArgs e)
         {
+            label2.Text = "Talents";
             _source = "talent";
             ItemListView.Visible = true;
             ButtonsOff();
@@ -230,6 +233,7 @@ namespace CIS560FinalProject
 
         private void BackButton_Click(object sender, EventArgs e)
         {
+            label2.Text = "Table of Contents";
             ItemListView.Visible = false;
             EncyclopediaClassButton.Visible = true;
             EncyclopediaSubclassButton.Visible = true;
