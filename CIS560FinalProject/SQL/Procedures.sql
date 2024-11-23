@@ -2,6 +2,8 @@ DROP PROCEDURE IF EXISTS TryLogin;
 DROP PROCEDURE IF EXISTS GetCharacter;
 DROP PROCEDURE IF EXISTS GetTalentsForCharacter;
 DROP PROCEDURE IF EXISTS RetrieveClasses;
+DROP PROCEDURE IF EXISTS RetrieveSubclasses;
+DROP PROCEDURE IF EXISTS RetrieveAllSubclasses;
 DROP PROCEDURE IF EXISTS GetSubclasses;
 DROP PROCEDURE IF EXISTS GetTalents;
 DROP PROCEDURE IF EXISTS GetTalentsForClass;
@@ -12,8 +14,8 @@ DROP PROCEDURE IF EXISTS AdminCreateClass;
 DROP PROCEDURE IF EXISTS AdminCreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
-DROP PROCEDURE IF EXISTS RetrieveSubclasses;
-DROP PROCEDURE IF EXISTS RetrieveAllSubclasses;
+DROP PROCEDURE IF EXISTS AdminDeleteClass;
+DROP PROCEDURE IF EXISTS AdminDeleteSubclass;
 GO
 
 
@@ -85,6 +87,10 @@ FROM Class C
 	INNER JOIN Subclass S ON C.ClassID = S.ClassID
 ORDER BY C.ClassName DESC, S.SubclassName DESC;
 GO
+
+
+
+
 
 CREATE PROCEDURE RetrieveSubclasses @ClassName NVarChar(50)
 AS
@@ -160,7 +166,7 @@ GO
 
 
 
-CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar, @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+CREATE PROCEDURE CreateAccount @UserName NVarChar(30), @Password NVarChar(100), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
 AS
 INSERT Accounts(Username, AccountPassword, Email, FullName, Birthday)
 VALUES(@UserName, @Password, @Email, @FullName, @Birthday);
@@ -169,7 +175,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar, @ClassName NVarChar(30), @ClassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateClass @UserName NVarChar(30), @Password NVarChar(100), @ClassName NVarChar(30), @ClassDescription NVarChar(500)
 AS
 IF @UserName = N'Admin' AND @Password = (SELECT AccountPassword FROM Accounts WHERE UserName = N'Admin')
 BEGIN
@@ -181,7 +187,7 @@ GO
 
 
 
-CREATE PROCEDURE AdminCreateSubclass @UserName NVarChar(30), @Password NVarChar(50), @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
+CREATE PROCEDURE AdminCreateSubclass @UserName NVarChar(30), @Password NVarChar(100), @SubclassName NVarChar(30), @ClassName NVarChar(30), @SubclassDescription NVarChar(500)
 AS
 	INSERT Subclass(ClassID, SubclassDescription, SubclassName)
 	VALUES((SELECT C.ClassID FROM Class C WHERE @ClassName = C.ClassName),@SubclassName, @SubclassDescription)
@@ -191,7 +197,7 @@ GO
 
 
 CREATE PROCEDURE MergeCharacterDetails @UserName NVARCHAR(50),
-	@Password NVarChar,
+	@Password NVarChar(100),
 	@CharacterName NVARCHAR(32),
 	@CharacterAge INT,
 	@Health INT,
@@ -224,7 +230,7 @@ GO
 
 
 CREATE PROCEDURE MergeCharacterTalent @UserName NVARCHAR(50),
-	@Password NVarChar,
+	@Password NVarChar(100),
 	@TalentName NVarChar(30),
 	@TalentRank INT,
 	@TalentAmount INT

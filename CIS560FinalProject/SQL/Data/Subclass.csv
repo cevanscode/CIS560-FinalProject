@@ -1,1 +1,5 @@
-SubclassName,SubclassDescription
+SubclassName,SubclassDescription,ClassName
+BaseClassless,Accessible for anyone,Classless
+BaseCleric,"Clerics have control of Interplanary powers, which they use to heal and protect themselves and others. They can further support their team by crafting elixirs to aid them in various situations. As interplanary powers are a form of magic, Clerics can also enchant gems and scrolls. A cleric’s role on the battlefield is to heal, revive, or protect their allies. Clerics have the ability to become tanky Paladins or supportive Soothsayers."
+SoothSayer,*The player cannot target themselves with Soothsayer targeted talents,Cleric
+Paladin,

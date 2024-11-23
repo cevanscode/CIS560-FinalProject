@@ -154,13 +154,13 @@ namespace CIS560FinalProject
             ItemListView.Columns.Add("Talent", 200);
             ItemListView.Columns.Add("Rank", 200);
             ItemListView.Columns.Add("Type", 200);
-            ItemListView.Columns.Add("Description", 2000);
+            ItemListView.Columns.Add("Description", 1000);
 
             foreach (Talent t in list)
             {
                 var lvi1 = new ListViewItem(t.Name);
                 lvi1.SubItems.Add(t.Rank.ToString());
-                ItemListView.Items.Add(t.Type.ToString());
+                lvi1.SubItems.Add(Enum.GetName(typeof(TalentType), t.Type));
                 lvi1.SubItems.Add(t.Description);
                 ItemListView.Items.Add(lvi1);
             }
