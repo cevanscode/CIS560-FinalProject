@@ -12,6 +12,7 @@ DROP PROCEDURE IF EXISTS AdminCreateClass;
 DROP PROCEDURE IF EXISTS AdminCreateSubclass;
 DROP PROCEDURE IF EXISTS MergeCharacterDetails;
 DROP PROCEDURE IF EXISTS MergeCharacterTalent;
+DROP PROCEDURE IF EXISTS UserDeleteAccount;
 GO
 
 
@@ -236,4 +237,11 @@ WHEN MATCHED THEN
 WHEN NOT MATCHED THEN
 	INSERT(CharacterSubclassID, TalentID, Amount)
 	VALUES(FT.CharacterSubclassID, FT.TalentID, @TalentAmount);
+GO
+
+
+
+CREATE PROCEDURE UserDeleteAccount @UserName NVARCHAR(50), @Password NVARCHAR(100)
+AS
+DELETE FROM Account WHERE UserName = @UserName AND AccountPassword = @Password
 GO
