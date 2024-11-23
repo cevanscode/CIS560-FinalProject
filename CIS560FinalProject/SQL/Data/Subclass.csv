@@ -9,3 +9,6 @@ Lord,"""Like to talk a lot.""",Noble
 BaseRanger,"""Rangers excel at everything from guarding nobles to stopping hostile warbands in their tracks. These versatile survivors tend to specialize in the field of archery, and all Rangers use a bow or some other type of ranged weapon. Skilled in hunting, tracking, and securing objectives, these adventurers either become master trackers—Stalkers—or war Bowmen.""",Ranger
 Marksman,"""SNIPER!""",Ranger
 Stalker,"""They will track you down""",Ranger
+BaseRogue,"""A surprisingly wide variety of people train in this mysterious, stealthy discipline. The less honorable among them have the ability to master the darker side of combat, employing poisons and stealthy armor-piercing stabs. Some Rogues with a different sense of nobility and honor may find the arts of obtaining things without murder more to their tastes; with inexplicably deft movements, they can quietly take things from their enemies, or devise silver-tongued trickeries that can be useful in a variety of situations. Experienced Rogues become Assassins or Thieves.""",Rogue
+Assassin,"""Murder! Violence! Yippee!""",Rogue
+Thief,"""Stealing, but they actually like never do that.""",Rogue
