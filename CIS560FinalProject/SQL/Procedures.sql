@@ -266,5 +266,5 @@ GO
 
 CREATE PROCEDURE UserDeleteAccount @UserName NVARCHAR(50), @Password NVARCHAR(100)
 AS
-DELETE FROM Account WHERE UserName = @UserName AND AccountPassword = @Password
+DELETE FROM Accounts WHERE UserName = @UserName AND AccountPassword = @Password
 GO
