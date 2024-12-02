@@ -38,7 +38,7 @@ namespace CIS560FinalProject
                 return null!;
             }
 
-            var d = new ModifyAccountDataDelegate(username, password, email, fullName, birthday);
+            var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
         }
 

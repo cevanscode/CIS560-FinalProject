@@ -19,10 +19,20 @@ DROP PROCEDURE IF EXISTS AdminDeleteSubclass;
 DROP PROCEDURE IF EXISTS UserDeleteAccount;
 DROP PROCEDURE IF EXISTS UserDeleteCharacter;
 DROP PROCEDURE IF EXISTS UserDeleteTalent;
+DROP PROCEDURE IF EXISTS ModifyAccount;
 GO
 
 
-
+CREATE PROCEDURE ModifyAccount @UserName NVarChar(30), @Password NVarChar(50), @Email NVARCHAR(50), @FullName NVARCHAR(32), @Birthday DateTime2
+AS
+UPDATE Accounts
+SET
+    UserName = @UserName,
+    AccountPassword = @Password,
+    Email = @Email,
+    FullName = @FullName,
+    Birthday = @Birthday
+GO
 
 CREATE PROCEDURE TryLogin @UserName NVarChar(50), @Password NVarChar(100)
 AS
