@@ -5,10 +5,10 @@ GO
 ---More implementation - temp table here
 
 
-DROP TABLE IF EXISTS TempData;
+DROP TABLE IF EXISTS TempAccountData;
 GO
 
-CREATE TABLE TempData(
+CREATE TABLE TempAccountData(
 	UserName NVARCHAR(50) PRIMARY KEY,
 	AccountPassword NVARCHAR(100),
 	Email NVARCHAR(50),
@@ -21,7 +21,7 @@ CREATE TABLE TempData(
 	Copper INT
 	)
 
-INSERT TempData(UserName,AccountPassword,Email,FullName,Birthday,CharacterName,CharacterAge,Health,XP,Copper)
+INSERT TempAccountData(UserName,AccountPassword,Email,FullName,Birthday,CharacterName,CharacterAge,Health,XP,Copper)
 VALUES
 	 (N'esowthcote0', N'lC6*oMFhAIOY', N'esowthcote0@freewebs.com',N'Dru Jacquest',N'1983-12-22',N'Estrellita Sowthcote',N'45',N'6',N'116',N'23'),
  (N'plampl1', N'tF3/*Kr6Ak0RF', N'plampl1@dropbox.com',N'Mordecai Ellor',N'2010-01-01',N'Port Lampl',N'82',N'7',N'170',N'55'),
@@ -233,8 +233,27 @@ VALUES
 
  INSERT Accounts(UserName,AccountPassword,Email,FullName,Birthday)
  SELECT T.UserName,T.AccountPassword,T.Email,T.FullName,T.Birthday
- FROM TempData T;
+ FROM TempAccountData T;
  GO
 
- SELECT * FROM Accounts; 
+
+
+ INSERT [Character](CharacterName,CharacterAge,AccountID,Health,XP,Copper)
+ SELECT T.CharacterName,T.CharacterAge,A.AccountID,T.Health,T.XP,T.Copper
+ FROM TempAccountData T INNER JOIN Accounts A ON A.UserName = T.UserName;
+ GO
+
+
+DROP TABLE IF EXISTS TempClassData;
+GO
+
+
+CREATE TABLE TempClassData(
+	SubclassName NVARCHAR(30), 
+	SubclassDescription NVARCHAR(300),
+	ClassName NVARCHAR(30), 
+	ClassDescription NVARCHAR(300),
+)
+
+ SELECT * FROM Accounts A INNER JOIN [Character] C ON A.AccountID = C.AccountID; 
  GO

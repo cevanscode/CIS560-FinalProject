@@ -3,6 +3,8 @@ DROP VIEW IF EXISTS MostChosenTalents;
 DROP VIEW IF EXISTS TalentRankingsByClass;
 DROP PROCEDURE IF EXISTS GetSubclassPopularity;
 DROP PROCEDURE IF EXISTS GetMostChosenTalentsBySubclass;
+DROP PROCEDURE IF EXISTS TalentPopularity;
+DROP PROCEDURE IF EXISTS AvgCopperBySubclass;
 GO
 
 CREATE VIEW SubclassPopularity
@@ -37,8 +39,10 @@ GO
 
 CREATE PROCEDURE GetMostChosenTalentsBySubclass
 AS
-SELECT * FROM MostChosenTalentsBySubclass ORDER BY NumberOfTalent DESC;
+SELECT * FROM MostChosenTalents ORDER BY NumberOfTalent DESC;
+GO
 
+EXEC GetMostChosenTalentsBySubclass;
 -- Managing permissions for MostChosenTalentsBySubclass
 --DENY ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
 --GRANT ALL ON VIEW::MostChosenTalentsBySubclass TO PUBLIC;
@@ -59,5 +63,23 @@ FROM
       INNER JOIN CharacterSubclass CS ON CT.CharacterSubclassID = CS.CharacterSubclassID
      GROUP BY CS.CharacterID, CS.SubclassID) AS CharacterTalentCounts
 GROUP BY CharacterTalentCounts.SubclassID;
+GO
+
+EXEC TalentPopularity;
+GO
+
+CREATE PROCEDURE AvgCopperBySubclass 
+AS
+SELECT RANK() OVER(ORDER BY AVG(CH.Copper) DESC) AS CopperRank, S.SubclassName, AVG(CH.Copper) AS AvgCopper
+FROM [Character] CH
+    INNER JOIN CharacterSubclass CS ON CH.CharacterID = CS.CharacterID
+    INNER JOIN Subclass S ON CS.SubclassID = S.SubclassID
+    INNER JOIN Class C ON S.ClassID = C.ClassID
+GROUP BY S.SubclassName
+ORDER BY AVG(CH.Copper) DESC, S.SubclassName ASC
+GO
+
+EXEC AvgCopperBySubclass;
+GO
 
 
