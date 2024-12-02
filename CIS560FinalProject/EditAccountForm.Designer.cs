@@ -37,7 +37,7 @@
             FullNameLabel = new Label();
             FullNameTextBox = new TextBox();
             BirthdayLabel = new Label();
-            button1 = new Button();
+            ConfirmButton = new Button();
             BirthdayPicker = new DateTimePicker();
             CancelButton = new Button();
             SuspendLayout();
@@ -120,14 +120,15 @@
             BirthdayLabel.TabIndex = 9;
             BirthdayLabel.Text = "Birthday";
             // 
-            // button1
+            // ConfirmButton
             // 
-            button1.Location = new Point(69, 284);
-            button1.Name = "button1";
-            button1.Size = new Size(163, 34);
-            button1.TabIndex = 10;
-            button1.Text = "Confirm Changes";
-            button1.UseVisualStyleBackColor = true;
+            ConfirmButton.Location = new Point(69, 284);
+            ConfirmButton.Name = "ConfirmButton";
+            ConfirmButton.Size = new Size(163, 34);
+            ConfirmButton.TabIndex = 10;
+            ConfirmButton.Text = "Confirm Changes";
+            ConfirmButton.UseVisualStyleBackColor = true;
+            ConfirmButton.Click += ConfirmButton_Click;
             // 
             // BirthdayPicker
             // 
@@ -153,7 +154,7 @@
             ClientSize = new Size(448, 346);
             Controls.Add(CancelButton);
             Controls.Add(BirthdayPicker);
-            Controls.Add(button1);
+            Controls.Add(ConfirmButton);
             Controls.Add(BirthdayLabel);
             Controls.Add(FullNameTextBox);
             Controls.Add(FullNameLabel);
@@ -180,7 +181,7 @@
         private Label FullNameLabel;
         private TextBox FullNameTextBox;
         private Label BirthdayLabel;
-        private Button button1;
+        private Button ConfirmButton;
         private DateTimePicker BirthdayPicker;
         private Button CancelButton;
     }
