@@ -76,6 +76,12 @@ CREATE TABLE CharacterSubclass
 );
 GO
 
+CREATE TABLE TalentCategory
+(
+	TalentCategoryID INT NOT NULL PRIMARY KEY
+);
+GO
+
 CREATE TABLE Talent 
 (
 	TalentID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
@@ -84,13 +90,12 @@ CREATE TABLE Talent
 	ClassID INT NOT NULL,
 	SubclassID INT NULL,
 	TalentRank INT NOT NULL, 
-	TalentType INT NOT NULL,
 	TalentCategoryID INT NOT NULL
 
-	UNIQUE(TalentName, TalentRank, TalentType)
+	UNIQUE(TalentName, TalentRank, TalentCategoryID)
 	FOREIGN KEY(ClassID) REFERENCES Class(ClassID),
 	FOREIGN KEY(SubclassID) REFERENCES Subclass(SubclassID),
-	CHECK(TalentRank IN (1,2,3) AND TalentType IN (1,2) OR TalentRank=0 AND TalentType=0)
+	FOREIGN KEY(TalentCategoryID) REFERENCES TalentCategory(TalentCategoryID),
 );
 GO
 
@@ -105,11 +110,5 @@ CREATE TABLE CharacterTalent
 
 	UNIQUE(CharacterSubclassID, TalentID)
 	
-);
-GO
-
-CREATE TABLE TalentCategory
-(
-	TalentCategoryID INT NOT NULL PRIMARY KEY
 );
 GO
