@@ -1,5 +1,4 @@
-﻿using CIS560FinalProject.DataDelegates;
-using DataAccess;
+﻿﻿using DataAccess;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace CIS560FinalProject
@@ -39,29 +38,44 @@ namespace CIS560FinalProject
                 return null!;
             }
 
-            var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
+            var d = new ModifyAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
         }
 
-        public void DeleteAccount(string username, string password)
+        public Account ModifyAccount(string userName, string password, string email, string fullName, DateTime birthday)
         {
-            if (string.IsNullOrWhiteSpace(username))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
-            if (string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
+            if (string.IsNullOrWhiteSpace(userName))
+            {
+                MessageBox.Show("Username cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
 
-            var d = new DeleteAccountDataDelegate(username, password);
-            executor.ExecuteNonQuery(d);
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                MessageBox.Show("Password cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            if (string.IsNullOrWhiteSpace(email))
+            {
+                MessageBox.Show("Email cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            if (string.IsNullOrWhiteSpace(fullName))
+            {
+                MessageBox.Show("Full name cannot be empty.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return null!;
+            }
+
+            var d = new ModifyAccountDataDelegate(userName, password, email, fullName, birthday);
+            return executor.ExecuteNonQuery(d);
         }
 
-        public void DeleteCharacter(string username, string password)
+        public Account FetchAccountFromID(int ID)
         {
-            if (string.IsNullOrWhiteSpace(username))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(username));
-            if (string.IsNullOrWhiteSpace(password))
-                throw new ArgumentException("The parameter cannot be null or empty.", nameof(password));
-            var d = new DeleteCharacterDataDelegate(username, password);
-            executor.ExecuteNonQuery(d);
+            var d = new FetchAccountFromIDDataDelegate(ID);
+            return executor.ExecuteReader(d);
         }
 
         public Account FetchAccount(string username, string password)
