@@ -38,11 +38,11 @@ namespace CIS560FinalProject
                 return null!;
             }
 
-            var d = new ModifyAccountDataDelegate(username, password, email, fullName, birthday);
+            var d = new CreateAccountDataDelegate(username, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
         }
 
-        public Account ModifyAccount(string userName, string password, string email, string fullName, DateTime birthday)
+        public Account ModifyAccount(string oldusername, string userName, string password, string email, string fullName, DateTime birthday)
         {
             if (string.IsNullOrWhiteSpace(userName))
             {
@@ -68,7 +68,7 @@ namespace CIS560FinalProject
                 return null!;
             }
 
-            var d = new ModifyAccountDataDelegate(userName, password, email, fullName, birthday);
+            var d = new ModifyAccountDataDelegate(oldusername, userName, password, email, fullName, birthday);
             return executor.ExecuteNonQuery(d);
         }
 

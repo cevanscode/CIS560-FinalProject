@@ -21,7 +21,7 @@ namespace CIS560FinalProject
         /// <returns>The created Account</returns>
         public Account CreateAccount(string userName, string password, string email, string fullName, DateTime birthday);
 
-        public Account ModifyAccount(string userName, string password, string email, string fullName, DateTime birthday);
+        public Account ModifyAccount(string oldusername, string userName, string password, string email, string fullName, DateTime birthday);
 
 
         public Account FetchAccount(string username, string password);
