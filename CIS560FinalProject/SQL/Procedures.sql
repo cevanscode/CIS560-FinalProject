@@ -58,7 +58,7 @@ SELECT CT.CharacterTalentID,
 	T.TalentName,
 	T.TalentDescription,
 	T.TalentRank,
-	T.TalentType
+	T.TalentCategoryID
 FROM Accounts A
 	INNER JOIN [Character] C ON A.UserName = @UserName
 		AND A.AccountPassword = @Password
@@ -67,7 +67,7 @@ FROM Accounts A
 		AND C.CharacterID = CS.CharacterID
 	INNER JOIN CharacterTalent CT ON CS.CharacterSubclassID = CT.CharacterSubclassID
 	INNER JOIN Talent T ON CT.TalentID = T.TalentID
-ORDER BY T.TalentRank DESC, T.TalentType ASC, T.TalentName DESC;
+ORDER BY T.TalentRank DESC, T.TalentCategoryID ASC, T.TalentName DESC;
 GO
 
 
@@ -112,11 +112,11 @@ SELECT C.ClassName,
 	T.TalentName,
 	T.TalentDescription,
 	T.TalentRank,
-	T.TalentType
+	T.TalentCategoryID
 FROM Class C
 	INNER JOIN Subclass S ON C.ClassID = S.ClassID
 	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
-ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
+ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentCategoryID ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
 
@@ -129,12 +129,12 @@ SELECT C.ClassName,
 	T.TalentName,
 	T.TalentDescription,
 	T.TalentRank,
-	T.TalentType
+	T.TalentCategoryID
 FROM Class C
 	INNER JOIN Subclass S ON C.ClassID = S.ClassID
 		AND C.ClassName = @ClassName
 	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
-ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
+ORDER BY C.ClassName DESC, S.SubclassName DESC, T.TalentCategoryID ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
 
@@ -147,12 +147,12 @@ SELECT C.ClassName,
 	T.TalentName,
 	T.TalentDescription,
 	T.TalentRank,
-	T.TalentType
+	T.TalentCategoryID
 FROM Subclass S
 	INNER JOIN Talent T ON S.SubclassID = T.SubclassID
 		AND S.SubclassName = @SubclassName
 	INNER JOIN Class C ON C.ClassID = T.ClassID
-ORDER BY S.SubclassName DESC, T.TalentType ASC, T.TalentName DESC, T.TalentRank ASC;
+ORDER BY S.SubclassName DESC, T.TalentCategoryID ASC, T.TalentName DESC, T.TalentRank ASC;
 GO
 
 
