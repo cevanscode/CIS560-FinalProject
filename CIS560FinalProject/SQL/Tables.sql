@@ -46,7 +46,7 @@ CREATE TABLE Class
 (
 	ClassID INT NOT NULL IDENTITY(1,1) PRIMARY KEY,
 	ClassName NVARCHAR(30) NOT NULL,
-	ClassDescription NVARCHAR(500),
+	ClassDescription NVARCHAR(1000),
 	UNIQUE(ClassName)
 );
 GO
