@@ -8,6 +8,7 @@ namespace CIS560FinalProject
 {
     internal class ModifyAccountDataDelegate : NonQueryDataDelegate<Account>
     {
+        private readonly string oldusername;
         private readonly string username;
         private readonly string password;
         private readonly string email;
@@ -15,9 +16,10 @@ namespace CIS560FinalProject
         private readonly DateTime birthday;
         //private readonly bool isAdmin;
 
-        public ModifyAccountDataDelegate(string userName, string password, string email, string fullName, DateTime birthday)
+        public ModifyAccountDataDelegate(string oldusername, string userName, string password, string email, string fullName, DateTime birthday)
             : base("ModifyAccount")
         {
+            this.oldusername = oldusername;
             this.username = userName;
             this.password = password;
             this.email = email;
@@ -30,7 +32,8 @@ namespace CIS560FinalProject
         {
             base.PrepareCommand(command);
 
-                // Add other parameters
+            // Add other parameters
+            command.Parameters.AddWithValue("OldUserName", oldusername);
             command.Parameters.AddWithValue("UserName", username);
             command.Parameters.AddWithValue("Email", email);
             command.Parameters.AddWithValue("Password", password);

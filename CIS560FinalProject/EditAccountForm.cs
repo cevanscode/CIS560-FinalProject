@@ -34,8 +34,6 @@ namespace CIS560FinalProject
             BirthdayPicker.Value = a.Birthday;
         }
 
-
-
         private void CancelButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -50,7 +48,7 @@ namespace CIS560FinalProject
             string email = EmailTextBox.Text;
             DateTime birthday = BirthdayPicker.Value;
 
-            repo.ModifyAccount(username, password, email, fullName, birthday);
+            repo.ModifyAccount(_editAccount.Username!, username, password, email, fullName, birthday);
             this.Close();
         }
     }
