@@ -24,7 +24,7 @@ namespace CIS560FinalProject
                     reader.GetString("TalentName"),
                     reader.GetString("TalentDescription"),
                     (Rank)reader.GetInt32("TalentRank"),
-                    (TalentType)(reader.GetInt32("TalentType"))));
+                    (TalentType)(reader.GetInt32("TalentCategoryID"))));
             }
 
             return talents;
